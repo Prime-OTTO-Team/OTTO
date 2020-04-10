@@ -36,3 +36,9 @@ CREATE TABLE "interests" (
     "user_id" INTEGER REFERENCES "user" NOT NULL,
     "property_id" INTEGER REFERENCES "property" NOT NULL
 );
+=======
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL
+);
+
+
