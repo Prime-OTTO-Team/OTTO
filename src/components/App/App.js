@@ -5,18 +5,20 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import {connect} from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-
+import AccountPage from '../AboutPage/AboutPage';
+import AdminPage from '../AdminPage/AdminPage';
+import AdminVettingPage from '../AdminVettingPage/AdminVettingPage';
+import ContactPage from '../ContactPage/ContactPage';
+import ForSalePage from '../ForSalePage/ForSalePage'
+import LandingPage from '../LandingPage/LandingPage';
+import NdaPage from '../NdaPage/NdaPage';
+import TermsOfServicePage from '../TermsOfServicePage/TermsOfServicePage';
 import './App.css';
 
 class App extends Component {
@@ -50,11 +52,11 @@ class App extends Component {
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
-            <ProtectedRoute
+            {/* <ProtectedRoute
               exact
               path="/info"
               component={InfoPage}
-            />
+            /> */}
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

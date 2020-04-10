@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css'
+import { connect } from 'react-redux';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
