@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LoginSignUpModal from '../Modals/LoginSignUpModal';
+import LoginSignUpModal from '../Modals/LoginSignupModal';
 class LandingPage extends Component {
     render() {
         return (

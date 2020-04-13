@@ -39,6 +39,7 @@ const ProtectedRoute = (props) => {
         payload: true
     });
     // ComponentToShow = ;
+
   }
   //  else {
   //   // the the user is not logged in and the mode is not 'login'

@@ -8,6 +8,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { connect } from 'react-redux';
+import LoginContent from './LoginContent';
+import SignUpContent from './SignUpContent';
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -69,6 +71,8 @@ class LoginSignUpModal extends Component {
                             Let Google help apps determine location. This means sending anonymous location data to
                             Google, even when no apps are running.
                         </DialogContentText> */}
+                        {/* <LoginContent/> */}
+                        <SignUpContent/>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => { this.handleClose() }} color="primary">
@@ -79,11 +83,15 @@ class LoginSignUpModal extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
+
             </div>
         )
     }
 }
 const mapStateToProps = (reduxState) => ({
+    errors: reduxState.errors,
     reduxState
+   
 })
 export default connect(mapStateToProps)(LoginSignUpModal);
+
