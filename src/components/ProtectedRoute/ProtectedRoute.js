@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import SignUpModal from '../Modals/SignUpModal';
-import LoginModal from '../Modals/LoginModal';
+import SignUpContent from '../Modals/SignUpContent';
+import LoginContent from '../Modals/LoginContent';
 
 // A Custom Wrapper Component -- This will keep our code DRY.
 // Responsible for watching redux state, and returning an appropriate component
@@ -33,13 +33,18 @@ const ProtectedRoute = (props) => {
     ComponentToShow = ComponentToProtect;
   } else if (loginMode === 'login') {
     // if they are not logged in, check the loginMode on Redux State
-    // if the mode is 'login', show the LoginPage
-    ComponentToShow = LoginModal;
-  } else {
-    // the the user is not logged in and the mode is not 'login'
-    // show the RegisterPage
-    ComponentToShow =  SignUpModal;
+    // if the mode is 'login', show the Login Register Modal
+    props.dispatch({
+        type: 'LOGIN_REGISTER_MODAL_OPEN',
+        payload: true
+    });
+    // ComponentToShow = ;
   }
+  //  else {
+  //   // the the user is not logged in and the mode is not 'login'
+  //   // show the RegisterPage
+  //   ComponentToShow =  SignUpModal;
+  // }
 
   // We return a Route component that gets added to our list of routes
   return (
@@ -56,10 +61,10 @@ const ProtectedRoute = (props) => {
 // to determine which page we should show the user
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({ user, loginMode }) => ({ user, loginMode });
-const mapStateToProps = (state) => {
+const mapStateToProps = (reduxState) => {
   return {
-    user: state.user,
-    loginMode: state.loginMode
+    user: reduxState.user,
+    loginMode: reduxState.loginMode
   }
 }
 

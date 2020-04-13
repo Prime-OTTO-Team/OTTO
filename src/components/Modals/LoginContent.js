@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class LoginModal extends Component {
+class LoginContent extends Component {
   state = {
     username: '',
     password: '',
@@ -95,4 +95,4 @@ const mapStateToProps = (reduxState) => ({
   reduxState
 });
 
-export default connect(mapStateToProps)(LoginModal);
+export default connect(mapStateToProps)(LoginContent);
