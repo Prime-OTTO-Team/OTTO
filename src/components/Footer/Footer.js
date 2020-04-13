@@ -1,15 +1,18 @@
 import React from 'react';
 import './Footer.css'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+
 
 const Footer = () => (
   <footer>
-    &copy; Prime Digital Academy
+    &copy; Mktfare
+    <div className="nav-right">
+    <Link className="nav-link" to="/about"> About </Link>
+    <Link className="nav-link" to="/contact"> Contact Us </Link>
+    <Link className="nav-link" to="/terms"> Terms and Conditions </Link>
+    </div>
   </footer>
 );
 
