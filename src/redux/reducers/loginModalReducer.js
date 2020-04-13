@@ -1,4 +1,4 @@
-const loginMode = (state = true, action) => {
+const loginModalShowing = (state = true, action) => {
     switch (action.type) {
       case 'LOGIN_REGISTER_MODAL_OPEN':
         return action.payload;
@@ -9,4 +9,4 @@ const loginMode = (state = true, action) => {
 
 // loginMode will be on the redux state at:
 // state.loginMode
-  export default loginMode;
+  export default loginModalShowing;
