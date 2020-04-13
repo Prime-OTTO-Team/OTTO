@@ -63,7 +63,7 @@ class SignupContent extends Component {
 
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
-      [propertyName]: event.target.value,
+      [propertyName]: event.target.value
     });
   }
 
