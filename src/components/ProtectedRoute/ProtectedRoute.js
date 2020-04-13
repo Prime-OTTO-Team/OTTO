@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import SignUpContent from '../Modals/SignUpContent';
-import LoginContent from '../Modals/LoginContent';
+// import LoginContent from '../Modals/LoginContent'
 
 // A Custom Wrapper Component -- This will keep our code DRY.
 // Responsible for watching redux state, and returning an appropriate component
