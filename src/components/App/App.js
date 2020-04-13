@@ -36,11 +36,11 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-            <Route
-              exact
-              path="/about"
-              component={AboutPage}
-            />
+            
+            <Route exact path="/contact"component={ContactPage}/>
+            <Route exact path="/about"component={AboutPage}/>
+            <Route exact path="/nda"component={NdaPage}/>
+            <Route exact path="/terms"component={TermsOfServicePage}/>
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
