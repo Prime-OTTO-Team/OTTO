@@ -8,7 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { connect } from 'react-redux';
-import LoginContent from './LoginContent';
+import LogInContent from './LogInContent'
 import SignUpContent from './SignUpContent';
 
 const Transition = forwardRef(function Transition(props, ref) {
@@ -71,7 +71,7 @@ class LoginSignUpModal extends Component {
                             Let Google help apps determine location. This means sending anonymous location data to
                             Google, even when no apps are running.
                         </DialogContentText> */}
-                        {/* <LoginContent/> */}
+                        {/* <LogInContent/> */}
                         <SignUpContent/>
                     </DialogContent>
                     <DialogActions>
