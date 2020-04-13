@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
-
-const AboutPage = () => (
-  <div>
-    <div>
-      <p>
-        This about page is for anyone to read!
-      </p>
-    </div>
-  </div>
-);
-
-export default AboutPage;
+class AboutPage extends Component {
+    render() {
+        return (
+            <div className='container'>
+                <h1>Otto is an owner to owner commericial real estate marketplace!</h1>
+                <br/>
+                <div>Otto provides annonymity to thier clients and allows them to place commericial real estate listings off market. 
+                </div>
+            </div>
+        )
+    }
+}
+const mapStateToProps = (reduxState) => ({
+  errors: reduxState.errors,
+  reduxState
+});
+export default connect(mapStateToProps)(AboutPage);
