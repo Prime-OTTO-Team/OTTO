@@ -54,9 +54,6 @@ class LoginModal extends Component {
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
-    if (this.props.user) {
-      this.props.history.push('/home')
-    }
     
   } // end login
 
