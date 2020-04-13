@@ -20,8 +20,7 @@ CREATE TABLE "property" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INTEGER REFERENCES "user" NOT NULL,
     "active" BOOLEAN default false NOT NULL,
-    "street_number" VARCHAR (200) NOT NULL,
-    "street_name" VARCHAR (200) NOT NULL,
+    "address" VARCHAR (200) NOT NULL,
     "unit_number" VARCHAR (200) DEFAULT NULL,
     "state" VARCHAR (200) NOT NULL,
     "city" VARCHAR (200) NOT NULL,
@@ -44,3 +43,6 @@ CREATE TABLE "interest" (
     "user_id" INTEGER REFERENCES "user" NOT NULL,
     "property_id" INTEGER REFERENCES "property" NOT NULL
 );
+
+
+

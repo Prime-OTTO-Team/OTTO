@@ -1,8 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import SignUpModal from '../Modals/SignUpModal';
-import LoginModal from '../Modals/LoginModal';
+import LoginSignupModal from '../Modals/LoginSignupModal';
 
 // A Custom Wrapper Component -- This will keep our code DRY.
 // Responsible for watching redux state, and returning an appropriate component
@@ -34,11 +33,11 @@ const ProtectedRoute = (props) => {
   } else if (loginMode === 'login') {
     // if they are not logged in, check the loginMode on Redux State
     // if the mode is 'login', show the LoginPage
-    ComponentToShow = LoginModal;
+    ComponentToShow = LoginSignupModal;
   } else {
     // the the user is not logged in and the mode is not 'login'
     // show the RegisterPage
-    ComponentToShow =  SignUpModal;
+    ComponentToShow = LoginSignupModal;
   }
 
   // We return a Route component that gets added to our list of routes

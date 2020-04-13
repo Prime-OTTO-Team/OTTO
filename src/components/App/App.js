@@ -19,6 +19,7 @@ import ForSalePage from '../ForSalePage/ForSalePage'
 import LandingPage from '../LandingPage/LandingPage';
 import NdaPage from '../NdaPage/NdaPage';
 import TermsOfServicePage from '../TermsOfServicePage/TermsOfServicePage';
+import PropertyInputPage from '../PropertyInputPage/PropertyInputPage'
 import './App.css';
 
 class App extends Component {
@@ -49,6 +50,11 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+            <Route
+              exact
+              path="/propertyInputPage"
+              component={PropertyInputPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
