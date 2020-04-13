@@ -6,15 +6,15 @@ import {
     Redirect,
     Switch,
 } from 'react-router-dom';
-import LoginModal from './LoginModal'
 import SignUpContent from './SignUpContent'
+import LonginContent from './LonginContent';
 
 class test extends Component {
     render() {
         return (
             <div>
             <SignUpContent/>
-           <LoginModal/>
+           <LonginContent/>
             </div>
         )
     }

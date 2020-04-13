@@ -33,7 +33,7 @@ const styles = theme => ({
 
 });
 
-class RegisterPage extends Component {
+class SignupContent extends Component {
   state = {
     username: '',
     password: '',
@@ -195,5 +195,5 @@ const mapStateToProps = (reduxState) => ({
   reduxState
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(RegisterPage));
+export default connect(mapStateToProps)(withStyles(styles)(SignupContent));
 

@@ -33,7 +33,7 @@ const styles = theme => ({
 });
 
 
-class LoginModal extends Component {
+class LoginContent extends Component {
 
   state = {
     username: '',
@@ -146,4 +146,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(withStyles(styles)(LoginModal));
+export default connect(mapStateToProps)(withStyles(styles)(LoginContent));
