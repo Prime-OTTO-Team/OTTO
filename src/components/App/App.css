@@ -8,14 +8,45 @@ body {
     margin: 50px;
 }
 
-form {
+.searchForm{
     background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
+    width: 50%;
+    height: 150;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.logInForm {
+    background-color: #dbd5d5;
+    width: 50%;
+    height: auto;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.registrationForm {
+    background-color: #dbd5d5;
+    width: 50%;
+    height: 300px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+    text-align: center;
+}
+.alumniRegistrationForm{
+    background-color: #dbd5d5;
+    width: 50%;
+    height: 650px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
 }
+
+
 
 input {
     margin: 5px;
@@ -23,7 +54,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #053908;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -33,7 +64,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #053908;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -46,4 +77,9 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
+}
+
+.carousel{
+margin-top: 15px;
+margin-bottom: 15px;
 }
