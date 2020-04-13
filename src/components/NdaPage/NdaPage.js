@@ -5,7 +5,7 @@ class NdaPage extends Component {
     render() {
         return (
             <div className='container'>
-                <h1>NdaPage</h1>
+                <h1>Here is where we will host the NDA!</h1>
             </div>
         )
     }

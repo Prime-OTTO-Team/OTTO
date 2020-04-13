@@ -5,7 +5,7 @@ class TermsOfServicePage extends Component {
     render() {
         return (
             <div className='container'>
-                <h1>TermOfServicePage</h1>
+                <h1>Here's where the terms of service will show up.</h1>
             </div>
         )
     }
