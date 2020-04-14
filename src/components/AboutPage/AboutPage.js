@@ -6,15 +6,15 @@ class AboutPage extends Component {
         return (
             <div className='container'>
                 <h1>Otto is an owner to owner commericial real estate marketplace!</h1>
-                <br/>
-                <div>Otto provides annonymity to thier clients and allows them to place commericial real estate listings off market. 
+                <br />
+                <div>Otto provides annonymity to thier clients and allows them to place commericial real estate listings off market.
                 </div>
             </div>
         )
     }
 }
 const mapStateToProps = (reduxState) => ({
-  errors: reduxState.errors,
-  reduxState
+    errors: reduxState.errors,
+    reduxState
 });
 export default connect(mapStateToProps)(AboutPage);
