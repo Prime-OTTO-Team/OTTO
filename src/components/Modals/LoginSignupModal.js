@@ -72,7 +72,9 @@ class LoginSignUpModal extends Component {
                             Google, even when no apps are running.
                         </DialogContentText> */}
                         <LoginContent/>
-                        <SignUpContent/>
+
+                        {/* <SignUpContent/> */}
+
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => { this.handleClose() }} color="primary">
