@@ -1,37 +1,55 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class AccountPage extends Component {
-    state = { 
+    state = {
         status: true
     }
-
+    componentDidMount() {
+        this.getAccount();
+    }
+    getAccount = () => {
+        this.props.dispatch({
+            type: 'FETCH_ACCOUNT',
+            payload: this.props.reduxState.user.id
+        });
+        console.log('in getAccount');
+    }
     handleClick = () => {
-        if(this.state.status === true){
         this.setState({
-            listing: false
+            status: true
         })
     }
-    else{
+    handleClick2 = () => {
         this.setState({
-            listing: true
+            status: false
         })
     }
-}
-
-
     render() {
         return (
             <div className='container'>
                 <h1>AccountPage</h1>
-                <button onClick={this.handleClick}>My Listings</button> 
-                <button onClick={this.handleClick}>My Favorites</button>
-            <div classname='listing'> 
-            Here is where listings go.
-            {this.state.listing ? (<p>listings</p>):(<p>favorites</p>)}
-            </div>
-
-
+                <button onClick={this.handleClick}>My Listings</button>
+                <button onClick={this.handleClick2}>My Favorites</button>
+                <div className='account'>
+                    Here is where listings or favorites go. <br />
+                    {this.state.status ? (
+                        <div>
+                            {this.props.reduxState.accountListing.map(property => (
+                                <div key={property.id} className="property" >
+                                    {property.address}<br />
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                            <div>
+                                {this.props.reduxState.accountFavorite.map(favorite => (
+                                    <div key={favorite.id} className="favorite" >
+                                        {favorite.address}<br />
+                                    </div>
+                                ))}
+                            </div>)}
+                </div>
             </div>
         )
     }
