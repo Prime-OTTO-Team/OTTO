@@ -11,7 +11,7 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import AccountPage from '../AboutPage/AboutPage';
+import AccountPage from '../AccountPage/AccountPage';
 import AdminPage from '../AdminPage/AdminPage';
 import AdminVettingPage from '../AdminVettingPage/AdminVettingPage';
 import ContactPage from '../ContactPage/ContactPage';
@@ -42,6 +42,7 @@ class App extends Component {
             <Route exact path="/about"component={AboutPage}/>
             <Route exact path="/nda"component={NdaPage}/>
             <Route exact path="/terms"component={TermsOfServicePage}/>
+            <Route exact path="/account"component={AccountPage}/>
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.

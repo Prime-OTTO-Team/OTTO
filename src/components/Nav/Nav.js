@@ -29,7 +29,7 @@ const Nav = (props) => (
           <Link className="nav-link" to="/ForSalePage">
             For Sale
           </Link>
-          <Link className="nav-link" to="/AccountPage">
+          <Link className="nav-link" to="/account">
             Account Page
           </Link>
           <LogOutButton className="nav-link" />
