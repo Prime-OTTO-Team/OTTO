@@ -11,7 +11,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
-import './LoginSignUpModal.css';
 
 const styles = theme => ({
   paper: {
@@ -71,7 +70,7 @@ class SignupContent extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container className="loginModalContainer" component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           {this.props.errors.registrationMessage && (
             <h2
@@ -172,7 +171,7 @@ class SignupContent extends Component {
 
             </div>
           </form>
-          {/* <center>
+          <center>
             <Button
               variant="contained" color="primary"
               type="button"
@@ -181,7 +180,7 @@ class SignupContent extends Component {
             >
               Login
           </Button>
-          </center> */}
+          </center>
         </div>
       </Container>
     );
