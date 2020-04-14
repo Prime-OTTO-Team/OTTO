@@ -106,7 +106,13 @@ class LoginSignUpModal extends Component {
                         </ToggleButton>
                     </ToggleButtonGroup>
                     <DialogContent>
-                        {this.view()}
+
+                        {/* <DialogContentText id="alert-dialog-slide-description">
+                            Let Google help apps determine location. This means sending anonymous location data to
+                            Google, even when no apps are running.
+                        </DialogContentText> */}
+                        <LoginContent/>
+                        {/* <SignUpContent/> */}
                     </DialogContent>
                 </div>
             </Dialog>

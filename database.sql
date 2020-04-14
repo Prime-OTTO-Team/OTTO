@@ -45,4 +45,17 @@ CREATE TABLE "interest" (
 );
 
 
+--Must have at least 2 users as user_id 1 and 2 are referenced. 
 
+INSERT INTO "property" ("user_id", "active", "address", "state", "city", "zip_code", "property_type", "net_operating_income",
+"gross_income", "gross_expense", "desired_price") VALUES
+('1', 'TRUE', '810 W Lake St', 'Minnesota', 'Minneapolis', 55408, 'Vacant', 1000000, 2000000, 800000, 50000000),
+('1', 'TRUE', '800 W Lake St', 'Minnesota', 'Minneapolis', 55408, 'Residential', 70000, 150000, 900000, 500000),
+('1', 'TRUE', '3012 Lyndale Ave S', 'Minnesota', 'Minneapolis', 55408, 'Commercial', 123423, 112512, 65477, 895700),
+('1', 'TRUE', '2600 Lyndale Ave S', 'Minnesota', 'Minneapolis', 55408, 'Raw', 12312, 780000, 457000, 8670),
+('2', 'TRUE', '2951 Lyndale Ave S', 'Minnesota', 'Minneapolis', 55408, 'Commercial', 123, 2001, 235352, 121111),
+('2', 'TRUE', '3200 Lyndale Ave S Minneapolis', 'Minnesota', 'Minneapolis', 55408, 'Vacant', 123141, 412111, 125455, 121111),
+('2', 'TRUE', '301 S 4th Ave', 'Minnesota', 'Minneapolis', 55415, 'Commercial', 123141, 412111, 125455, 121111);
+
+
+INSERT INTO "interest" ("user_id", "property_id") VALUES (1, 5), (1, 6);
