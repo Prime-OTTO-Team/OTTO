@@ -126,7 +126,7 @@ class LoginContent extends Component {
               </Button>
                         </div>
                     </form>
-                    <center>
+                    {/* <center>
                         <Button variant="contained" color="primary"
                             type="button"
                             className="link-button"
@@ -134,7 +134,7 @@ class LoginContent extends Component {
                         >
                             Register / Admin
           </Button>
-                    </center>
+                    </center> */}
                 </div>
             </Container>
         );

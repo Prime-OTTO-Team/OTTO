@@ -171,7 +171,7 @@ class SignupContent extends Component {
 
             </div>
           </form>
-          <center>
+          {/* <center>
             <Button
               variant="contained" color="primary"
               type="button"
@@ -180,7 +180,7 @@ class SignupContent extends Component {
             >
               Login
           </Button>
-          </center>
+          </center> */}
         </div>
       </Container>
     );
