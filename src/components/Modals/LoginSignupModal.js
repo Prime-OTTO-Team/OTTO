@@ -38,18 +38,20 @@ class LoginSignUpModal extends Component {
     }
     view = () => {
         if (this.state.switch === 'login') {
-            return <LogInContent/>
+            return <LogInContent handleClose={this.handleClose}/>
         } else {
-            return <SignUpContent/>
+            return <SignUpContent />
         }
     }
     loginSelected = () => {
         if (this.state.switch === 'login') {
+            this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' })
             return true
         } else return false
     }
     signUpSelected = () => {
         if (this.state.switch === 'signUp') {
+            this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' })
             return true
         } else return false
     }
@@ -59,38 +61,46 @@ class LoginSignUpModal extends Component {
             switch: value
         })
     }
-    
+
     render() {
         return (
-                <Dialog
-                    className='container'
-                    open={this.isModalOpen()}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={()=>{this.handleClose()}}
-                    aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
-                >
-                    <DialogTitle id="alert-dialog-slide-title"/>
-                    <ToggleButtonGroup 
-                    className="toggleSwitch" 
-                    aria-label="text formatting"
-                    onChange={(event, newValue) => {
-                        this.setState({switch: newValue[0]})}
-                    }
+            <Dialog
+                open={this.isModalOpen()}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={() => { this.handleClose() }}
+                aria-labelledby="alert-dialog-slide-title"
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <div className='dialogContainer'>
+                    <div className="xButtonWrapper">
+
+                        <Button className="xButton" onClick={() => { this.handleClose() }}>
+                            X
+                        </Button>
+                    </div>
+                    <DialogTitle id="alert-dialog-slide-title" />
+                    <ToggleButtonGroup
+                        className="toggleSwitch"
+                        aria-label="text formatting"
+                        onChange={(event, newValue) => {
+                            this.setState({ switch: newValue[0] })
+                        }
+                        }
                     >
-                        <ToggleButton 
+                        <ToggleButton
                             selected={this.loginSelected()}
                             value="login"
                             aria-label="bold"
-                            // onClick={this.setState({switch: 'login'})}
+                            onClick={console.log('login clicked')
+                            }
                         >
                             Login
                         </ToggleButton>
-                        <ToggleButton 
-                            selected={this.signUpSelected()} 
+                        <ToggleButton
+                            selected={this.signUpSelected()}
                             value="signUp"
-                            // onClick={this.setState({switch: 'signUp'})}
+                        // onClick={this.setState({switch: 'signUp'})}
                         >
                             Sign Up
                         </ToggleButton>
@@ -98,18 +108,14 @@ class LoginSignUpModal extends Component {
                     <DialogContent>
                         {this.view()}
                     </DialogContent>
-                    <DialogActions>
-                        <Button onClick={() => { this.handleClose() }} color="primary">
-                            Disagree
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                </div>
+            </Dialog>
         )
     }
 }
 const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
     reduxState
-   
+
 })
 export default connect(mapStateToProps)(LoginSignUpModal);

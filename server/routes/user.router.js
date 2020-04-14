@@ -23,7 +23,7 @@ router.post('/register', (req, res, next) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const phoneNumber= req.body.phoneNumber;
-  console.log('hitting registration router woith user, password', req.body);
+  console.log('hitting registration router with user, password', req.body);
   const queryText = 'INSERT INTO "user" (username, password, first_name, last_name, phone_number) VALUES ($1, $2, $3, $4, $5) RETURNING id';
   pool.query(queryText, [username, password, firstName, lastName, phoneNumber])
     .then(() => res.sendStatus(201))
