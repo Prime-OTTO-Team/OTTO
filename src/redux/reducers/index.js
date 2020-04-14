@@ -5,6 +5,8 @@ import user from './userReducer';
 import loginModalReducer from './loginModalReducer';
 import accountListing from './accountListingReducer';
 import accountFavorite from './accountFavoriteReducer';
+import searchResultReducer from './searchResultReducer';
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +21,8 @@ const rootReducer = combineReducers({
   loginModalReducer, //boolean, determines if the login/sign up modal should be shown
   accountListing,
   accountFavorite,
+  searchResultReducer //holds the search results to be displayed in ForSalePage
+
 });
 
 export default rootReducer;
