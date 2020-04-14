@@ -71,8 +71,8 @@ class LoginSignUpModal extends Component {
                             Let Google help apps determine location. This means sending anonymous location data to
                             Google, even when no apps are running.
                         </DialogContentText> */}
-                        <LoginContent/>
-                        {/* <SignUpContent/> */}
+                        {/* <LoginContent/> */}
+                        <SignUpContent/>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => { this.handleClose() }} color="primary">
