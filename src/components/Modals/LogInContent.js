@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
+import './LoginSignUpModal.css';
 const styles = theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -29,8 +30,7 @@ const styles = theme => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-    },
-
+    }
 });
 
 
@@ -56,9 +56,15 @@ class LoginContent extends Component {
             this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
         }
         if (this.props.user) {
-            this.props.history.push('/home')
+            console.log('user is valid');
+            
+            // this.props.history.push('/home')
+            // console.log('LoginContent this.props: ', this.props);
+            this.props.dispatch({
+                type: 'LOGIN_REGISTER_MODAL_OPEN',
+                payload: false
+            });
         }
-
     } // end login
 
     handleInputChangeFor = propertyName => (event) => {
@@ -70,7 +76,7 @@ class LoginContent extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <Container component="main" maxWidth="xs">
+            <Container className="loginModalContainer" component="main" maxWidth="xs">
                 <div className={classes.paper}>
                     {this.props.errors.loginMessage && (
                         <h2
@@ -107,6 +113,7 @@ class LoginContent extends Component {
                                 label="Password"
                                 name="password"
                                 autoComplete="password"
+                                type="password"
                                 autoFocus
                                 value={this.state.password}
                                 onChange={this.handleInputChangeFor('password')}
@@ -123,18 +130,9 @@ class LoginContent extends Component {
                                 value="Log In"
                             >
                                 Log In
-              </Button>
+                            </Button>
                         </div>
                     </form>
-                    <center>
-                        <Button variant="contained" color="primary"
-                            type="button"
-                            className="link-button"
-                            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
-                        >
-                            Register / Admin
-          </Button>
-                    </center>
                 </div>
             </Container>
         );

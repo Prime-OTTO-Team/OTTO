@@ -10,6 +10,9 @@ import Slide from '@material-ui/core/Slide';
 import { connect } from 'react-redux';
 import LoginContent from './LoginContent'
 import SignUpContent from './SignUpContent';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import './LoginSignUpModal.css'
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -19,7 +22,6 @@ class LoginSignUpModal extends Component {
         switch: 'login'
     }
     isModalOpen = () => {
-        console.log('isModalOpen: loginModalReducer = ', this.props.reduxState.loginModalReducer);
         return this.props.reduxState.loginModalReducer;
     }
     handleClose = () => {
@@ -34,66 +36,99 @@ class LoginSignUpModal extends Component {
             switch: switchCase
         })
     }
+    view = () => {
+        if (this.state.switch === 'login') {
+            return <LoginContent handleClose={this.handleClose}/>
+        } else {
+            return <SignUpContent />
+        }
+    }
+    loginSelected = () => {
+        if (this.state.switch === 'login') {
+        
+            this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' })
+            return true
+        } else return false
+    }
+    signUpSelected = () => {
+        if (this.state.switch === 'signUp') {
+            this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' })
+            return true
+        } else return false
+    }
+    handleToggleChange = (value) => {
+        console.log('value: ', value);
+        this.setState({
+            switch: value
+        })
+    }
+
     render() {
         return (
-            <div className='container'>
-                <h1> Modal Test</h1>
-                {/* <Modal
-                    open={() => {this.isModalOpen()}}
-                    onClose={() => {this.handleClose()}}
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
-                >
-                    modal test
-                     <div className="switchHeader">
-                        <button onClick={() => {this.handleViewSwitch('login')}}>
+            <Dialog
+                open={this.isModalOpen()}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={() => { this.handleClose() }}
+                aria-labelledby="alert-dialog-slide-title"
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <div className='dialogContainer'>
+                    <div className="xButtonWrapper">
+
+                        <Button className="xButton" onClick={() => { this.handleClose() }}>
+                            X
+                        </Button>
+                    </div>
+                    <DialogTitle id="alert-dialog-slide-title" />
+                    <ToggleButtonGroup
+                        className="toggleSwitch"
+                        aria-label="text formatting"
+                        onChange={(event, newValue) => {
+                            console.log('onChange Detected');
+                            console.log('newValue', newValue);
+                            
+                            this.setState({ switch: newValue[0] })
+                            console.log('this.state.switch', this.state.switch);
+                            
+                        }
+                        }
+                    >
+                        <ToggleButton
+                            selected={this.loginSelected()}
+                            value="login"
+                            aria-label="bold"
+                            onClick={console.log('login clicked')
+                            }
+                        >
                             Login
-                        </button>
-                        <button>
+                        </ToggleButton>
+                        <ToggleButton
+                            selected={this.signUpSelected()}
+                            value="signUp"
+                        // onClick={this.setState({switch: 'signUp'})}
+                        >
                             Sign Up
-                        </button>
-                    </div>
-                    <div className='modalContent'>
-                        modal content
-                    </div>
-                </Modal> */}
-                <Dialog
-                    open={this.isModalOpen()}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={()=>{this.handleClose()}}
-                    aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
-                >
-                    <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
+                        </ToggleButton>
+                    </ToggleButtonGroup>
                     <DialogContent>
+
                         {/* <DialogContentText id="alert-dialog-slide-description">
                             Let Google help apps determine location. This means sending anonymous location data to
                             Google, even when no apps are running.
                         </DialogContentText> */}
-                        <LoginContent/>
-
+                        {this.view()}
+                        {/* <LoginContent/> */}
                         {/* <SignUpContent/> */}
-
                     </DialogContent>
-                    <DialogActions>
-                        <Button onClick={() => { this.handleClose() }} color="primary">
-                            Disagree
-                        </Button>
-                        <Button onClick={() => { this.handleClose() }} color="primary">
-                            Agree
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-
-            </div>
+                </div>
+            </Dialog>
         )
     }
 }
 const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
     reduxState
-   
+
 })
 export default connect(mapStateToProps)(LoginSignUpModal);
-
