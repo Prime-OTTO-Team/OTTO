@@ -10,6 +10,8 @@ const Nav = (props) => (
       <h2 className="nav-title">OTTO Project</h2>
     </Link>
     <div className="nav-right">
+      <Link className="nav-link" to="/admin/property">Admin Properties</Link>
+      <Link className="nav-link" to="/admin/user">Admin Users</Link>
       <Link className="nav-link" to="/home"
         onClick={() => {
           props.dispatch({ type: 'LOGIN_REGISTER_MODAL_OPEN', payload: true})
