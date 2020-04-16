@@ -13,15 +13,3 @@ router.post('/', (req, res) => {
         .catch(() => res.sendStatus(500));
 });
 module.exports = router;
-
-// userId: 1,
-// address: '101 park',
-// unitNumber: '1',
-// city: 'pella',
-// state: 'ia',
-// zipCode: '50219',
-// propertyType: 'asdf',
-// netOperatingIncome: '123',
-// grossIncome: '123',
-// grossExpense: '123',
-// desiredPrice: '123'

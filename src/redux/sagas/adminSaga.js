@@ -15,8 +15,6 @@ function* approveUser(action) {
         console.log("error in approving user", error);
     }
 }
-
-
 function* fetchAdminProperty() {
     try {
         console.log('from sagas fetchAdminProperty');
@@ -43,8 +41,6 @@ function* fetchAdminUser() {
         console.log("error in adminUserResponse Sagas", error);
     }
 }
-
-
 function* accountSaga() {
     yield takeEvery('FETCH_ADMIN_PROPERTY', fetchAdminProperty);
     yield takeEvery('FETCH_ADMIN_USER', fetchAdminUser);

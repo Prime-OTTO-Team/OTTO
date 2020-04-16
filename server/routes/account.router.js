@@ -16,7 +16,7 @@ router.get('/property/:id', (req, res) => {
 
 router.get('/interest/:id', (req, res) => {
     console.log("in getAccountInterests route", req.params);
-    let queryString = `SELECT "active", "address", "unit_number", "state", "city", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price"
+    let queryString = `SELECT "property"."id", "active", "address", "unit_number", "state", "city", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price"
     FROM "property" JOIN "interest" ON "property"."id"="interest"."property_id" JOIN "user" ON "interest"."user_id"= "user"."id" WHERE "user"."id"=$1`;
     pool.query(queryString, [req.params.id])
     .then(results => {
@@ -27,7 +27,10 @@ router.get('/interest/:id', (req, res) => {
     });
 });
 
-
+router.delete('/interest/:id', (req, res) => {
+    console.log("in deleteAccountInterest route", req.params);
+    let queryString = `DELETE FROM "interest" WHERE "id" = $1`;
+});
 
 
 module.exports = router;

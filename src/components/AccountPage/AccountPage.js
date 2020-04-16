@@ -25,6 +25,12 @@ class AccountPage extends Component {
             status: false
         })
     }
+    removeFavorite = (data) => {
+        this.props.dispatch({
+            type: 'DELETE_FAVORITE',
+            payload: data
+        })
+    }
     render() {
         return (
             <div className='container'>
@@ -45,7 +51,7 @@ class AccountPage extends Component {
                             <div>
                                 {this.props.reduxState.accountFavorite.map(favorite => (
                                     <div key={favorite.id} className="favorite" >
-                                        {favorite.address}<br />
+                                        {favorite.address}<button onClick={() => this.removeFavorite(favorite.id)}>Remove Favorite</button><br />
                                     </div>
                                 ))}
                             </div>)}

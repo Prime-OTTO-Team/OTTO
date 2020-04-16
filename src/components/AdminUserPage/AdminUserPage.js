@@ -25,9 +25,14 @@ class AdminUserPage extends Component {
         })
     }
     
-    activate = (data) => {
-        this.props.dispatch({ type: 'APPROVE_USER', payload: data});
-        this.props.dispatch({ type: 'FETCH_ADMIN_USER'})
+    approveUser = (data) => {
+        this.props.dispatch({ 
+            type: 'APPROVE_USER',
+            payload: data
+        });
+        this.props.dispatch({
+            type: 'FETCH_ADMIN_USER'
+        })
         console.log('in activate');
     }
 
@@ -52,7 +57,7 @@ class AdminUserPage extends Component {
                                 {this.props.reduxState.adminUserReducer.map(unapprovedUser => (
                                     <div key={unapprovedUser.id} className="unapproved" >
                                         {unapprovedUser.username}
-                                        <button onClick={() => this.activate(unapprovedUser)}>Activate</button><br />
+                                        <button onClick={() => this.approveUser(unapprovedUser)}>Activate</button><br />
                                     </div>
                                 ))}
                             </div>)}

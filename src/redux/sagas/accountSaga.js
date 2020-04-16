@@ -1,6 +1,18 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
+function* deleteAccountFavorite(action) {
+    try{
+        console.log('in sagas deleteAccountFavorite', action.payload);
+        let objectToSend = action.payload;
+        yield axios.delete(`/api/account/interest/${objectToSend}`)
+        yield put({
+            type: 'FETCH_ACCOUNT'
+        })
+    } catch (error) {
+        console.log("error deletingFavorite", error);
+    }
+}
 function* fetchAccountListing(action) {
     try {
         console.log('from sagas fetchAccountListing');
@@ -31,10 +43,9 @@ function* fetchAccountFavorite(action) {
         console.log("error in fetchAccountFavorite Sagas", error);
     }
 }
-
-
 function* accountSaga() {
     yield takeEvery('FETCH_ACCOUNT', fetchAccountListing);
-    yield takeEvery('FETCH_ACCOUNT', fetchAccountFavorite)
+    yield takeEvery('FETCH_ACCOUNT', fetchAccountFavorite);
+    yield takeEvery('DELETE_FAVORITE', deleteAccountFavorite);
 }
 export default accountSaga;
