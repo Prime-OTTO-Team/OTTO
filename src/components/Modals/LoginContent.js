@@ -13,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
 import './LoginSignUpModal.css';
-
 const styles = theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -31,18 +30,20 @@ const styles = theme => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-
-    },
-
+    }
 });
 
+
 class LoginContent extends Component {
+
     state = {
         username: '',
         password: '',
     };
+
     login = (event) => {
         event.preventDefault();
+
         if (this.state.username && this.state.password) {
             this.props.dispatch({
                 type: 'LOGIN',
@@ -55,14 +56,7 @@ class LoginContent extends Component {
             this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
         }
         if (this.props.user) {
-            console.log('user is valid');
-            
-            // this.props.history.push('/home')
-            // console.log('LoginContent this.props: ', this.props);
-            this.props.dispatch({
-                type: 'LOGIN_REGISTER_MODAL_OPEN',
-                payload: false
-            });
+            this.props.handleClose();
         }
     } // end login
 
@@ -78,7 +72,9 @@ class LoginContent extends Component {
             <Container className="loginModalContainer" component="main" maxWidth="xs">
                 <div className={classes.paper}>
                     {this.props.errors.loginMessage && (
-                        <h2 className="alert" role="alert"
+                        <h2
+                            className="alert"
+                            role="alert"
                         >
                             {this.props.errors.loginMessage}
                         </h2>
@@ -127,11 +123,9 @@ class LoginContent extends Component {
                                 value="Log In"
                             >
                                 Log In
-
                             </Button>
                         </div>
                     </form>
-
                 </div>
             </Container>
         );
