@@ -13,3 +13,16 @@ router.post('/', (req, res) => {
         .catch(() => res.sendStatus(500));
 });
 module.exports = router;
+
+router.put('/approve/:id', (req, res) => {
+    const updateUser = req.params.id;
+    console.log('in adminRouter Put', updateUser);
+    const queryText = `UPDATE "user" SET "approved_user" = 'TRUE' WHERE "id"=$1`;
+    pool.query(queryText, [updateUser])
+        .then(() => {
+            res.sendStatus(200)
+        }).catch(error => {
+            console.log(error);
+            res.sendStatus(500)
+        });
+});

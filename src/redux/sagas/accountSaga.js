@@ -14,6 +14,19 @@ function* deleteAccountFavorite(action) {
         console.log("error deletingFavorite", error);
     }
 }
+function* updateAccountListing(action) {
+    try{
+        console.log('in sagas updateAccountProperty', action.payload);
+        let objectToSend = action.payload.id;
+        yield axios.put(`/api/account/property/${objectToSend}`)
+        yield put({
+            type: 'FETCH_ACCOUNT',
+            payload: action.payload.user_id
+        })
+    } catch (error) {
+        console.log("error updateAccountListing", error);
+    }
+}
 function* fetchAccountListing(action) {
     try {
         console.log('from sagas fetchAccountListing');
@@ -48,5 +61,6 @@ function* accountSaga() {
     yield takeEvery('FETCH_ACCOUNT', fetchAccountListing);
     yield takeEvery('FETCH_ACCOUNT', fetchAccountFavorite);
     yield takeEvery('DELETE_FAVORITE', deleteAccountFavorite);
+    yield takeEvery('UPDATE_PROPERTY', updateAccountListing);
 }
 export default accountSaga;
