@@ -63,18 +63,17 @@ class PropertyInputPage extends Component {
         console.log('firing alumniRegistration with object:', this.state);
 
         this.props.dispatch({
-            type: 'NEW_ALUMNI_INFO',
+            type: 'ADD_PROPERTY',
             payload: this.state
         })
-        this.props.history.push('/aws');
+        console.log('this is the user', this.props.user);
+        // this.props.history.push('/account');
     } // end alumniRegistration
 
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
-        console.log(this.state);
-
     }
 
     render() {
