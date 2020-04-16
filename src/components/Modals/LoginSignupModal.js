@@ -2,9 +2,7 @@ import React, { Component, forwardRef } from 'react';
 // import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { connect } from 'react-redux';
@@ -19,7 +17,7 @@ const Transition = forwardRef(function Transition(props, ref) {
 });
 class LoginSignUpModal extends Component {
     state = {
-        switch: 'login'
+        switch: 'login' 
     }
     isModalOpen = () => {
         return this.props.reduxState.loginModalReducer;
@@ -45,7 +43,6 @@ class LoginSignUpModal extends Component {
     }
     loginSelected = () => {
         if (this.state.switch === 'login') {
-        
             this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' })
             return true
         } else return false
@@ -75,7 +72,6 @@ class LoginSignUpModal extends Component {
             >
                 <div className='dialogContainer'>
                     <div className="xButtonWrapper">
-
                         <Button className="xButton" onClick={() => { this.handleClose() }}>
                             X
                         </Button>
@@ -85,14 +81,8 @@ class LoginSignUpModal extends Component {
                         className="toggleSwitch"
                         aria-label="text formatting"
                         onChange={(event, newValue) => {
-                            console.log('onChange Detected');
-                            console.log('newValue', newValue);
-                            
                             this.setState({ switch: newValue[0] })
-                            console.log('this.state.switch', this.state.switch);
-                            
-                        }
-                        }
+                        }}
                     >
                         <ToggleButton
                             selected={this.loginSelected()}
@@ -106,20 +96,12 @@ class LoginSignUpModal extends Component {
                         <ToggleButton
                             selected={this.signUpSelected()}
                             value="signUp"
-                        // onClick={this.setState({switch: 'signUp'})}
                         >
                             Sign Up
                         </ToggleButton>
                     </ToggleButtonGroup>
                     <DialogContent>
-
-                        {/* <DialogContentText id="alert-dialog-slide-description">
-                            Let Google help apps determine location. This means sending anonymous location data to
-                            Google, even when no apps are running.
-                        </DialogContentText> */}
                         {this.view()}
-                        {/* <LoginContent/> */}
-                        {/* <SignUpContent/> */}
                     </DialogContent>
                 </div>
             </Dialog>
