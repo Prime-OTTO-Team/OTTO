@@ -17,7 +17,7 @@ const Transition = forwardRef(function Transition(props, ref) {
 });
 class LoginSignUpModal extends Component {
     state = {
-        switch: 'login'
+        switch: 'login' 
     }
     isModalOpen = () => {
         return this.props.reduxState.loginModalReducer;
