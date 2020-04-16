@@ -5,6 +5,9 @@ class AccountPage extends Component {
     state = {
         status: true
     }
+    editListing() {
+        console.log('Edit doesnt do anything yet');
+    }
     componentDidMount() {
         this.getAccount();
     }
@@ -31,6 +34,12 @@ class AccountPage extends Component {
             payload: data
         })
     }
+    removeListing = (data) => {
+        this.props.dispatch({
+            type: 'UPDATE_PROPERTY',
+            payload: data
+        })
+    }
     render() {
         return (
             <div className='container'>
@@ -43,7 +52,9 @@ class AccountPage extends Component {
                         <div>
                             {this.props.reduxState.accountListing.map(property => (
                                 <div key={property.id} className="property" >
-                                    {property.address}<br />
+                                    {property.address}
+                                    <button onClick={() => this.removeListing(property)}>Remove Listing</button>
+                                    <button onClick={() => this.editListing(property.id)}>Edit Listing</button><br />
                                 </div>
                             ))}
                         </div>
@@ -51,7 +62,7 @@ class AccountPage extends Component {
                             <div>
                                 {this.props.reduxState.accountFavorite.map(favorite => (
                                     <div key={favorite.id} className="favorite" >
-                                        {favorite.address}<button onClick={() => this.removeFavorite(favorite.id)}>Remove Favorite</button><br />
+                                        {favorite.address}<button onClick={() => this.removeFavorite(favorite)}>Remove Favorite</button><br />
                                     </div>
                                 ))}
                             </div>)}

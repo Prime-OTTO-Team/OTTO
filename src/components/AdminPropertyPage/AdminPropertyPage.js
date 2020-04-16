@@ -28,15 +28,15 @@ class AdminPropertyPage extends Component {
         return (
             <div className='container'>
                 <h1>Admin Property Page</h1>
-                <button onClick={this.handleClick}>My Listings</button>
-                <button onClick={this.handleClick2}>My Favorites</button>
+                <button onClick={this.handleClick}>Active Listings</button>
+                <button onClick={this.handleClick2}>History of Listings</button>
                 <div className='admin'>
                     Here is a list of all the properties (no difference in active or inactive yet)<br />
                     {this.state.status ? (
                         <div>
                             {this.props.reduxState.adminPropertyReducer.map(activeProperty => (
                                 <div key={activeProperty.id} className="active" >
-                                    {activeProperty.address} Active Status: {activeProperty.active}<br />
+                                    {activeProperty.address}<br />
                                 </div>
                             ))}
                         </div>
