@@ -24,27 +24,40 @@ class AdminUserPage extends Component {
             status: false
         })
     }
+    
+    approveUser = (data) => {
+        this.props.dispatch({ 
+            type: 'APPROVE_USER',
+            payload: data
+        });
+        this.props.dispatch({
+            type: 'FETCH_ADMIN_USER'
+        })
+        console.log('in activate');
+    }
+
     render() {
         return (
             <div className='container'>
                 <h1>Admin List of All Users</h1>
-                <button onClick={this.handleClick}>Approved Users</button>
-                <button onClick={this.handleClick2}>Unapproved Users</button>
+                <button onClick={this.handleClick}>Current Users</button>
+                <button onClick={this.handleClick2}>Pending Approval</button>
                 <div className='user'>
                     Here is where listings or favorites go. <br />
                     {this.state.status ? (
                         <div>
-                            {this.props.reduxState.adminUserReducer.map(activeUser => (
-                                <div key={activeUser.id} className="active" >
-                                    {activeUser.first_name} {activeUser.last_name}<br />
+                            {this.props.reduxState.adminUserReducer.map(user => (
+                                <div key={user.id} className="approved" >
+                                    {user.first_name} {user.last_name}<br />
                                 </div>
                             ))}
                         </div>
                     ) : (
                             <div>
-                                {this.props.reduxState.adminUserReducer.map(inactiveUser => (
-                                    <div key={inactiveUser.id} className="inactive" >
-                                        {inactiveUser.username}<br />
+                                {this.props.reduxState.adminUserReducer.map(unapprovedUser => (
+                                    <div key={unapprovedUser.id} className="unapproved" >
+                                        {unapprovedUser.username}
+                                        <button onClick={() => this.approveUser(unapprovedUser)}>Activate</button><br />
                                     </div>
                                 ))}
                             </div>)}
