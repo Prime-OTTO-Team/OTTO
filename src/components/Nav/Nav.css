@@ -1,20 +1,21 @@
 .nav-title {
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 700;
     display: inline-block;
-    color: #f2f2f2;
+    color: rgb(81, 78, 78);
     padding-left: 10px;
 }
 
 .nav {
   overflow: hidden;
-  background-color: #00acb0;
+  /* Navbar background color */
+  /* background-color: #00acb0; */
 }
 
 .nav-link {
   float: left;
-  color: #f2f2f2;
-  background-color: #00acb0;
+  /* color: #f2f2f2; */
+  /* background-color: #00acb0; */
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -28,7 +29,7 @@
 }
 
 .nav-link:hover {
-  background-color: #008183;
+  background-color: rgb(233, 233, 233);
 }
 
 .nav-right {
