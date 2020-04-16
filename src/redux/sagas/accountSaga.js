@@ -4,10 +4,11 @@ import axios from 'axios';
 function* deleteAccountFavorite(action) {
     try{
         console.log('in sagas deleteAccountFavorite', action.payload);
-        let objectToSend = action.payload;
+        let objectToSend = action.payload.id;
         yield axios.delete(`/api/account/interest/${objectToSend}`)
         yield put({
-            type: 'FETCH_ACCOUNT'
+            type: 'FETCH_ACCOUNT',
+            payload: action.payload.user_id
         })
     } catch (error) {
         console.log("error deletingFavorite", error);

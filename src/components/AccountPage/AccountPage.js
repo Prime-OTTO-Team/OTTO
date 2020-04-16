@@ -51,7 +51,7 @@ class AccountPage extends Component {
                             <div>
                                 {this.props.reduxState.accountFavorite.map(favorite => (
                                     <div key={favorite.id} className="favorite" >
-                                        {favorite.address}<button onClick={() => this.removeFavorite(favorite.id)}>Remove Favorite</button><br />
+                                        {favorite.address}<button onClick={() => this.removeFavorite(favorite)}>Remove Favorite</button><br />
                                     </div>
                                 ))}
                             </div>)}
