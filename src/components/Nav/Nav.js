@@ -14,6 +14,7 @@ const Nav = (props) => (
       <Link className="nav-link" to="/admin/user">Admin Users</Link>
       <Link className="nav-link" to="/home"
         onClick={() => {
+          console.log('login clicked');
           props.dispatch({ type: 'LOGIN_REGISTER_MODAL_OPEN', payload: true})
         }}
       >
