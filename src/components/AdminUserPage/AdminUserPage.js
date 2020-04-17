@@ -24,9 +24,8 @@ class AdminUserPage extends Component {
             status: false
         })
     }
-    
     approveUser = (data) => {
-        this.props.dispatch({ 
+        this.props.dispatch({
             type: 'APPROVE_USER',
             payload: data
         });
@@ -35,7 +34,22 @@ class AdminUserPage extends Component {
         })
         console.log('in activate');
     }
-
+    unApproveUser = (data) => {
+        this.props.dispatch({
+            type: 'UNAPPROVE_USER',
+            payload: data
+        });
+        this.props.dispatch({
+            type: 'FETCH_ADMIN_USER'
+        })
+        console.log('in activate');
+    }
+    deleteUser = (data) => {
+        this.props.dispatch({
+            type: 'DELETE_USER',
+            payload: data
+        });
+    }
     render() {
         return (
             <div className='container'>
@@ -48,7 +62,9 @@ class AdminUserPage extends Component {
                         <div>
                             {this.props.reduxState.adminUserReducer.map(user => (
                                 <div key={user.id} className="approved" >
-                                    {user.first_name} {user.last_name}<br />
+                                    {user.first_name} {user.last_name}
+                                    <button onClick={() => this.unApproveUser(user)}>Unapprove User</button>
+                                    <button onClick={() => this.deleteUser(user)}>Delete User</button><br />
                                 </div>
                             ))}
                         </div>
@@ -56,8 +72,9 @@ class AdminUserPage extends Component {
                             <div>
                                 {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
                                     <div key={unapprovedUser.id} className="unapproved" >
-                                        {unapprovedUser.username}
-                                        <button onClick={() => this.approveUser(unapprovedUser)}>Activate</button><br />
+                                        {unapprovedUser.first_name} {unapprovedUser.last_name}
+                                        <button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button>
+                                        <button onClick={() => this.deleteUser(unapprovedUser)}>Delete User</button><br />
                                     </div>
                                 ))}
                             </div>)}

@@ -37,7 +37,7 @@ router.get('/unapproved/user', (req, res) => {
 });
 router.put('/approve/:id', (req, res) => {
     const updateUser = req.params.id;
-    console.log('in adminRouter Put', updateUser);
+    console.log('in adminRouter Put for approving user', updateUser);
     const queryText = `UPDATE "user" SET "approved_user" = 'TRUE' WHERE "id"=$1`;
     pool.query(queryText, [updateUser])
         .then(() => {
@@ -47,5 +47,23 @@ router.put('/approve/:id', (req, res) => {
             res.sendStatus(500)
         });
 });
-
+router.put('/unapprove/:id', (req, res) => {
+    const updateUser = req.params.id;
+    console.log('in adminRouter Put for unapproving user', updateUser);
+    const queryText = `UPDATE "user" SET "approved_user" = 'FALSE' WHERE "id"=$1`;
+    pool.query(queryText, [updateUser])
+        .then(() => {
+            res.sendStatus(200)
+        }).catch(error => {
+            console.log(error);
+            res.sendStatus(500)
+        });
+});
+router.delete('/delete/:id', (req, res) => {
+    console.log("in deleteUser route", req.params);
+    // let queryString = `DELETE FROM "user" WHERE "id" = $1`;
+    // pool.query(queryString, [req.params.id])
+    //     .then(() => res.sendStatus(200))
+    //     .catch(() => res.sendStatus(500));
+});
 module.exports = router;
