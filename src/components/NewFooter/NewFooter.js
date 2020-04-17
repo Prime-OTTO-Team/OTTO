@@ -43,18 +43,6 @@ export default function NewFooter() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-
-      <Container component="main" className={classes.main} maxWidth="sm">
-        <Typography variant="h2" component="h1" gutterBottom>
-          Sticky Test
-        </Typography>
-        <Typography variant="h5" component="h2" gutterBottom>
-
-          
-        </Typography>
-        <Typography variant="body1">Sticky footer placeholder.</Typography>
-      </Container>
-
       <footer className={classes.footer}>
         <Container maxWidth="sm">
             
