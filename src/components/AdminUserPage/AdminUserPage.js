@@ -54,7 +54,7 @@ class AdminUserPage extends Component {
                         </div>
                     ) : (
                             <div>
-                                {this.props.reduxState.adminUserReducer.map(unapprovedUser => (
+                                {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
                                     <div key={unapprovedUser.id} className="unapproved" >
                                         {unapprovedUser.username}
                                         <button onClick={() => this.approveUser(unapprovedUser)}>Activate</button><br />
