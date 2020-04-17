@@ -50,12 +50,7 @@ export default function NewFooter() {
         </Typography>
         <Typography variant="h5" component="h2" gutterBottom>
 
-          {'Parmesan manchego manchego. Cream cheese port-salut blue castello cottage cheese monterey jack macaroni cheese feta boursin. Cheeseburger everyone loves taleggio roquefort swiss ricotta pepper jack cheesecake. Halloumi hard cheese.'}
-          {'Jarlsberg cheese and biscuits cream cheese. Smelly cheese fondue cream cheese melted cheese swiss halloumi brie jarlsberg. Parmesan pepper jack taleggio mozzarella cheese on toast swiss st. agur blue cheese halloumi. Babybel stinking bishop chalk and cheese cheese and wine airedale bocconcini.'}
-          {'Taleggio fromage frais melted cheese. Fromage frais stilton macaroni cheese cheddar red leicester smelly cheese jarlsberg edam. Babybel cheese and biscuits bavarian bergkase roquefort cheesy grin fondue dolcelatte lancashire. Cheese slices bocconcini everyone loves roquefort queso goat stilton feta. Mascarpone.'}
-          {'When the cheese comes out everybodys happy bocconcini cottage cheese. Mozzarella who moved my cheese cheesy grin monterey jack paneer fromage who moved my cheese blue castello. St. agur blue cheese cheese strings squirty cheese airedale st. agur blue cheese feta edam fondue. Pepper jack paneer mascarpone brie.'}
-          {'Ricotta feta cheese and biscuits. Airedale stinking bishop squirty cheese cheddar cheesecake halloumi ricotta camembert de normandie. Emmental cut the cheese st. agur blue cheese feta croque monsieur st. agur blue cheese stilton boursin. Cheese strings paneer cheesy grin pepper jack cheese triangles fondue stinking bishop smelly cheese. Cheese triangles cheese on toast.'}
-        
+          
         </Typography>
         <Typography variant="body1">Sticky footer placeholder.</Typography>
       </Container>
