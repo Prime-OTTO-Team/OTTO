@@ -57,7 +57,7 @@ export default function NewFooter() {
           {'Ricotta feta cheese and biscuits. Airedale stinking bishop squirty cheese cheddar cheesecake halloumi ricotta camembert de normandie. Emmental cut the cheese st. agur blue cheese feta croque monsieur st. agur blue cheese stilton boursin. Cheese strings paneer cheesy grin pepper jack cheese triangles fondue stinking bishop smelly cheese. Cheese triangles cheese on toast.'}
         
         </Typography>
-        <Typography variant="body1">Sticky footer placeholder.</Typography>
+        <Typography variant="body1">Sticky placeholder.</Typography>
       </Container>
 
       <footer className={classes.footer}>
