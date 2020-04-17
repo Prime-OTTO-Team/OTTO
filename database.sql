@@ -29,7 +29,9 @@ CREATE TABLE "property" (
     "net_operating_income" INTEGER,
     "gross_income" INTEGER,
     "gross_expense" INTEGER,
-    "desired_price" INTEGER
+    "desired_price" INTEGER,
+    "latitude" NUMERIC(9, 7),
+    "longitude" NUMERIC(9, 7),
 );
 
 CREATE TABLE "search" (
