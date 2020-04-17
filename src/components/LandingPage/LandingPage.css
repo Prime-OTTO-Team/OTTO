@@ -1,0 +1,14 @@
+.mapListingContainer {
+    flex-direction: row;
+}
+.listingContainer {
+    width: 50%;
+    background-color: yellow;
+}
+.mapContainer {
+    width: 30px;
+    height: 30px;
+}
+.container {
+    background-color: black;
+}
