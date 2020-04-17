@@ -4,7 +4,8 @@ import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import accountSaga from './accountSaga';
 import searchSaga from './searchSaga';
-import adminSaga from './adminSaga';
+import adminPropertySaga from './adminPropertySaga';
+import adminUserSaga from './adminUserSaga';
 import propertySaga from './propertySaga';
 
 // rootSaga is the primary saga.
@@ -21,7 +22,8 @@ export default function* rootSaga() {
     userSaga(),
     accountSaga(),
     searchSaga(),
-    adminSaga(),
+    adminUserSaga(),
+    adminPropertySaga(),
     propertySaga(),
   ]);
 }

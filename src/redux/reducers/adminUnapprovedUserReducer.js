@@ -1,8 +1,8 @@
 const adminUserReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_ADMIN_APPROVED_USER':
+        case 'SET_ADMIN_UNAPPROVED_USER':
             return action.payload;
-        case 'UNSET_ADMIN_APROVED_USER':
+        case 'UNSET_ADMIN_UNAPROVED_USER':
             return [];
         default:
             return state;
