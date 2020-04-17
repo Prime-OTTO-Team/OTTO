@@ -3,11 +3,11 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import '../LandingPage/LandingPage.css'
 class GoogleMap extends Component {
     state = {
-        showingInfoWindow: false, 
-        activeMarker: {},          
-        selectedPlace: {} 
+        showingInfoWindow: false,
+        activeMarker: {},
+        selectedPlace: {}
     };
-    componentDidMount () {
+    componentDidMount() {
         // this.addMarkers()   
     }
     onMarkerClick = (props, marker, e) =>
@@ -24,6 +24,17 @@ class GoogleMap extends Component {
             });
         }
     };
+
+    renderMarkers = () => {
+        return this.props.markerLocations.map((marker) => {
+            console.log('marker: ', marker);
+            return (
+                <Marker position={{ lat: marker.lat, lng: marker.lng }} />
+            )
+        })
+    }
+
+
     render() {
         return (
             <div className="mapContainer">
@@ -36,13 +47,7 @@ class GoogleMap extends Component {
                         lng: -93.2650
                     }}
                 >
-                    {this.props.markerLocations.map((marker) => {
-                        console.log('marker: ', marker);
-                            return (
-                                <Marker position={{lat: marker.lat, lng: marker.lng }} />
-                            )
-                        })
-                    }
+                    {this.renderMarkers()}
                 </Map>
             </div>
         )
