@@ -9,6 +9,7 @@ import searchResultReducer from './searchResultReducer';
 import adminPropertyReducer from './adminPropertyReducer';
 import adminUserReducer from './adminUserReducer';
 import adminUnapprovedUserReducer from './adminUnapprovedUserReducer';
+import adminPropertyHistoryReducer from './adminPropertyHistoryReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   adminPropertyReducer, //holds a list of all properties for the admin to look at
   adminUserReducer, //holds a list of all the users approved by the admin
   adminUnapprovedUserReducer, //holds a list of users not yet approved by admin
+  adminPropertyHistoryReducer, //holds the history of all properties in the database
 });
 
 export default rootReducer;

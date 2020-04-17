@@ -31,20 +31,20 @@ class AdminPropertyPage extends Component {
                 <button onClick={this.handleClick}>Active Listings</button>
                 <button onClick={this.handleClick2}>History of Listings</button>
                 <div className='admin'>
-                    Here is a list of all the properties (no difference in active or inactive yet)<br />
+                    <br/>
                     {this.state.status ? (
-                        <div>
+                        <div> These are active properties<br/>
                             {this.props.reduxState.adminPropertyReducer.map(activeProperty => (
                                 <div key={activeProperty.id} className="active" >
-                                    {activeProperty.address}<br />
+                                    {activeProperty.address}<button>Delete</button><br />
                                 </div>
                             ))}
                         </div>
                     ) : (
-                            <div>
-                                {this.props.reduxState.adminPropertyReducer.map(inactiveProperty => (
+                            <div> These are properties that were closed on<br/>
+                                {this.props.reduxState.adminPropertyHistoryReducer.map(inactiveProperty => (
                                     <div key={inactiveProperty.id} className="inactive" >
-                                        {inactiveProperty.address}<br />
+                                        {inactiveProperty.address}<button>Delete</button><br />
                                     </div>
                                 ))}
                             </div>)}

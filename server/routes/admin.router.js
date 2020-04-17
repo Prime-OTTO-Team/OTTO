@@ -4,7 +4,18 @@ const router = express.Router();
 
 router.get('/property/', (req, res) => {
     console.log("in getAdminProperty route");
-    let queryString = `SELECT * FROM "property"`;
+    let queryString = `SELECT * FROM "property" WHERE "active" = 'TRUE'`;
+    pool.query(queryString)
+        .then(results => {
+            res.send(results.rows);
+        }).catch(error => {
+            console.log(error);
+            res.sendStatus(500);
+        });
+});
+router.get('/history/', (req, res) => {
+    console.log("in getAdminPropertyHistory route");
+    let queryString = `SELECT * FROM "property" WHERE "active" = 'FALSE'`;
     pool.query(queryString)
         .then(results => {
             res.send(results.rows);
