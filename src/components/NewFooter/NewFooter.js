@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+// import './NewFooter.css';
 
 
 function Copyright() {
@@ -25,6 +26,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     minHeight: '100vh',
   },
+  // header: {
+  //   padding: theme.spacing(3, 2),
+  //   marginTop: 'auto',
+  //   backgroundColor:
+  //     theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+  // },
   main: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(2),
@@ -44,9 +51,15 @@ export default function NewFooter() {
     <div className={classes.root}>
       <CssBaseline />
 
+      {/* <header className="header">
+        <Container maxWidth="sm">
+        <Typography variant="body1">My header can be found here.</Typography>
+        </Container>  
+      </header> */}
+
       <Container component="main" className={classes.main} maxWidth="sm">
         <Typography variant="h2" component="h1" gutterBottom>
-          Sticky Test
+          Sticky Cheezy Test!
         </Typography>
         <Typography variant="h5" component="h2" gutterBottom>
 
@@ -57,7 +70,7 @@ export default function NewFooter() {
           {'Ricotta feta cheese and biscuits. Airedale stinking bishop squirty cheese cheddar cheesecake halloumi ricotta camembert de normandie. Emmental cut the cheese st. agur blue cheese feta croque monsieur st. agur blue cheese stilton boursin. Cheese strings paneer cheesy grin pepper jack cheese triangles fondue stinking bishop smelly cheese. Cheese triangles cheese on toast.'}
         
         </Typography>
-        <Typography variant="body1">Sticky footer placeholder.</Typography>
+        <Typography variant="body1">Sticky placeholder.</Typography>
       </Container>
 
       <footer className={classes.footer}>
