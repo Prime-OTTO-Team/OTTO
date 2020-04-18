@@ -11,18 +11,17 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  background-color: rgb(240, 240, 240);
   /* display: flex; */
   /* direction: column; */
   /* float: right; */
   /* position: fixed; */
-  /* Navbar background color */
-  /* background-color: #00acb0; */
 }
 
 .nav-link {
   float: left;
   /* color: #f2f2f2; */
-  /* background-color: #00acb0; */
+  background-color: rgb(240, 240, 240);
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -36,7 +35,7 @@
 }
 
 .nav-link:hover {
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(235, 235, 235);
 }
 
 .nav-right {
