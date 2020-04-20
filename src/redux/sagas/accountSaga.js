@@ -61,6 +61,5 @@ function* accountSaga() {
     yield takeEvery('FETCH_ACCOUNT', fetchAccountListing);
     yield takeEvery('FETCH_ACCOUNT', fetchAccountFavorite);
     yield takeEvery('DELETE_FAVORITE', deleteAccountFavorite);
-    yield takeEvery('UPDATE_PROPERTY', updateAccountListing);
 }
 export default accountSaga;

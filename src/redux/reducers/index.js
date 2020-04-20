@@ -10,6 +10,8 @@ import adminPropertyReducer from './adminPropertyReducer';
 import adminUserReducer from './adminUserReducer';
 import adminUnapprovedUserReducer from './adminUnapprovedUserReducer';
 import adminPropertyHistoryReducer from './adminPropertyHistoryReducer';
+import editListingReducer from './editListingReducer';
+import editModeReducer from './editModeReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -29,6 +31,8 @@ const rootReducer = combineReducers({
   adminUserReducer, //holds a list of all the users approved by the admin
   adminUnapprovedUserReducer, //holds a list of users not yet approved by admin
   adminPropertyHistoryReducer, //holds the history of all properties in the database
+  editListingReducer, //holds a listing that is to be edited in property inpute page
+  editModeReducer, //establishes if the user is trying to edit on input property page
 });
 
 export default rootReducer;

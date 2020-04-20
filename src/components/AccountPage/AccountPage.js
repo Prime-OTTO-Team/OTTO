@@ -5,8 +5,15 @@ class AccountPage extends Component {
     state = {
         status: true
     }
-    editListing() {
+    editListing(data) {
         console.log('Edit doesnt do anything yet');
+            this.props.dispatch({ 
+                type: 'EDIT_LISTING',
+                 payload: data});
+            this.props.dispatch({
+                type: 'EDIT_MODE'
+            });
+            this.props.history.push("/PropertyInputPage");
     }
     componentDidMount() {
         this.getAccount();
@@ -54,7 +61,7 @@ class AccountPage extends Component {
                                 <div key={property.id} className="property" >
                                     {property.address}
                                     <button onClick={() => this.removeListing(property)}>Remove Listing</button>
-                                    <button onClick={() => this.editListing(property.id)}>Edit Listing</button><br />
+                                    <button onClick={() => this.editListing(property)}>Edit Listing</button><br />
                                 </div>
                             ))}
                         </div>
