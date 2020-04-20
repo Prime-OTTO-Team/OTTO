@@ -46,26 +46,40 @@ const styles = theme => ({
 class PropertyInputPage extends Component {
     state = {
         userId: this.props.user.id,
-        address: '',
-        unitNumber: '',
-        city: '',
-        state: '', 
-        zipCode: '',
-        propertyType: '',
-        netOperatingIncome: '',
-        grossIncome: '',
-        grossExpense: '',
-        desiredPrice: ''
+        address: this.props.edit.address,
+        unitNumber: this.props.edit.unit_number,
+        city: this.props.edit.city,
+        state: this.props.edit.state,
+        zipCode: this.props.edit.zip_code,
+        propertyType: this.props.edit.property_type,
+        netOperatingIncome: this.props.edit.net_operating_income,
+        grossIncome: this.props.edit.gross_income,
+        grossExpense: this.props.edit.gross_expense,
+        desiredPrice: this.props.edit.desired_price,
+        propertyId: this.props.edit.id
     };
+
+    componentWillUnmount = () => {
+        this.props.dispatch({ type: 'UNEDIT_MODE' });
+        this.props.dispatch({ type: 'UNEDIT_LISTING' });
+    }
 
     alumniRegistration = (event) => {
         event.preventDefault();
         console.log('firing alumniRegistration with object:', this.state);
-
-        this.props.dispatch({
-            type: 'ADD_PROPERTY',
-            payload: this.state
-        })
+        if (this.props.editMode === false) {
+            this.props.dispatch({
+                type: 'ADD_PROPERTY',
+                payload: this.state
+            })
+        }
+        else {
+            this.props.dispatch({
+                type: 'UPDATE_PROPERTY',
+                payload: this.state
+            })
+        }
+        
         console.log('this is the user', this.props.user);
         // this.props.history.push('/account');
     } // end alumniRegistration
@@ -83,7 +97,7 @@ class PropertyInputPage extends Component {
                 <CssBaseline />
                 <div className={classes.paper}>
                     <Typography component="h1" variant="h5">
-                     Add Property
+                        Add Property
         </Typography>
                     <form className={classes.form} noValidate onSubmit={this.alumniRegistration}>
                         <Grid container spacing={2}>
@@ -229,11 +243,11 @@ class PropertyInputPage extends Component {
                             name="submit"
                             value="Register"
                         >
-                         Register
+                            Register
               </Button>
 
                     </form>
-                    
+
 
 
                 </div>
@@ -247,7 +261,9 @@ class PropertyInputPage extends Component {
 // const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
     errors: state.errors,
-    user: state.user
+    user: state.user,
+    edit: state.editListingReducer,
+    editMode: state.editModeReducer
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(PropertyInputPage));

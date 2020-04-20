@@ -24,6 +24,18 @@ class AdminPropertyPage extends Component {
             status: false
         })
     }
+    removeListing(data) {
+            this.props.dispatch({
+                type: 'UPDATE_ADMIN_PROPERTY',
+                payload: data
+            });
+    }
+    deleteHistory(data) {
+        this.props.dispatch({
+            type: 'DELETE_ADMIN_PROPERTY',
+            payload: data
+        });
+    }
     render() {
         return (
             <div className='container'>
@@ -34,9 +46,9 @@ class AdminPropertyPage extends Component {
                     <br/>
                     {this.state.status ? (
                         <div> These are active properties<br/>
-                            {this.props.reduxState.adminPropertyReducer.map(activeProperty => (
-                                <div key={activeProperty.id} className="active" >
-                                    {activeProperty.address}<button>Delete</button><br />
+                            {this.props.reduxState.adminPropertyReducer.map(property => (
+                                <div key={property.id} className="active" >
+                                    {property.address}<button onClick={() => this.removeListing(property)}>Remove Listing</button><br />
                                 </div>
                             ))}
                         </div>
@@ -44,7 +56,7 @@ class AdminPropertyPage extends Component {
                             <div> These are properties that were closed on<br/>
                                 {this.props.reduxState.adminPropertyHistoryReducer.map(inactiveProperty => (
                                     <div key={inactiveProperty.id} className="inactive" >
-                                        {inactiveProperty.address}<button>Delete</button><br />
+                                        {inactiveProperty.address}<button onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</button><br />
                                     </div>
                                 ))}
                             </div>)}

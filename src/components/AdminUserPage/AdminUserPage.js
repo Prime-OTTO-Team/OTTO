@@ -46,7 +46,7 @@ class AdminUserPage extends Component {
     }
     deleteUser = (data) => {
         this.props.dispatch({
-            type: 'DELETE_USER',
+            type: 'DELETE_ADMIN_USER',
             payload: data
         });
     }
