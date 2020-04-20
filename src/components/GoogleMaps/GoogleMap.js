@@ -1,70 +1,61 @@
 import React, { Component } from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-import '../LandingPage/LandingPage.css'
+import GoogleMapReact from 'google-map-react';
+import Marker from './Marker.tsx'
+
 class GoogleMap extends Component {
-    state = {
-        showingInfoWindow: false,
-        activeMarker: {},
-        selectedPlace: {}
+    static defaultProps = {
+        center: {
+            lat: 44.9778,
+            lng: -93.2650
+        },
+        zoom: 11
     };
-    componentDidMount() {
-        // this.addMarkers()   
-    }
-    onMarkerClick = (props, marker, e) =>
+    centerMap = (latitude, longitude) => {
         this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true
-        });
-    onClose = props => {
-        if (this.state.showingInfoWindow) {
-            this.setState({
-                showingInfoWindow: false,
-                activeMarker: null
-            });
-        }
-    };
+            center: {
+                lat: latitude, lng: longitude
+            }
+        })
+    }
 
     renderMarkers = () => {
-        return this.props.markerLocations.map((marker) => {
-            console.log('marker: ', marker);
-            return (
-                <Marker position={{ lat: marker.lat, lng: marker.lng }} />
-            )
+        if (this.props.markerLocations) {
+            return this.props.markerLocations.map((marker) => {
+                return (
+                    <Marker
+                        key={marker.id}
+                        lat={marker.latitude}
+                        lng={marker.longitude}
+                        name="My Marker"
+                        color="rgb(222, 213, 16)"
+                        onClick={() => { this.centerMap(marker.latitude, marker.longitude) }}
+                    />
+                )
+            })
+        } else {
+            console.log('cannot get marker locations');
+        }
+    }
+    changeMapCenter = (coordinates) => {
+        this.setState({
+            mapCenter: coordinates
         })
     }
 
 
     render() {
         return (
-            <div className="mapContainer">
-                <Map
-                    google={this.props.google}
-                    zoom={10}
-                    style={mapStyles}
-                    initialCenter={{
-                        lat: 44.9778,
-                        lng: -93.2650
-                    }}
+            // Important! Always set the container height explicitly
+            <div style={{ height: '75vh', width: '50%' }}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: 'AIzaSyCHElb_DfSY05GT5sQL4K_8PU8fWIE--xo' }}
+                    defaultCenter={this.props.center}
+                    defaultZoom={this.props.zoom}
                 >
                     {this.renderMarkers()}
-                </Map>
+                </GoogleMapReact>
             </div>
-        )
+        );
     }
 }
-// const mapStateToProps = (reduxState) => ({
-//     reduxState
-// })
-
-const mapStyles = {
-    width: '800px',
-    height: '800px',
-};
-
-export default GoogleApiWrapper({
-    //TODO: 
-    apiKey: 'AIzaSyCHElb_DfSY05GT5sQL4K_8PU8fWIE--xo'
-    // apiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
-})(GoogleMap);
-// connect(mapStateToProps)
+export default GoogleMap;
