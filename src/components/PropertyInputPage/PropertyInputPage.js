@@ -67,17 +67,18 @@ class PropertyInputPage extends Component {
     alumniRegistration = (event) => {
         event.preventDefault();
         console.log('firing alumniRegistration with object:', this.state);
-        if (this.props.editMode === false) {
+        if (this.props.editMode === true) {
             this.props.dispatch({
-                type: 'ADD_PROPERTY',
+                type: 'UPDATE_PROPERTY',
                 payload: this.state
             })
         }
         else {
             this.props.dispatch({
-                type: 'UPDATE_PROPERTY',
+                type: 'ADD_PROPERTY',
                 payload: this.state
             })
+            
         }
         
         console.log('this is the user', this.props.user);

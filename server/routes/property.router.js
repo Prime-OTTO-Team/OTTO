@@ -32,8 +32,8 @@ router.put('/edit', (req, res) => {
     const updateProperty = req.body;
     console.log(' in updateRouter', updateProperty);
     const queryString = `UPDATE "property" SET (user_id, address, unit_number, state, city, zip_code, property_type, 
-        net_operating_income, gross_income, gross_expense, desired_price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13 )`;
-    pool.query(queryString, [updateProperty.userId, updateProperty.address, updateProperty.unit_number, updateProperty.state, updateProperty.city, updateProperty.zip_code, 
-        updateProperty.property_type, updateProperty.net_operating_income, updateProperty.gross_income, updateProperty.gross_expense, updateProperty.desired_price])
+        net_operating_income, gross_income, gross_expense, desired_price) = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) WHERE "id"=$12`;
+    pool.query(queryString, [updateProperty.userId, updateProperty.address, updateProperty.unit_number, updateProperty.state, updateProperty.city, updateProperty.zipCode, 
+        updateProperty.propertyType, updateProperty.netOperatingIncome, updateProperty.grossIncome, updateProperty.grossExpense, updateProperty.desiredPice, updateProperty.propertyId])
 })
 module.exports = router;
