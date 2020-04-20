@@ -9,6 +9,7 @@ class LandingPage extends Component {
     //TODO: set local state "properties" to a redux reducer
     state = {
         properties: '',
+        expanded: 0
     }
     componentDidMount() {
         this.getProperties();
@@ -23,21 +24,31 @@ class LandingPage extends Component {
                 properties: response.data
             })
             console.log('this.state.properties', this.state.properties);
-
         } catch (error) {
             console.log('getProperties error: ', error)
         }
     }
-
+    handlePanelChange = (id) => {
+        if (id != this.state.expanded) {
+            this.setState({
+                expanded: id
+            })
+        } else {
+            this.setState({
+                expanded: 0
+            })
+        }
+    }
     render() {
         return (
             <div className='container'>
                 <LoginSignUpModal />
                 <div className="mapListingContainer">
-                    <Listings />
-                    <GoogleMap
-                        markerLocations={this.state.properties}
+                    <Listings
+                        properties={this.state.properties} handlePanelChange={this.handlePanelChange}
+                        expanded={this.state.expanded}
                     />
+                    <GoogleMap markerLocations={this.state.properties}/>
                 </div>
             </div>
         )

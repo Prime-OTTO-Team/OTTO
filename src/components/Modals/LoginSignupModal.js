@@ -54,7 +54,6 @@ class LoginSignUpModal extends Component {
         } else return false
     }
     handleToggleChange = (value) => {
-        console.log('value: ', value);
         this.setState({
             switch: value
         })
@@ -88,8 +87,6 @@ class LoginSignUpModal extends Component {
                             selected={this.loginSelected()}
                             value="login"
                             aria-label="bold"
-                            onClick={console.log('login clicked')
-                            }
                         >
                             Login
                         </ToggleButton>

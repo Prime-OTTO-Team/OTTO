@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Marker from './Marker.tsx'
+import Marker from './Marker.js'
 
 class GoogleMap extends Component {
-    static defaultProps = {
+    state = {
+        defaultCenter : {
+            lat: 44.9778,
+            lng: -93.2650
+        },
         center: {
             lat: 44.9778,
             lng: -93.2650
@@ -11,12 +15,17 @@ class GoogleMap extends Component {
         zoom: 11
     };
     centerMap = (latitude, longitude) => {
+        console.log('in centerMap');
         this.setState({
             center: {
                 lat: latitude, lng: longitude
             }
         })
     }
+    handleMarkerClicked = () => {
+        
+    }
+    
 
     renderMarkers = () => {
         if (this.props.markerLocations) {
@@ -28,7 +37,8 @@ class GoogleMap extends Component {
                         lng={marker.longitude}
                         name="My Marker"
                         color="rgb(222, 213, 16)"
-                        onClick={() => { this.centerMap(marker.latitude, marker.longitude) }}
+                        onClick={() => { 
+                            this.centerMap(marker.latitude, marker.longitude) }}
                     />
                 )
             })
@@ -41,16 +51,15 @@ class GoogleMap extends Component {
             mapCenter: coordinates
         })
     }
-
-
     render() {
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '75vh', width: '50%' }}>
+            <div style={{ height: '75vh', width: '70%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: 'AIzaSyCHElb_DfSY05GT5sQL4K_8PU8fWIE--xo' }}
-                    defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}
+                    defaultCenter={this.state.defaultCenter}
+                    center={this.state.center}
+                    defaultZoom={this.state.zoom}
                 >
                     {this.renderMarkers()}
                 </GoogleMapReact>
