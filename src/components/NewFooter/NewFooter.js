@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import Link from '@material-ui/core/Link';
+import LinkStyle from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 
 
@@ -47,7 +47,7 @@ export default function NewFooter() {
       <footer className={classes.footer}>
         <Container maxWidth="sm">
             
-          <Link className="nav-link" to="/about"> About </Link>
+          <LinkStyle><Link className="nav-link" to="/about"> About </Link></LinkStyle>
           <Link className="nav-link" to="/contact"> Contact Us </Link>
           <Link className="nav-link" to="/TOS"> Terms and Conditions </Link>
           <Link className="nav-link" to="/privacy">Privacy Policy</Link>

@@ -22,7 +22,8 @@ import TermsOfServicePage from '../TermsOfServicePage/TermsOfServicePage';
 import PropertyInputPage from '../PropertyInputPage/PropertyInputPage'
 import './App.css';
 import NewFooter from '../NewFooter/NewFooter';
-import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy'
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 class App extends Component {
   componentDidMount() {
@@ -32,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <ScrollToTop/>
         <div>
           <Nav />
           <Switch>
@@ -39,7 +41,7 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-
+            
             <Route exact path="/contact"component={ContactPage}/>
             <Route exact path="/about"component={AboutPage}/>
             <Route exact path="/nda"component={NdaPage}/>
