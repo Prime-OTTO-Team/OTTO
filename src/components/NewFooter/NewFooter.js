@@ -49,6 +49,7 @@ export default function NewFooter() {
           <Link className="nav-link" to="/about"> About </Link>
           <Link className="nav-link" to="/contact"> Contact Us </Link>
           <Link className="nav-link" to="/terms"> Terms and Conditions </Link>
+          <Link className="nav-link" to="/privacy">Privacy Policy</Link>
 
           {/* <Typography variant="body1">My sticky footer can be found here.</Typography> */}
           < Copyright />

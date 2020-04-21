@@ -22,6 +22,7 @@ import TermsOfServicePage from '../TermsOfServicePage/TermsOfServicePage';
 import PropertyInputPage from '../PropertyInputPage/PropertyInputPage'
 import './App.css';
 import NewFooter from '../NewFooter/NewFooter';
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy'
 
 class App extends Component {
   componentDidMount() {
@@ -46,6 +47,7 @@ class App extends Component {
             <Route exact path="/account"component={AccountPage}/>
             <Route exact path="/admin/property" component = {AdminPropertyPage}/>
             <Route exact path="/admin/user" component = {AdminUserPage}/>
+            <Route exact path="/privacy" component = {PrivacyPolicy}/>
 
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
