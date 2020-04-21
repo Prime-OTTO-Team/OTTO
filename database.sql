@@ -31,7 +31,7 @@ CREATE TABLE "property" (
     "gross_expense" INTEGER,
     "desired_price" INTEGER,
     "latitude" NUMERIC(9, 7),
-    "longitude" NUMERIC(9, 7),
+    "longitude" NUMERIC(9, 7)
 );
 
 CREATE TABLE "search" (

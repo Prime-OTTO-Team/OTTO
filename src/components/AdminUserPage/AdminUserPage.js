@@ -46,7 +46,7 @@ class AdminUserPage extends Component {
     }
     deleteUser = (data) => {
         this.props.dispatch({
-            type: 'DELETE_USER',
+            type: 'DELETE_ADMIN_USER',
             payload: data
         });
     }
@@ -69,15 +69,15 @@ class AdminUserPage extends Component {
                             ))}
                         </div>
                     ) : (
-                            <div>
-                                {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
-                                    <div key={unapprovedUser.id} className="unapproved" >
-                                        {unapprovedUser.first_name} {unapprovedUser.last_name}
-                                        <button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button>
-                                        <button onClick={() => this.deleteUser(unapprovedUser)}>Delete User</button><br />
-                                    </div>
-                                ))}
-                            </div>)}
+                        <div>
+                            {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
+                                <div key={unapprovedUser.id} className="unapproved" >
+                                    {unapprovedUser.first_name} {unapprovedUser.last_name}
+                                    <button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button>
+                                    <button onClick={() => this.deleteUser(unapprovedUser)}>Delete User</button><br />
+                                </div>
+                            ))}
+                        </div>)}
                 </div>
             </div>
         )
