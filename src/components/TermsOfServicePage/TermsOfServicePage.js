@@ -999,7 +999,668 @@ class TermsOfServicePage extends Component {
                     </p>
                     <p>
                         <span>
-                            
+                            In accordance with the DMCA and other applicable law, we have adopted a policy of terminating, in appropriate
+                            circumstances, users who are deemed to be repeat infringers. We may also at our sole discretion limit access to the
+                            Services and/or terminate the membership of any user who infringes any intellectual property rights of others,
+                            whether or not there is any repeat infringement.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0in">
+                        <span styles="font-size: 9pt">
+                            6.
+                            <span styles="font-size: 9pt; line-height: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                        <span>
+                            <b>
+                                Representations; Disclaimer of Warranties
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>When you use the Services, you’ll comply with applicable laws and licensing requirements
+                            when you do so. You’re responsible for your users. We make the Services available on an “as is” and “as available”
+                            basis with no availability commitment or otherwise, and without any sort of warranty <u>unless</u> applicable laws require it,
+                            in which case you’re entitled to those legally required warranties.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            You represent and warrant that you have validly entered into the Agreement and have the legal power to do so, and
+                            that you will use the Services in compliance with all applicable laws, rules, and regulations, including without limitation
+                            any licensing requirements. ALL INFORMATION PROVIDED VIA THE SERVICES IS FOR INFORMATIONAL
+                            PURPOSES ONLY AND SHOULD NOT BE CONSTRUED AS PROFESSIONAL ADVICE. NO ACTION SHOULD BE
+                            TAKEN BASED UPON INFORMATION PROVIDED VIA THE SERVICES WITHOUT FIRST SEEKING INPUT FROM
+                            AN INDEPENDENT PROFESSIONAL WHO IS LICENSED AND/OR QUALIFIED IN THE APPLICABLE AREA.
+                            EXCEPT AS EXPRESSLY PROVIDED FOR HEREIN, THE SERVICES AND ALL RELATED COMPONENTS AND
+                            INFORMATION ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS WITHOUT ANY WARRANTIES OF
+                            ANY KIND, AND WE EXPRESSLY DISCLAIM, ON BEHALF OF OURSELVES AND ON BEHALF OF OUR
+                            VENDORS AND LICENSORS, ANY AND ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING
+                            THE IMPLIED WARRANTIES OF MERCHANTABILITY, TITLE, FITNESS FOR A PARTICULAR PURPOSE, AND
+                            NON-INFRINGEMENT. CUSTOMER ACKNOWLEDGES THAT WE DO NOT WARRANT THAT THE SERVICES
+                            WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            SOME JURISDICTIONS DO NOT ALLOW THE DISCLAIMER OF CERTAIN TYPES OF WARRANTIES, SO THE
+                            ABOVE DISCLAIMERS MAY NOT APPLY TO YOU. THE AGREEMENT GRANTS SPECIFIC LEGAL RIGHTS, AND
+                            CUSTOMER AND AUTHORIZED USERS MAY ALSO HAVE OTHER RIGHTS THAT VARY FROM JURISDICTION
+                            TO JURISDICTION. THE FOREGOING DISCLAIMERS WILL NOT APPLY TO THE EXTENT PROHIBITED BY
+                            APPLICABLE LAW.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0in">
+                        <span styles="font-size: 9pt">
+                            7.
+                            <span styles="font-size: 9pt; line-height: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                        <span>
+                            <b>
+                                Limitation of Liability
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>Our aggregate liability under the agreement is limited to direct damages, and won’t
+                            exceed the greater of $100 or the amounts you paid to us in the last 12 months <u>unless</u> applicable laws require
+                            something else, in which case you’re entitled to what applicable laws require.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            IN NO EVENT WILL OUR AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THE AGREEMENT
+                            (WHETHER IN CONTRACT OR TORT OR UNDER ANY OTHER THEORY OF LIABILITY) EXCEED THE
+                            GREATER OF US $100 OR THE TOTAL AMOUNT PAID BY YOU HEREUNDER IN THE TWELVE (12) MONTHS
+                            PRECEDING THE LAST EVENT GIVING RISE TO LIABILITY. THE FOREGOING WILL NOT LIMIT YOUR
+                            PAYMENT OBLIGATIONS UNDER THE “PAYMENT TERMS” SECTION ABOVE.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            IN NO EVENT WILL WE OR ANY OF OUR VENDORS OR LICENSORS HAVE ANY LIABILITY TO YOU OR TO
+                            ANY THIRD PARTY FOR ANY LOST PROFITS OR REVENUES OR FOR ANY INDIRECT, SPECIAL, INCIDENTAL,
+                            CONSEQUENTIAL, COVER OR PUNITIVE DAMAGES HOWEVER CAUSED, WHETHER IN CONTRACT, TORT
+                            OR UNDER ANY OTHER THEORY OF LIABILITY, AND WHETHER OR NOT THE PARTY HAS BEEN ADVISED
+                            OF THE POSSIBILITY OF SUCH DAMAGES.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            You are responsible for all login credentials, including usernames and passwords, for your account. We will not be
+                            responsible for any damages, losses or liability to you or anyone else, if such information is not kept confidential by
+                            you, or if such information is correctly provided by an unauthorized third party logging into and accessing the
+                            Services.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The limitations under this “Limitation of Liability” section apply with respect to all legal theories, whether in contract,
+                            tort or otherwise, and to the extent permitted by law. The provisions of this “Limitation of Liability” section allocate the
+                            risks under the Agreement between the parties, and the parties have relied on these limitations in determining
+                            whether to enter into the Agreement and the pricing for the Services.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN TYPES OF DAMAGES,
+                            SUCH AS INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATIONS MAY NOT APPLY TO
+                            YOU. THE AGREEMENT GRANTS SPECIFIC LEGAL RIGHTS, AND CUSTOMER AND AUTHORIZED USERS
+                            MAY ALSO HAVE OTHER RIGHTS THAT VARY FROM JURISDICTION TO JURISDICTION. THE FOREGOING
+                            DISCLAIMERS AND LIMITATIONS WILL NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LAW.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0in">
+                        <span styles="font-size: 9pt">
+                            8.
+                            <span styles="font-size: 9pt; line-height: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                        <span>
+                            <b>
+                                Indemnification
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>If we’re exposed to any sort of liability relating to certain of your acts (e.g., your
+                            submission of infringing content, your violation of the agreement, any use of your account (whether or not authorized
+                            by you), or any dispute between you and other users of the Services), then you’ll step into our shoes and cover that
+                            liability for us.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            You agree to defend, indemnify and hold harmless us and our affiliates, licensors, and suppliers, and our and their
+                            respective employees, contractors, agents, officers and directors, from and against any and all claims, damages,
+                            obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney’s fees) arising from:
+                            (a) your use of and access to the Services, including any Customer Content or other content transmitted or received
+                            by you; (b) your violation of any term of the Agreement, including without limitation any breach of your
+                            representations and warranties above; (c) your violation of any third-party right, including without limitation any right
+                            of privacy or intellectual property rights; (d) your violation of any applicable law, rule or regulation; (e) Customer
+                            Content or any content that is submitted via your account, including without limitation misleading, false, or inaccurate
+                            information; (f) your gross negligence, fraud, or willful misconduct; (g) any other party’s access and use of the
+                            Services with your unique username, password or other appropriate security code (provided that such access and
+                            use was not our fault); or (h) any dispute between you and any other user of the Services, whether in relation to any
+                            Transaction Documents or otherwise.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0in">
+                        <span styles="font-size: 9pt">
+                            9.
+                            <span styles="font-size: 9pt; line-height: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                        <span>
+                            <b>
+                                Confidentiality
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>We may provide each other with certain confidential information. We’ll keep that
+                            information confidential and won’t use it except to further our relationship under the agreement.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Definition
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            Each party (“<b><i>Disclosing Party</i></b>”) may disclose “<b><i>Confidential Information</i></b>” to the other party 
+                            (“<b><i>Receiving Party”</i></b>) in connection with the Agreement, which is anything that reasonably should be understood to be confidential given the
+                            nature of the information and the circumstances of disclosure including all Order Forms, as well as non-public
+                            business, product, technology and marketing information. Confidential Information of Customer includes Customer
+                            Content. If something is labeled “Confidential,” that’s a clear indicator to the Receiving Party that the material is
+                            confidential. Notwithstanding the above, Confidential Information does not include information that (a) is or becomes
+                            generally available to the public without breach of any obligation owed to the Disclosing Party; (b) was known to the
+                            Receiving Party prior to its disclosure by the Disclosing Party without breach of any obligation owed to the Disclosing
+                            Party; (c) is received from a third party without breach of any obligation owed to the Disclosing Party; or (d) was
+                            independently developed by the Receiving Party.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Protection and Use of Confidential Information
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The Receiving Party will (a) take at least reasonable measures to prevent the unauthorized disclosure or use of
+                            Confidential Information, and limit access to those employees, affiliates and contractors who need to know such
+                            information in connection with the Agreement; and (b) not use or disclose any Confidential Information of the
+                            Disclosing Party for any purpose outside the scope of the Agreement. Nothing above will prevent either party from
+                            sharing Confidential Information with financial and legal advisors; provided, however, that the advisors are bound to
+                            confidentiality obligations at least as restrictive as those in the Agreement.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Compelled Access or Disclosure
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The Receiving Party may access or disclose Confidential Information of the Disclosing Party if it is required by law;
+                            provided, however, that the Receiving Party gives the Disclosing Party prior notice of the compelled access or
+                            disclosure (to the extent legally permitted) and reasonable assistance, at the Disclosing Party's cost, if the Disclosing
+                            Party wishes to contest the access or disclosure. If the Receiving Party is compelled by law to access or disclose the
+                            Disclosing Party’s Confidential Information, the Disclosing Party will reimburse the Receiving Party for its reasonable
+                            cost of compiling and providing access to such Confidential Information as well as the reasonable cost for any
+                            support provided in connection with the Disclosing Party seeking a protective order or confidential treatment for the
+                            Confidential Information to be produced.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0in">
+                        <span styles="font-size: 9pt">
+                            10.
+                            <span styles="font-size: 9pt; line-height: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                        <span>
+                            <b>
+                                Miscellaneous
+                            </b>
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Publicity
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            Neither party may publicly use the other party’s company name, logo, or other trademarks for any purpose without
+                            the other party’s prior written consent; provided that we may place your name and logo on our website and other
+                            marketing materials for the purpose of identifying you as a user of our products and services without such consent.
+                            All use of the other party’s trademarks, and all goodwill accruing therefrom, will inure to the sole and exclusive benefit
+                            of the owner of the trademarks. Such consent is revocable at the owner’s sole discretion.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Third Party Products, Links, and Information
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>We don’t endorse any third-party products and services, and the agreement doesn’t apply
+                            to your use of those products and services.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                        The Services may integrate with, or contain, third party products, services, materials, or information, or links thereto
+                        that are not owned or controlled by us (“<b><i>Third Party Materials</i></b>”). We do not endorse or assume any responsibility for
+                        any such Third Party Materials. If you access any third party website or service, you does so at your own risk, and
+                        Customer acknowledges and agrees that the Agreement and our Privacy Policy https://www.OTTO.com/privacy
+                        do <u>not</u> apply to your use of such sites or services. Customer expressly relieves us from any and all liability arising
+                        from its use of any Third Party Materials.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Force Majeure
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>Neither you nor we are responsible if something out of our reasonable control prevents us
+                            from performing under the agreement.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            Neither us nor Customer will be liable by reason of any failure or delay in the performance of its obligations on
+                            account of events beyond the reasonable control of a party, which may include denial-of-service attacks, a failure by
+                            a third party hosting provider or utility provider, strikes, shortages, riots, fires, acts of God, war, terrorism, and
+                            governmental action.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Relationship of the Parties; No Third Party Beneficiaries
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>You’re our customer; we’re your service provider. Nothing more, nothing less.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The parties are independent contractors. The Agreement does not create a partnership, franchise, joint venture,
+                            agency, fiduciary, or employment relationship between the parties. There are no third party beneficiaries to the
+                            Agreement; a person who is not a party to the Agreement may not enforce any of its terms under any applicable law.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Email Communications
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>We can provide you legal notices through email or the Services. You’re required to send
+                            us legal notices via email.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            Except as otherwise set forth herein, all notices under the Agreement will be by email, although we may instead
+                            choose to provide notice to Customer through the Services. Notices to us must be sent to info@OTTO.com. Notices
+                            will be deemed to have been duly given (a) the business day after it is sent, in the case of notices through email; and
+                            (b) the same day, in the case of notices through the Services.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                            Modifications
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>Like all (or at least most) online terms, we need the ability to change the agreement from
+                            time to time as applicable laws and our products, services, and businesses change. We’ll keep the “last modified”
+                            date at the top of this page updated, and if there’s anything particularly substantial in the changes, we’ll tell you about
+                            it.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            We may change these Customer Terms and the other components of the Agreement (except any Order Forms) in
+                            accordance with this Section. If we make a material change to the Agreement, we will provide Customer with
+                            reasonable notice prior to the change taking effect, either by emailing the email address associated with Customer’s
+                            account or by messaging Customer through the Services. Customer can review the most current version of the
+                            Customer Terms at any time by visiting this page and by visiting the most current versions of the other pages that are
+                            referenced in the Agreement. The materially revised Agreement will become effective on the date set forth in our
+                            notice, and all other changes will become effective upon posting of the change. If Customer accesses or uses the
+                            Services after the effective date, that use will constitute Customer’s acceptance of any revised terms and conditions.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                            Waivers
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>Any waiver of rights needs to be in writing and signed.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            No failure or delay by either party in exercising any right under the Agreement will constitute a waiver of that right. No
+                            waiver under the Agreement will be effective unless made in writing and signed by an authorized representative of
+                            the party being deemed to have granted the waiver.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                            Severability
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>If a term of the agreement is illegal, a court can modify it to make it as close as possible to
+                            the original term in effect (while no longer being illegal).
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The Agreement will be enforced to the fullest extent permitted under applicable law. If any provision of the Agreement
+                            is held by a court of competent jurisdiction to be contrary to law, the provision will be modified by the court and
+                            interpreted so as best to accomplish the objectives of the original provision to the fullest extent permitted by law, and
+                            the remaining provisions of the Agreement will remain in effect.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                            Assignment
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>You can’t transfer the agreement or your rights or obligations under it to anyone else
+                            without our approval. We can transfer it without your consent to a corporate affiliate or a successor if we’re acquired
+                            by them, merged with them, etc.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            Neither party may assign or delegate any of its rights or obligations hereunder, whether by operation of law or
+                            otherwise, without the prior written consent of the other party (not to be unreasonably withheld). Notwithstanding the
+                            foregoing, we may assign the Agreement in its entirety (including all Order Forms), without consent of Customer, to a
+                            corporate affiliate or in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially
+                            all of its assets. Any purported assignment in violation of this section is void. Subject to the foregoing, the Agreement
+                            will bind and inure to the benefit of the parties, their respective successors and permitted assigns.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                            Governing Law
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>We’re located in California, so California law applies.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The Agreement, and any disputes arising out of or related hereto, will be governed exclusively by the internal laws of
+                            the State of California, without regard to its conflicts of laws rules or the United Nations Convention on the
+                            International Sale of Goods. The parties acknowledge that the Agreement evidences a transaction involving interstate
+                            commerce. Notwithstanding the preceding sentences with respect to the substantive law of the Agreement, any
+                            arbitration conducted hereunder shall be governed by the Federal Arbitration Act (9 U.S.C. §§ 1-16).
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Venue; Waiver of Jury Trial; Fees
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>We’re located in the Los Angeles County area, so if there’s any litigation arising out of or
+                            relating to the agreement, we’ll take care of it in Los Angeles County, and we’ll do it in front of a judge and not a jury.
+                            If one of you or us sues to enforce our rights under the agreement, the loser pays the winner’s fees.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The state and federal courts located in Los Angeles County, California will have exclusive jurisdiction to adjudicate
+                            any dispute arising out of or relating to the Agreement or its formation, interpretation or enforcement, including any
+                            appeal of an arbitration award or for trial court proceedings if the arbitration provision below is found to be
+                            unenforceable. Each party hereby consents and submits to the exclusive jurisdiction of such courts. <b><i>Each party also
+                            hereby waives any right to jury trial in connection with any action or litigation in any way arising out of or
+                            related to the Agreement. </i></b>In any action or proceeding to enforce rights under the Agreement, the prevailing party
+                            will be entitled to recover its reasonable costs and attorney’s fees.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Arbitration
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>Because courts are expensive, you and we agree to arbitrate our disputes through JAMS
+                            in Los Angeles County subject to certain cost-shifting requirements that may or may not apply.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <b><i>Read this section carefully because it requires the parties to arbitrate their disputes and limits the manner in
+                            which you may seek relief from us. </i></b>For any dispute with us, you agree to first contact us at info@OTTO.com and
+                            attempt to resolve the dispute informally. If we have not been able to resolve a dispute within sixty (60) days of your
+                            ]first contact, we each agree to resolve any claim, dispute, or controversy (excluding any claims for injunctive or other
+                            equitable relief as provided below) arising out of or in connection with or relating to the Agreement, or the breach or
+                            alleged breach thereof by binding arbitration by JAMS, under the Optional Expedited Arbitration Procedures then in
+                            effect for JAMS, except as provided herein. The arbitration will be conducted in Los Angeles County, California,
+                            unless we agree otherwise. If you are using the Service for commercial purposes, each party will be responsible for
+                            paying any JAMS filing, administrative and arbitrator fees in accordance with JAMS rules, and the award rendered by
+                            the arbitrator shall include costs of arbitration, reasonable attorneys’ fees and reasonable costs for expert and other
+                            witnesses. If you are an individual using the Services for non-commercial purposes: (i) JAMS may require you to pay
+                            a fee for the initiation of your case, unless you apply for and successfully obtain a fee waiver from JAMS; (ii) the
+                            award rendered by the arbitrator may include your costs of arbitration, your reasonable attorney’s fees, and your
+                            reasonable costs for expert and other witnesses; and (iii) you may sue in a small claims court of competent
+                            jurisdiction without first engaging in arbitration, but this does not absolve you of your commitment to engage in the
+                            informal dispute resolution process. Any judgment on the award rendered by the arbitrator may be entered in any
+                            court of competent jurisdiction. Nothing in this Section shall be deemed as preventing us from seeking injunctive or
+                            other equitable relief from the courts as necessary to prevent the actual or threatened infringement, misappropriation,
+                            or violation of our data security, intellectual property rights or other proprietary rights.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Entire Agreement
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                        <i>Plain Language Summary: </i>The agreement takes precedence over any other conversations or agreements we may
+                        have had with you about the Services. Only the agreement will apply.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The Agreement, including these Customer Terms and all referenced pages and Order Forms, if applicable,
+                            constitutes the entire agreement between the parties and supersedes all prior and contemporaneous agreements,
+                            proposals or representations, written or oral, concerning its subject matter. Without limiting the foregoing, the
+                            Agreement supersedes the terms of any online agreement electronically accepted by Customer. However, to the
+                            extent of any conflict or inconsistency between the provisions in these Customer Terms and any other documents or
+                            pages referenced in these Customer Terms, the following order of precedence will apply: (1) the terms of any Order
+                            Form (if any), (2) these Customer Terms; and (3) any other documents or pages referenced in these Customer
+                            Terms. Notwithstanding any language to the contrary therein, no terms or conditions stated in a Customer purchase
+                            order, vendor onboarding process or web portal, or any other Customer order documentation (excluding Order
+                            Forms) will be incorporated into or form any part of the Agreement, and all such terms or conditions will be null and
+                            void.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Additional Terms for Mobile Applications
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <i>Plain Language Summary: </i>Apple requires us to include this language. Basically, the Services are offered by us and
+                            not Apple, so you shouldn’t go to Apple with any sort of issues. Talk to us instead.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            The following applies to any Services acquired from the Apple App Store (“<b><i>Apple-Sourced Software</i></b>”): Customer
+                            acknowledges and agree that the Agreement is solely between Customer and us, not Apple, Inc. (“<b><i>Apple</i></b>”) and that
+                            Apple has no responsibility for the Apple-Sourced Software or content thereof. Customer’s use of the Apple-Sourced
+                            Software must comply with the App Store Terms of Service. Customer acknowledges that Apple has no obligation
+                            whatsoever to furnish any maintenance and support services with respect to the Apple-Sourced Software. In the
+                            event of any failure of the Apple-Sourced Software to conform to any applicable warranty, Customer may notify
+                            Apple, and Apple will refund the purchase price for the Apple-Sourced Software (if any); to the maximum extent
+                            permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to the Apple-
+                            Sourced Software, and any other claims, losses, liabilities, damages, costs or expenses attributable to any failure to
+                            conform to any warranty will be solely governed by the Agreement and any law applicable to us as provider of the
+                            software. Customer acknowledges that Apple is not responsible for addressing any claims by Customer or any third
+                            party relating to the Apple-Sourced Software or Customer’s possession and/or use of the Apple-Sourced Software,
+                            including, but not limited to: (a) product liability claims; (b) any claim that the Apple-Sourced Software fails to conform
+                            to any applicable legal or regulatory requirement; and (c) claims arising under consumer protection or similar
+                            legislation; and all such claims are governed solely by the Agreement and any law applicable to us as provider of the
+                            software. Customer acknowledges that, in the event of any third-party claim that the Apple-Sourced Software or your
+                            possession and use of that Apple-Sourced Software infringes that third party’s intellectual property rights, we, and not
+                            Apple, will be solely responsible for the investigation, defense, settlement and discharge of any such intellectual
+                            property infringement claim to the extent required by the Agreement. Customer and we acknowledge and agree that
+                            Apple, and Apple’s subsidiaries, are third-party beneficiaries of the Agreement as relates to your license of the Apple-
+                            Sourced Software, and that, upon your acceptance of the terms and conditions of the Agreement, Apple will have the
+                            right (and will be deemed to have accepted the right) to enforce the Agreement as relates to Customer’s license of
+                            the Apple-Sourced Software against Customer as a third-party beneficiary thereof.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Survival
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            Any section of the Agreement that, by its terms or its nature, should survive the termination or expiration of the
+                            Agreement shall so survive, including but not limited to Sections 2.3, 2.5, 3.1(a), 3.2, 3.3, 3.5, 4.6, and 5 through 10.
+                        </span>
+                    </p>
+                    <p styles="margin-left: 0in; text-indent: 0.5in">
+                        <span styles="font-size: 9pt">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span>
+                            <b>
+                                Contacting Us
+                            </b>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            Please also feel free to contact us if you have any questions about the Customer Terms or any other part of the
+                            Agreement. You may contact us at info@OTTO.com or at our mailing address set forth in Section 5 above.
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            If you are a California resident, in accordance with Cal. Civ. Code §1789.3, you may report complaints to the
+                            Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs by
+                            contacting them in writing at 1625 North Market Blvd., Suite N 112 Sacramento, CA 95834, or by telephone at (800)
+                            952-5210 or (916) 445-1254.
                         </span>
                     </p>
                 </div>
