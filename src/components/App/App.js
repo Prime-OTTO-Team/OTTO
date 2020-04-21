@@ -43,7 +43,7 @@ class App extends Component {
             <Route exact path="/contact"component={ContactPage}/>
             <Route exact path="/about"component={AboutPage}/>
             <Route exact path="/nda"component={NdaPage}/>
-            <Route exact path="/terms"component={TermsOfServicePage}/>
+            <Route exact path="/TOS"component={TermsOfServicePage}/>
             <Route exact path="/account"component={AccountPage}/>
             <Route exact path="/admin/property" component = {AdminPropertyPage}/>
             <Route exact path="/admin/user" component = {AdminUserPage}/>
