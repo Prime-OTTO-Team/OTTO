@@ -393,6 +393,78 @@ class PrivacyPolicy extends Component {
                         regulations.
                     </span>
                 </p>
+                <p>
+                    <span>
+                        <b>7.   CHILDREN’S PRIVACY</b>
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        OTTO does not knowingly collect or solicit any information from anyone under the age of 13 on this Service.  In the
+                        event that we learn that we have inadvertently collected personal information from a child under age 13, we will
+                        delete that information as quickly as possible.  If you believe that we might have any information from a child
+                        under 13, please contact us at privacy@OTTO.com.
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        <b>8.   LINKS TO OTHER WEB SITES AND SERVICES</b>
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        The Service may contain links to and from third-party websites of our business partners and advertisers and our
+                        users may post links to third-party websites, including a variety of social networking sites.  If you follow a link to
+                        any of these websites, please note that these websites have their own privacy policies and that we do not accept
+                        any responsibility or liability for their policies.  We strongly recommend that you read their privacy policies and
+                        terms and conditions of use to understand how they collect, use, and share information. We are not responsible
+                        for the privacy practices or the content on the websites of third-party sites.
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        <b>9.  HOW TO CONTACT US</b>
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        If you have any questions about this Privacy Policy or the Service, please contact us at:
+                    </span>
+                </p>
+                <p>
+                    Attn: Privacy Department <br/>
+                    Commercial Real Estate Exchange, Inc. <br/>
+                    13360 Beach Avenue <br/>
+                    Marina Del Rey, California  90292 <br/>
+                    Email: privacy@OTTO.com <br/>
+                    Phone: (888) 273-0423
+                </p>
+                <p>
+                    <span>
+                        In your message, please provide us with your name, mailing address, telephone number and e-mail address.
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        <b>10.   CHANGES TO OUR PRIVACY POLICY</b>
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        We may modify or update this Privacy Policy from time to time to reflect the changes in our business and practices,
+                        so you should review this page periodically.  When we change the policy in a material manner, we will let you
+                        know and update the ‘last modified’ date at the bottom of this page.  If you object to any changes, you may close
+                        your account. Continuing to use our Services after we publish changes to this Privacy Policy means that you are
+                        consenting to the changes.
+                    </span>
+                </p>
+                <br/>
+                <br/>
+                <p>
+                    <span>
+                        This privacy policy was last modified on August 7, 2018.
+                    </span>
+                </p>
             </div>
         )
     }
