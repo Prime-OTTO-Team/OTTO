@@ -1,6 +1,5 @@
 .mapListingContainer {
     flex-direction: row;
-
 }
 .listingContainer {
     width: 50%;
@@ -8,6 +7,9 @@
 }
 .mapContainer {
     width:50%;
+    position: absolute;
+    left: 52%;
+    top: 12%;
 }
 .propertyButtonsWrapper {
     width: 100%;
