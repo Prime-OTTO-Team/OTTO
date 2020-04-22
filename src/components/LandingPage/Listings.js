@@ -114,9 +114,10 @@ class Listings extends Component {
     renderListings = () => {
         const props = this.props;
         const { classes } = this.props;
+        const properties = this.props.reduxState.propertyReducer;
         console.log('props', props);
-        if (props.properties) {
-            return props.properties.map((property) => {
+        if (properties) {
+            return properties.map((property) => {
                 return (
                     <ExpansionPanel
                         key={property.id}

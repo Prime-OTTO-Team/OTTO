@@ -30,32 +30,44 @@ const styles = theme => ({
     },
     form: {
         width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(3),
+        margin: theme.spacing(1),
+        width: '100%',
+        marginTop: theme.spacing(-1)
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 375,
+        width: '100%',
         marginTop: theme.spacing(-1)
     }
 });
-let searchArray = [];
-const initalState = {};
+let zipArray = [];
+let propertyTypeArray = [];
+let noiArray = [];
+let priceArray = [];
 class ForSalePage extends Component {
+    state = {
+        search: {
+            zip_code: '',
+            property_type: '',
+            net_operating_income_low: '',
+            net_operating_income_high: '',
+            desired_price_low: '',
+            desired_price_high: '',
 
-    state = '';
+        }
+    }
 
-    search = (event) => {
-        event.preventDefault();
-
-        this.props.dispatch({
-            type: 'SEARCH_PROPERTY',
-            payload: searchArray,
-        });
-    } // end registerUser
-
+    handleChangeFor = (propertyName, event) => {
+        this.setState({
+            search: {
+                ...this.state.search,
+                [propertyName]: event.target.value
+            }
+        })
+    }
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
@@ -63,149 +75,204 @@ class ForSalePage extends Component {
         console.log('logging search state', this.state);
 
     }
-    arrayLoader = () => {
-        {
-            this.state && (
-                searchArray.push(this.state.searchQuery)
-            )
-        }
-        console.log('logging search array', searchArray);
-    }
-
-    handleSelect = propertyName => (event) => {
+    search = (event) => {
         event.preventDefault();
-        console.log('logging event target value', event.target.value);
-        this.setState({
-            searchQuery: { [propertyName]: event.target.value },
+        console.log('logging search array frm search function', propertyTypeArray);
+        this.props.dispatch({
+            type: 'SEARCH_PROPERTY_TYPE',
+            payload: this.state.search,
         });
-        console.log('logging handle select', this.state);
-        this.arrayLoader();    
+
+
     }
 
-   
+    handleSelect = (propertyName) => (event) => {
+
+        console.log('logging event target value', event.target.value);
+        this.setState.propertyName({ propertyName: event.target.value });
+    }
+
     render() {
         const { classes } = this.props;
+
         return (
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
-                <div className={classes.paper}>
-                    <Typography component="h1" variant="h5">
-                        Alumni Information
-                    </Typography>
 
+                <Typography component="h1" variant="h5">
+                    Property Search
+                    </Typography>
+                <div className={classes.paper}>
                     <form className={classes.form} noValidate onSubmit={this.search}>
                         <Grid container spacing={2}>
-                            <div>
-                                <Grid item xs={12} sm={6}>
-                                    <FormControl className={classes.formControl}>
-                                        <TextField
-                                            variant="outlined"
-                                            margin="normal"
-                                            required
-                                            fullWidth
-                                            id="zipCode"
-                                            label="Zip Code"
-                                            name="zipCode"
-                                            autoComplete="zipCode"
-                                            autoFocus
-                                            value={this.state.zipCode}
-                                            onChange={this.handleInputChangeFor('zipCode')}
-                                        />
-                                    </FormControl>
-                                </Grid>
-                            </div>
                             <Grid item xs={12}>
-                                <FormControl className={classes.formControl}>
+                                <FormControl className={classes.form}>
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        id="zip_code"
+                                        label="Zip Code"
+                                        name="zip_code"
+                                        autoComplete="zip_code"
+                                        autoFocus
+                                        value={this.state.zip_code}
+                                        onChange={(event) => this.handleChangeFor('zip_code', event)}
+                                    />
+                                </FormControl>
+                            </Grid>
+
+                            <Grid item xs={12} sm={12}>
+                                <FormControl className={classes.form}>
                                     <InputLabel >Property Type</InputLabel>
                                     <Select
-                                        id="propertyType"
-                                        type="propertyType"
-                                        name="propertyType"
-                                        value={this.state.propertyType}
-                                        onChange={this.handleSelect('propertyType')}
+                                        id="propertyTypeArray"
+                                        type="property_type"
+                                        fullWidth
+                                        name="property_type"
+                                        value={this.state.property_type}
+                                        onChange={(event) => this.handleChangeFor('property_type', event)}
                                     >
                                         <MenuItem value={'Residential'}>Residential </MenuItem>
-                                        <MenuItem value={'Commerical'}>Commerical</MenuItem>
+                                        <MenuItem value={'Commercial'}>Commerical</MenuItem>
                                         <MenuItem value={'Raw'}>Raw Land</MenuItem>
                                         <MenuItem value={'Vacant'}>Vacant</MenuItem>
                                     </Select>
                                     <FormHelperText>Please Select</FormHelperText>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={12} >
+                            <Grid item xs={6} sm={6}>
                                 <FormControl className={classes.formControl}>
-                                    <InputLabel >Net Operating Income</InputLabel>
+                                    <InputLabel >NOI Floor</InputLabel>
                                     <Select
-                                        id="NOI"
-                                        type="NOI"
+                                        id="net_operating_income_low"
+                                        type="net_operating_income_low"
                                         name="Net Operating Income"
                                         value={this.state.NOI}
-                                        onChange={this.handleSelect('NOI')}
+                                        onChange={(event) => this.handleChangeFor('net_operating_income_low', event)}
                                     >
                                         <MenuItem value="" disabled>
-                                            Select NOI
+                                            Select Low End
                                         </MenuItem>
-                                        <MenuItem value={'0-250,000'}>$0 - $250,000</MenuItem>
-                                        <MenuItem value={'250,000-500,000'}>$250,000 - $500,000</MenuItem>
-                                        <MenuItem value={'500,000-750,000'}>$500,000 - $750,000</MenuItem>
-                                        <MenuItem value={'750,000-1,000,000'}>$750,000 - $1,000,000</MenuItem>
+                                        <MenuItem value={'0'}>$0 </MenuItem>
+                                        <MenuItem value={'250000'}>$250,000</MenuItem>
+                                        <MenuItem value={'500000'}>$500,000</MenuItem>
+                                        <MenuItem value={'750000'}>$750,000</MenuItem>
+                                        <MenuItem value={'1000000'}>$1,000,000</MenuItem>
                                     </Select>
                                     <FormHelperText>Please Select</FormHelperText>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={12} >
+                            <Grid item xs={6} sm={6}>
                                 <FormControl className={classes.formControl}>
-                                    <InputLabel>Listing Price </InputLabel>
+                                    <InputLabel >NOI Limit</InputLabel>
+                                    <Select
+                                        id="net_operating_income_high"
+                                        type="net_operating_income_high"
+                                        name="Net Operating Income"
+                                        value={this.state.NOI}
+                                        onChange={(event) => this.handleChangeFor('net_operating_income_high', event)}
+                                    >
+                                        <MenuItem value="" disabled>
+                                            Select High End
+                                        </MenuItem>
+                                        <MenuItem value={'250000'}>$250,000</MenuItem>
+                                        <MenuItem value={'500000'}>$500,000</MenuItem>
+                                        <MenuItem value={'750000'}>$750,000</MenuItem>
+                                        <MenuItem value={'1000000'}>$1,000,000</MenuItem>
+                                        <MenuItem value={'1500000'}>$1,500,000</MenuItem>
+                                        <MenuItem value={'2000000'}>$2,000,000</MenuItem>
+                                        <MenuItem value={'2500000'}>$2,500,000</MenuItem>
+                                        <MenuItem value={'3000000'}>$3,000,000</MenuItem>
+                                        <MenuItem value={'4000000'}>$4,000,000</MenuItem>
+                                        <MenuItem value={'5000000'}>$5,000,000</MenuItem>
+                                    </Select>
+                                    <FormHelperText>Please Select</FormHelperText>
+                                </FormControl>
+                            </Grid>
+                            <Grid xs={6} sm={6}>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel>Price Floor</InputLabel>
                                     <Select
 
-                                        id="price"
-                                        name="price"
-                                        value={this.state.price}
-                                        onChange={this.handleSelect('price')}
+                                        id="desired_price_low"
+                                        name="desired_price_low"
+                                        type="desired_price_low"
+                                        value={this.state.desired_price}
+                                        onChange={(event) => this.handleChangeFor('desired_price_low', event)}
                                     >
                                         <MenuItem value="" disabled>
-                                            Select Price Range
+                                            Select Low End
                                         </MenuItem>
-                                        <MenuItem value={'0-250,000'}>$0-$250,000</MenuItem>
-                                        <MenuItem value={'250,000-500,000'}>$250,000-500,000</MenuItem>
-                                        <MenuItem value={'500,000-750,000'}>$500,000-750,000</MenuItem>
-                                        <MenuItem value={'750,000-1,000,000'}>$750,000-1,000,000</MenuItem>
-                                        <MenuItem value={'1,000,000-1,500,000'}>$1,000,000-$1,500,000</MenuItem>
-                                        <MenuItem value={'1,500,000-2,000,000'}>$1,500,000-$2,000,000</MenuItem>
-                                        <MenuItem value={'2,000,000-2,500,000'}>$2,000,000-$2,500,000</MenuItem>
-                                        <MenuItem value={'2,500,000-3,000,000'}>$2,500,000-$3,000,000</MenuItem>
-                                        <MenuItem value={'3,000,000-4,000,000'}>$3,000,000-$4,000,000</MenuItem>
-                                        <MenuItem value={'4,000,000-5,000,000'}>$4,000,000-$5,000,000</MenuItem>
-                                        <MenuItem value={'5,000,000-6,000,000'}>$5,000,000-$6,000,000</MenuItem>
-                                        <MenuItem value={'6,000,000-7,000,000'}>$6,000,000-$7,000,000</MenuItem>
-                                        <MenuItem value={'7,000,000-8,000,000'}>$7,000,000-$8,000,000</MenuItem>
-                                        <MenuItem value={'8,000,000-9,000,000'}>$8,000,000-$9,000,000</MenuItem>
-                                        <MenuItem value={'9,000,000-10,000,000'}>$9,000,000-$10,000,000</MenuItem>
-                                        <MenuItem value={'10,000,000-10,000,000+'}>$10,000,000-$10,000,000+</MenuItem>
+                                        <MenuItem value={'0'}>$0 </MenuItem>
+                                        <MenuItem value={'250000'}>$250,000</MenuItem>
+                                        <MenuItem value={'500000'}>$500,000</MenuItem>
+                                        <MenuItem value={'750000'}>$750,000</MenuItem>
+                                        <MenuItem value={'1000000'}>$1,000,000</MenuItem>
+                                        <MenuItem value={'1500000'}>$1,500,000</MenuItem>
+                                        <MenuItem value={'2000000'}>$2,000,000</MenuItem>
+                                        <MenuItem value={'2500000'}>$2,500,000</MenuItem>
+                                        <MenuItem value={'3000000'}>$3,000,000</MenuItem>
+                                        <MenuItem value={'4000000'}>$4,000,000</MenuItem>
+                                        <MenuItem value={'5000000'}>$5,000,000</MenuItem>
 
                                     </Select>
                                     <FormHelperText>Please Select</FormHelperText>
                                 </FormControl>
                             </Grid>
-                            <div>
-                                <Grid item xs={12} sm={6}>
-                                    <FormControl className={classes.formControl}>
-                                        <Button variant="contained" color="primary"
-                                            className={classes.submit}
-                                            variant="contained"
-                                            type="submit"
-                                            name="submit"
-                                            value="Search"
-                                        >
-                                            Search
-              </Button>
-                                    </FormControl>
-                                </Grid>
-                            </div>
+                            <Grid xs={6} sm={6}>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel>Price Limit</InputLabel>
+                                    <Select
+
+                                        id="desired_price_high"
+                                        name="desired_price_high"
+                                        type="desired_price_high"
+                                        value={this.state.desired_price}
+                                        onChange={(event) => this.handleChangeFor('desired_price_high', event)}
+                                    >
+                                        <MenuItem value="" disabled>
+                                            Select High End
+                                        </MenuItem>
+                                        <MenuItem value={'250000'}>$250,000</MenuItem>
+                                        <MenuItem value={'500000'}>$500,000</MenuItem>
+                                        <MenuItem value={'750000'}>$750,000</MenuItem>
+                                        <MenuItem value={'1000000'}>$1,000,000</MenuItem>
+                                        <MenuItem value={'1500000'}>$1,500,000</MenuItem>
+                                        <MenuItem value={'2000000'}>$2,000,000</MenuItem>
+                                        <MenuItem value={'2500000'}>$2,500,000</MenuItem>
+                                        <MenuItem value={'3000000'}>$3,000,000</MenuItem>
+                                        <MenuItem value={'4000000'}>$4,000,000</MenuItem>
+                                        <MenuItem value={'5000000'}>$5,000,000</MenuItem>
+                                        <MenuItem value={'6000000'}>$6,000,000</MenuItem>
+                                        <MenuItem value={'7000000'}>$7,000,000</MenuItem>
+                                        <MenuItem value={'8000000'}>$8,000,000</MenuItem>
+                                        <MenuItem value={'9000000'}>$9,000,000</MenuItem>
+                                        <MenuItem value={'10000000'}>$10,000,000</MenuItem>
+                                    </Select>
+                                    <FormHelperText>Please Select</FormHelperText>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <FormControl className={classes.form}>
+                                    <Button variant="contained" color="primary"
+                                        className={classes.submit}
+                                        variant="contained"
+                                        fullWidth
+                                        type="submit"
+                                        name="submit"
+                                        value="Search"
+                                    >
+                                        Search
+                                        </Button>
+                                </FormControl>
+                            </Grid>
                         </Grid>
                     </form>
-                    <h1>{this.displayArray}</h1>
                 </div>
+                <h1>{this.displayArray}</h1>
+
             </Container>
         )
     }

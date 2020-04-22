@@ -11,7 +11,7 @@ CREATE TABLE "user" (
     "password" VARCHAR (100) NOT NULL,
     "first_name" VARCHAR (100) NOT NULL,
     "last_name" VARCHAR (100) NOT NULL,
-    "user_type" INTEGER,
+    "user_type" INTEGER DEFAULT '0',
     "phone_number" INTEGER,
     "approved_user" BOOLEAN default false
 );

@@ -21,6 +21,7 @@ function* updateProperty(action) {
 function* propertySaga() {
     yield takeEvery('ADD_PROPERTY', addProperty);
     yield takeEvery('UPDATE_PROPERTY', updateProperty);
+
 }
 
 export default propertySaga;

@@ -25,11 +25,17 @@ class LandingPage extends Component {
             this.setState({
                 properties: response.data
             })
+            this.props.dispatch({
+                type: 'SET_PROPERTY',
+                payload: response.data
+            })
             console.log('this.state.properties', this.state.properties);
         } catch (error) {
             console.log('getProperties error: ', error)
         }
+    
     }
+   
     handlePanelChange = (id) => {
         if (id != this.state.expanded) {
             this.setState({
@@ -47,7 +53,8 @@ class LandingPage extends Component {
                 <LoginSignUpModal />
                 <div className="mapListingContainer">
                     <Listings
-                        properties={this.state.properties} handlePanelChange={this.handlePanelChange}
+                        properties={this.state.properties} 
+                        handlePanelChange={this.handlePanelChange}
                         expanded={this.state.expanded}
                     />
                     <div className = "mapContainer">
