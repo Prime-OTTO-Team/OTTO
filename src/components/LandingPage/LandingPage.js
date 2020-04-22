@@ -1,24 +1,58 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import LoginSignUpModal from '../Modals/LoginSignupModal';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import Listings from './Listings';
-import './LandingPage.css'
+import './LandingPage.css';
+
+
 class LandingPage extends Component {
+    //TODO: set local state "properties" to a redux reducer
+    state = {
+        properties: '',
+        expanded: 0
+    }
+    componentDidMount() {
+        this.getProperties();
+    }
+    getProperties = async () => {
+        try {
+            const response = await axios({
+                url: 'api/property/public',
+                method: 'GET'
+            })
+            this.setState({
+                properties: response.data
+            })
+            console.log('this.state.properties', this.state.properties);
+        } catch (error) {
+            console.log('getProperties error: ', error)
+        }
+    }
+    handlePanelChange = (id) => {
+        if (id != this.state.expanded) {
+            this.setState({
+                expanded: id
+            })
+        } else {
+            this.setState({
+                expanded: 0
+            })
+        }
+    }
     render() {
         return (
-            <div className='container'>
+            <div>
                 <LoginSignUpModal />
                 <div className="mapListingContainer">
-                    <Listings />
-                    <GoogleMap 
-                    markerLocations={[
-                        {lat: 45.00682,
-                        lng: -93.04485},
-                        {lat: 45.03682,
-                        lng: -93.02485}
-                    ]}
+                    <Listings
+                        properties={this.state.properties} handlePanelChange={this.handlePanelChange}
+                        expanded={this.state.expanded}
                     />
+                    <div className = "mapContainer">
+                    <GoogleMap markerLocations={this.state.properties}/>
+                    </div>
                 </div>
             </div>
         )

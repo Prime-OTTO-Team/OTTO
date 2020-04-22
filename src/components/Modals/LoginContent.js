@@ -2,17 +2,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
+// import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
+// import Link from '@material-ui/core/Link';
+// import Grid from '@material-ui/core/Grid';
+// import Box from '@material-ui/core/Box';
+// import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
 import './LoginSignUpModal.css';
+import axios from 'axios';
+
 const styles = theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -37,8 +39,8 @@ const styles = theme => ({
 class LoginContent extends Component {
 
     state = {
-        username: '',
-        password: '',
+        username: null,
+        password: null,
     };
 
     login = (event) => {
@@ -56,6 +58,7 @@ class LoginContent extends Component {
             this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
         }
         if (this.props.user) {
+            this.getDisabledButtons();
             this.props.handleClose();
         }
     } // end login
@@ -65,7 +68,33 @@ class LoginContent extends Component {
             [propertyName]: event.target.value,
         });
     }
-
+    getDisabledButtons = async () => {
+        console.log('in getDisableButtons');
+        try {
+            const response = await axios({
+                url: 'api/interest/favoritesAndInterests',
+                method: 'GET',
+            })
+            console.log('getDisabledButtons response: ', response);
+            if (response.status === 200) {
+                console.log('status 200');
+                this.props.dispatch({
+                    type: 'SET_FAVORITES',
+                    payload: response.data.favorites
+                });
+                this.props.dispatch({
+                    type: 'SET_INTERESTS',
+                    payload: response.data.interests
+                });
+            }
+            if (response.status === 400) {
+                console.log('status 400');
+            }
+            console.log('response: ', response);
+        } catch (error) {
+            console.log('error : ', error)
+        }
+    }
     render() {
         const { classes } = this.props;
         return (
