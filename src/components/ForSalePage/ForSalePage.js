@@ -8,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
@@ -47,6 +48,7 @@ let zipArray = [];
 let propertyTypeArray = [];
 let noiArray = [];
 let priceArray = [];
+
 class ForSalePage extends Component {
     state = {
         search: {
@@ -57,7 +59,10 @@ class ForSalePage extends Component {
             desired_price_low: '',
             desired_price_high: '',
 
-        }
+        },
+        filteredProperies: [],
+        unfilteredProperties: [] 
+
     }
 
     handleChangeFor = (propertyName, event) => {
@@ -68,21 +73,39 @@ class ForSalePage extends Component {
             }
         })
     }
+    componentDidMount() {
+        this.getProperties();
+    }
+    getProperties = async () => {
+        try {
+            const response = await axios({
+                url: 'api/property/public',
+                method: 'GET'
+            })
+            this.setState({
+                unfilteredProperties: response.data
+            })
+            this.props.dispatch({
+                type: 'SET_PROPERTY',
+                payload: response.data
+            })
+            // console.log('this.state.properties', this.state.properties);
+        } catch (error) {
+            console.log('getProperties error: ', error)
+        }
+;
+        
+    }
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
-        console.log('logging search state', this.state);
-
+        console.log('logging search state', this.state.search.property_type);
     }
     search = (event) => {
         event.preventDefault();
-        console.log('logging search array frm search function', propertyTypeArray);
-        this.props.dispatch({
-            type: 'SEARCH_PROPERTY_TYPE',
-            payload: this.state.search,
-        });
-
+      
+        this.filterPropertyType();
 
     }
 
@@ -91,6 +114,24 @@ class ForSalePage extends Component {
         console.log('logging event target value', event.target.value);
         this.setState.propertyName({ propertyName: event.target.value });
     }
+    
+
+    filterPropertyType = () => {
+        console.log('logging .propertyType from filterType', this.state.search.property_type)
+        const searchVar = this.state.search.property_type
+        const filteredProperties = this.state.unfilteredProperties.filter(function (property) { 
+            return property.property_type == searchVar;
+        });
+        console.log(filteredProperties);   
+    }
+    
+    filterSearches = () => {
+        // const unfilteredProperties = this.props.reduxState.propertyReducer;
+        const filteredProperties = this.unfilteredProperties.filter(function (property) {
+            return property.grade >= 85 && property.grade <= 9; 
+          });
+    }
+    
 
     render() {
         const { classes } = this.props;
@@ -277,8 +318,9 @@ class ForSalePage extends Component {
         )
     }
 }
-const mapStateToProps = state => ({
-    errors: state.errors,
+const mapStateToProps = (reduxState) => ({
+    errors: reduxState.errors,
+    reduxState
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(ForSalePage));
