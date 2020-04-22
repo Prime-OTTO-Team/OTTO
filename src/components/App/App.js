@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
-// import Footer from '../Footer/Footer';
+import Footer from '../Footer/Footer';
 // import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 // import UserPage from '../UserPage/UserPage';
@@ -47,6 +47,7 @@ class App extends Component {
             <Route exact path="/contact"component={ContactPage}/>
             <Route exact path="/about"component={AboutPage}/>
             <Route exact path="/nda"component={NdaPage}/>
+            <Route exact path="/ForSalePage"component={ForSalePage}/>
             <Route exact path="/TOS"component={TermsOfServicePage}/>
             <Route exact path="/account"component={AccountPage}/>
             <Route exact path="/admin/property" component = {AdminPropertyPage}/>
