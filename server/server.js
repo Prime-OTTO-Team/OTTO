@@ -12,12 +12,11 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const accountRouter = require('./routes/account.router');
 const searchRouter = require('./routes/search.router');
-const adminRouter = require('./routes/admin.router');
 const propertyRouter = require('./routes/property.router');
 const interestsRouter = require('./routes/interest.router');
 const favoriteRouter = require('./routes/favorite.router');
-
-
+const adminPropertyRouter = require('./routes/admin.property.router.js');
+const adminUserRouter = require('./routes/admin.user.router.js');
 
 
 // Body parser middleware
@@ -35,11 +34,11 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/account', accountRouter);
 app.use('/api/search', searchRouter);
-app.use('/api/admin', adminRouter);
 app.use('/api/property', propertyRouter);
 app.use('/api/interest', interestsRouter);
 app.use('/api/favorite', favoriteRouter);
-
+app.use('/api/admin/property', adminPropertyRouter);
+app.use('/api/admin/user', adminUserRouter);
 
 // Serve static files
 app.use(express.static('build'));

@@ -21,7 +21,11 @@ import NdaPage from '../NdaPage/NdaPage';
 import TermsOfServicePage from '../TermsOfServicePage/TermsOfServicePage';
 import PropertyInputPage from '../PropertyInputPage/PropertyInputPage'
 import './App.css';
-import NewFooter from '../NewFooter/NewFooter';
+
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
+// import NewFooter from '../NewFooter/NewFooter';
+
 
 class App extends Component {
   componentDidMount() {
@@ -31,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <ScrollToTop/>
         <div>
           <Nav />
           <Switch>
@@ -38,14 +43,15 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-
+            
             <Route exact path="/contact"component={ContactPage}/>
             <Route exact path="/about"component={AboutPage}/>
             <Route exact path="/nda"component={NdaPage}/>
-            <Route exact path="/terms"component={TermsOfServicePage}/>
+            <Route exact path="/TOS"component={TermsOfServicePage}/>
             <Route exact path="/account"component={AccountPage}/>
             <Route exact path="/admin/property" component = {AdminPropertyPage}/>
             <Route exact path="/admin/user" component = {AdminUserPage}/>
+            <Route exact path="/privacy" component = {PrivacyPolicy}/>
 
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
@@ -76,7 +82,7 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <NewFooter />
+          <Footer />
         </div>
       </Router>
     )
