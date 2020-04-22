@@ -22,10 +22,6 @@ class GoogleMap extends Component {
             }
         })
     }
-    handleMarkerClicked = () => {
-        
-    }
-    
 
     renderMarkers = () => {
         if (this.props.markerLocations) {

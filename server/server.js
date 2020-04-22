@@ -14,6 +14,10 @@ const accountRouter = require('./routes/account.router');
 const searchRouter = require('./routes/search.router');
 const adminRouter = require('./routes/admin.router');
 const propertyRouter = require('./routes/property.router');
+const interestsRouter = require('./routes/interest.router');
+const favoriteRouter = require('./routes/favorite.router');
+
+
 
 
 // Body parser middleware
@@ -33,6 +37,8 @@ app.use('/api/account', accountRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/property', propertyRouter);
+app.use('/api/interest', interestsRouter);
+app.use('/api/favorite', favoriteRouter);
 
 
 // Serve static files

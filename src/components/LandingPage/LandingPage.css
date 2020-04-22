@@ -1,14 +1,18 @@
 .mapListingContainer {
     flex-direction: row;
+
 }
 .listingContainer {
     width: 50%;
-    background-color: yellow;
+    background-color: 'black';
 }
 .mapContainer {
-    width: 30px;
-    height: 30px;
+    width:50%;
 }
-.container {
-    /* background-color: black; */
+.propertyButtonsWrapper {
+    width: 100%;
+    align-content: flex-end;
+}
+.interestedButton {
+    align-self: flex-end;
 }

@@ -4,7 +4,9 @@ import axios from 'axios';
 import LoginSignUpModal from '../Modals/LoginSignupModal';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import Listings from './Listings';
-import './LandingPage.css'
+import './LandingPage.css';
+
+
 class LandingPage extends Component {
     //TODO: set local state "properties" to a redux reducer
     state = {
@@ -41,14 +43,16 @@ class LandingPage extends Component {
     }
     render() {
         return (
-            <div className='container'>
+            <div>
                 <LoginSignUpModal />
                 <div className="mapListingContainer">
                     <Listings
                         properties={this.state.properties} handlePanelChange={this.handlePanelChange}
                         expanded={this.state.expanded}
                     />
+                    <div className = "mapContainer">
                     <GoogleMap markerLocations={this.state.properties}/>
+                    </div>
                 </div>
             </div>
         )

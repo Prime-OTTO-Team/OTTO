@@ -7,6 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
     root: {
@@ -29,7 +32,82 @@ const styles = theme => ({
 
 class Listings extends Component {
     state = {
-
+        buttonsDisabled: {
+            interested: [],
+            favorited: []
+        }
+    }
+    favoriteListing = async (propertyId) => {
+        try {
+            const response = await axios({
+                url: 'api/favorite',
+                method: 'POST',
+                params: {
+                    propertyId: propertyId
+                }
+            })
+            if (response.status === 200) {
+                console.log('status 200');
+                const favorited =  this.props.reduxState.userFavoritesReducer;
+                this.props.dispatch({
+                    type: 'SET_FAVORITES',
+                    payload: [...favorited, propertyId]
+                });
+            }
+            if (response.status === 400) {
+                console.log('status 400');
+            }
+            console.log('response: ', response);
+        } catch (error) {
+            console.log('error : ', error)
+        }
+    }
+    interestedInListing = async (propertyId) => {
+        try {
+            const response = await axios({
+                url: 'api/interest',
+                method: 'POST',
+                params: {
+                    propertyId: propertyId
+                }
+            })
+            if (response.status === 200) {
+                console.log('status 200');
+                const interests =  this.props.reduxState.userInterestsReducer;
+                this.props.dispatch({
+                    type: 'SET_INTERESTS',
+                    payload: [...interests, propertyId]
+                });
+            }
+            if (response.status === 400) {
+                console.log('status 400');
+            }
+            console.log('response: ', response);
+        } catch (error) {
+            console.log('error : ', error)
+        }
+    }
+    checkIfInterestButtonDisabled = (propertyId) => {
+        const userInterests = this.props.reduxState.userInterestsReducer
+        // console.log('disabledInterestButtons: ', userInterests);
+        for (let i = 0; i < userInterests.length; i++) {
+            const userInterest = userInterests[i];
+            if (userInterest.property_id === propertyId) {
+                return true;
+            }
+        }
+        return false
+    }
+    checkIfFavoriteButtonDisabled = (propertyId) => {
+        const userFavorites = this.props.reduxState.userFavoritesReducer
+        // console.log('disabledFavoriteButtons: ', userFavorites);
+        for (let i = 0; i < userFavorites.length; i++) {
+            const userFavorite = userFavorites[i];
+            if (userFavorite.property_id === propertyId) {
+                return true;
+            }
+        }
+        return false
     }
 
 
@@ -58,22 +136,38 @@ class Listings extends Component {
                         <ExpansionPanelDetails >
                             <Typography className={classes.details}>
                                 Property Type
-                                <br/>
+                                <br />
                                 {property.property_type}
-                                <Divider/>
+                                <Divider />
                                 Net Operating Income
-                                <br/>
+                                <br />
                                 {property.net_operating_income}
-                                <Divider/>
+                                <Divider />
                                 Gross Income
-                                <br/>
+                                <br />
                                 {property.gross_income}
-                                <Divider/>
+                                <Divider />
                                 Gross Expenses
-                                <br/>
+                                <br />
                                 {property.gross_expense}
                             </Typography>
                         </ExpansionPanelDetails>
+                        <div className="propertyButtonsWrapper">
+                            <Button
+                                className="interestedButton" variant="contained"
+                                color="primary"
+                                disabled={this.checkIfFavoriteButtonDisabled(property.id)}
+                                onClick={() => { this.favoriteListing(property.id) }}
+                            >Favorite
+                            </Button>
+                            <Button
+                                className="interestedButton" variant="contained"
+                                color="primary"
+                                disabled={this.checkIfInterestButtonDisabled(property.id)}
+                                onClick={() => { this.interestedInListing(property.id) }}
+                            >I'm Interested
+                            </Button>
+                        </div>
                     </ExpansionPanel>
                 )
             })
@@ -81,6 +175,7 @@ class Listings extends Component {
             console.log('Listings: cannot get property locations');
         }
     }
+ 
 
     render() {
         return (
@@ -90,4 +185,9 @@ class Listings extends Component {
         )
     }
 }
-export default withStyles(styles)(Listings);
+const mapStateToProps = (reduxState) => ({
+    errors: reduxState.errors,
+    reduxState
+})
+
+export default connect(mapStateToProps)(withStyles(styles)(Listings));

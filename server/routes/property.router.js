@@ -6,7 +6,6 @@ const axios = require('axios');
 
 console.log('process.env.GOOGLE_API_KEY: ', process.env.GOOGLE_API_KEY);
 router.post('/', async (req, res) => {
-    console.log('in postProperty route', req.body)
     const newProperty = req.body;
     const geocodeResponse = await axios.get(
         'https://maps.googleapis.com/maps/api/geocode/json', {
@@ -27,11 +26,9 @@ router.post('/', async (req, res) => {
         .then(() => res.sendStatus(201))
         .catch(() => res.sendStatus(500));
 });
-module.exports = router;
 
 router.put('/approve/:id', (req, res) => {
     const updateUser = req.params.id;
-    console.log('in adminRouter Put', updateUser);
     const queryText = `UPDATE "user" SET "approved_user" = 'TRUE' WHERE "id"=$1`;
     pool.query(queryText, [updateUser])
         .then(() => {
@@ -44,14 +41,15 @@ router.put('/approve/:id', (req, res) => {
 
 router.get('/public', async (req, res) => {
     const results = await pool.query(`
-    SELECT "id", "active", "city", "state", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price", "latitude", "longitude"
+    SELECT "id", "active", "city", "state", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price", ROUND("latitude", 2) AS "latitude", ROUND("longitude", 2) AS "longitude"
     FROM property
     WHERE active = true;`)
     try {
-        console.log('public properties search: ', results);
         res.send(results.rows)
     } catch (error) {
         console.log(error);
         res.sendStatus(500)
     }
 });
+
+module.exports = router;
