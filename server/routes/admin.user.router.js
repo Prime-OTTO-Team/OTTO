@@ -4,6 +4,18 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
+// router.get('/approved/', (req, res) => {
+//     console.log("in getAdminapprovedUser route");
+//     let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE'`;
+//     pool.query(queryString)
+//         .then(results => {
+//             res.send(results.rows);
+//         }).catch(error => {
+//             console.log(error);
+//             res.sendStatus(500);
+//         });
+// });
+
 router.get('/approved/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminapprovedUser route");
     if (req.isAuthenticated() && req.user.user_type == 1) {
@@ -20,18 +32,6 @@ router.get('/approved/', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
-
-// router.get('/approved/', (req, res) => {
-//     console.log("in getAdminapprovedUser route");
-//     let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE'`;
-//     pool.query(queryString)
-//         .then(results => {
-//             res.send(results.rows);
-//         }).catch(error => {
-//             console.log(error);
-//             res.sendStatus(500);
-//         });
-// });
 
 router.get('/unapproved/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminUnapprovedUser route");
