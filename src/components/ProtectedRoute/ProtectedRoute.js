@@ -41,6 +41,7 @@ const ProtectedRoute = (props) => {
     // ComponentToShow = ;
 
   }
+  
   //  else {
   //   // the the user is not logged in and the mode is not 'login'
   //   // show the RegisterPage
