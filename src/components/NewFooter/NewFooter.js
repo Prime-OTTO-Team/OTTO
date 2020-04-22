@@ -4,7 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import LinkStyle from '@material-ui/core/Link';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+// import './NewFooter.css';
+
 
 
 function Copyright() {
@@ -26,10 +29,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     minHeight: '100vh',
   },
-  main: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2),
-  },
+  // main: {
+  //   marginTop: theme.spacing(8),
+  //   marginBottom: theme.spacing(2),
+  // },
   footer: {
     padding: theme.spacing(3, 2),
     marginTop: 'auto',

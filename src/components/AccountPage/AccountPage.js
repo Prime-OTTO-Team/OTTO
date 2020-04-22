@@ -15,9 +15,11 @@ class AccountPage extends Component {
             });
             this.props.history.push("/PropertyInputPage");
     }
+
     componentDidMount() {
         this.getAccount();
     }
+
     getAccount = () => {
         this.props.dispatch({
             type: 'FETCH_ACCOUNT',
@@ -25,28 +27,33 @@ class AccountPage extends Component {
         });
         console.log('in getAccount');
     }
+
     handleClick = () => {
         this.setState({
             status: true
         })
     }
+
     handleClick2 = () => {
         this.setState({
             status: false
         })
     }
+
     removeFavorite = (data) => {
         this.props.dispatch({
             type: 'DELETE_FAVORITE',
             payload: data
         })
     }
+
     removeListing = (data) => {
         this.props.dispatch({
             type: 'UPDATE_PROPERTY',
             payload: data
         })
     }
+    
     render() {
         return (
             <div className='container'>
