@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
         console.log('checkResults.rowCount === 0');
         //if not favorited, run query to post
         try {
-            const postQuery = `INSERT INTO favorite ("user_id", "property_id") VALUES ($1, $2)`
+            const postQuery = `INSERT INTO interest ("user_id", "property_id") VALUES ($1, $2)`
             await pool.query(postQuery, [userId, propertyId]);
             res.sendStatus(200);
         } catch (error) {
