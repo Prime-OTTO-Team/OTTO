@@ -5,6 +5,7 @@ class AccountPage extends Component {
     state = {
         status: true
     }
+    
     editListing(data) {
         console.log('Edit doesnt do anything yet');
             this.props.dispatch({ 
@@ -58,6 +59,9 @@ class AccountPage extends Component {
         return (
             <div className='container'>
                 <h1>AccountPage</h1>
+                <h4>
+                        Hello "<b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>",
+                </h4>
                 <button onClick={this.handleClick}>My Listings</button>
                 <button onClick={this.handleClick2}>My Favorites</button>
                 <div className='account'>
@@ -87,6 +91,7 @@ class AccountPage extends Component {
 }
 const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
-    reduxState
+    reduxState,
+    user: reduxState.user
 });
 export default connect(mapStateToProps)(AccountPage);
