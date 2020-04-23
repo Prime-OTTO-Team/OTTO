@@ -1,4 +1,4 @@
-const accountListingReducer = (state = [], action) => {
+const accountFavoriteReducer= (state = [], action) => {
     switch (action.type) {
         case 'SET_ACCOUNT_FAVORITE':
             return action.payload;
@@ -8,4 +8,4 @@ const accountListingReducer = (state = [], action) => {
             return state;
     }
 };
-export default accountListingReducer;
+export default accountFavoriteReducer;
