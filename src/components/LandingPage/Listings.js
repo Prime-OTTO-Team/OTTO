@@ -63,6 +63,11 @@ class Listings extends Component {
         }
     }
     interestedInListing = async (propertyId) => {
+        // this.props.history.push('/');
+        this.props.dispatch({
+            type: 'SET_SINGLE_PROPERTY_ID',
+            payload: propertyId
+        })
         try {
             const response = await axios({
                 url: 'api/interest',
@@ -78,6 +83,7 @@ class Listings extends Component {
                     type: 'SET_INTERESTS',
                     payload: [...interests, propertyId]
                 });
+                
             }
             if (response.status === 400) {
                 console.log('status 400');
