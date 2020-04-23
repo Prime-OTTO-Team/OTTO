@@ -8,6 +8,7 @@ import accountFavorite from './accountFavoriteReducer';
 import searchResultReducer from './searchResultReducer';
 import adminPropertyReducer from './adminPropertyReducer';
 import adminUserReducer from './adminUserReducer';
+import adminAdminReducer from './adminAdminReducer';
 import adminUnapprovedUserReducer from './adminUnapprovedUserReducer';
 import adminPropertyHistoryReducer from './adminPropertyHistoryReducer';
 import userFavoritesReducer from './userFavoritesReducer';
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   searchResultReducer, //holds the search results to be displayed in ForSalePage
   adminPropertyReducer, //holds a list of all properties for the admin to look at
   adminUserReducer, //holds a list of all the users approved by the admin
+  adminAdminReducer, //holds a list of all the admins approved by the admin
   adminUnapprovedUserReducer, //holds a list of users not yet approved by admin
   adminPropertyHistoryReducer, //holds the history of all properties in the database
   userFavoritesReducer, 
