@@ -3,6 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 console.log('process.env.GOOGLE_API_KEY: ', process.env.GOOGLE_API_KEY);
 
+//not currently being used
 router.post('/', async (req, res) => {
     const userId = req.user.id;
     const propertyId = Number(req.query.propertyId);
