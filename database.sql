@@ -46,6 +46,12 @@ CREATE TABLE "interest" (
     "property_id" INTEGER REFERENCES "property" NOT NULL
 );
 
+CREATE TABLE "favorite" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "user" NOT NULL,
+    "property_id" INTEGER REFERENCES "property" NOT NULL
+);
+
 
 --Must have at least 2 users as user_id 1 and 2 are referenced. 
 
