@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './LandingPage.css';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -48,7 +47,7 @@ class Listings extends Component {
             })
             if (response.status === 200) {
                 console.log('status 200');
-                const favorited =  this.props.reduxState.userFavoritesReducer;
+                const favorited = this.props.reduxState.userFavoritesReducer;
                 this.props.dispatch({
                     type: 'SET_FAVORITES',
                     payload: [...favorited, propertyId]
@@ -73,7 +72,7 @@ class Listings extends Component {
             })
             if (response.status === 200) {
                 console.log('status 200');
-                const interests =  this.props.reduxState.userInterestsReducer;
+                const interests = this.props.reduxState.userInterestsReducer;
                 this.props.dispatch({
                     type: 'SET_INTERESTS',
                     payload: [...interests, propertyId]
@@ -114,7 +113,7 @@ class Listings extends Component {
     renderListings = () => {
         const props = this.props;
         const { classes } = this.props;
-        const properties = this.props.reduxState.propertyReducer;
+        const properties = this.props.reduxState.searchResultReducer;
         console.log('props', props);
         if (properties) {
             return properties.map((property) => {
@@ -176,7 +175,7 @@ class Listings extends Component {
             console.log('Listings: cannot get property locations');
         }
     }
- 
+
 
     render() {
         return (

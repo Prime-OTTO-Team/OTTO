@@ -1,9 +1,9 @@
-const searchResultReducer = (state = {}, action) => {
+const searchResultReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_SEARCH_RESULT':
             return action.payload;
         case 'UNSET_SEARCH_RESULT':
-            return {};
+            return [];
         default:
             return state;
     }

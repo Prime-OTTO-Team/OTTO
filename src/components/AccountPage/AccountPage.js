@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class AccountPage extends Component {
     state = {
@@ -7,25 +8,20 @@ class AccountPage extends Component {
     }
     editListing(data) {
         console.log('Edit doesnt do anything yet');
-            this.props.dispatch({ 
-                type: 'EDIT_LISTING',
-                 payload: data});
-            this.props.dispatch({
-                type: 'EDIT_MODE'
-            });
-            this.props.history.push("/PropertyInputPage");
+        this.props.dispatch({
+            type: 'EDIT_LISTING',
+            payload: data
+        });
+        this.props.dispatch({
+            type: 'EDIT_MODE'
+        });
+        this.props.history.push("/PropertyInputPage");
     }
 
     componentDidMount() {
-        this.getAccount();
-    }
-
-    getAccount = () => {
         this.props.dispatch({
-            type: 'FETCH_ACCOUNT',
-            payload: this.props.reduxState.user.id
+            type: 'FETCH_ACCOUNT'
         });
-        console.log('in getAccount');
     }
 
     handleClick = () => {
@@ -53,7 +49,7 @@ class AccountPage extends Component {
             payload: data
         })
     }
-    
+
     render() {
         return (
             <div className='container'>

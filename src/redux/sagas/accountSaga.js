@@ -32,7 +32,7 @@ function* fetchAccountListing(action) {
         console.log('from sagas fetchAccountListing');
         let objectToSend = action.payload;
         console.log('checking objectToSend', objectToSend);
-        const accountResponse = yield axios.get(`/api/account/property/${objectToSend}`)
+        const accountResponse = yield axios.get(`/api/account/property`)
         console.log('in the GET fetchAccountListing', accountResponse)
         yield put({
             type: 'SET_ACCOUNT_LISTING',
@@ -47,7 +47,7 @@ function* fetchAccountFavorite(action) {
         console.log('from sagas fetchAccountFavorite');
         let objectToSend = action.payload;
         console.log('checking objectToSend', objectToSend);
-        const accountResponse = yield axios.get(`/api/account/interest/${objectToSend}`)
+        const accountResponse = yield axios.get(`/api/account/favorite`)
         console.log('in the GET fetchAccountFavorite', accountResponse)
         yield put({
             type: 'SET_ACCOUNT_FAVORITE',
@@ -57,9 +57,26 @@ function* fetchAccountFavorite(action) {
         console.log("error in fetchAccountFavorite Sagas", error);
     }
 }
+
+function* fetchAccountInterest(action) {
+    try {
+        console.log('from sagas fetchAccountFavorite');
+        let objectToSend = action.payload;
+        console.log('checking objectToSend', objectToSend);
+        const accountResponse = yield axios.get(`/api/account/interest`)
+        console.log('in the GET fetchAccountFavorite', accountResponse)
+        yield put({
+            type: 'SET_INTERESTS',
+            payload: accountResponse.data
+        })
+    } catch (error) {
+        console.log("error in fetchAccountFavorite Sagas", error);
+    }
+}
 function* accountSaga() {
     yield takeEvery('FETCH_ACCOUNT', fetchAccountListing);
     yield takeEvery('FETCH_ACCOUNT', fetchAccountFavorite);
+    yield takeEvery('FETCH_ACCOUNT', fetchAccountInterest);
     yield takeEvery('DELETE_FAVORITE', deleteAccountFavorite);
 }
 export default accountSaga;

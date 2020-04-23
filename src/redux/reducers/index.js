@@ -14,6 +14,7 @@ import userFavoritesReducer from './userFavoritesReducer';
 import userInterestsReducer from './userInterestsReducer';
 import editListingReducer from './editListingReducer';
 import editModeReducer from './editModeReducer';
+import propertyReducer from './propertyReducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   userInterestsReducer, 
   editListingReducer, //holds a listing that is to be edited in property inpute page
   editModeReducer, //establishes if the user is trying to edit on input property page
+  propertyReducer, // holds results from get all properties
 });
 
 export default rootReducer;
