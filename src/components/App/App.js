@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import NdaPage from '../NdaPage/NdaPage';
 import TermsOfServicePage from '../TermsOfServicePage/TermsOfServicePage';
 import PropertyInputPage from '../PropertyInputPage/PropertyInputPage'
+import PropertyPage from '../PropertyPage/PropertyPage';
 import './App.css';
 
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
@@ -53,6 +54,7 @@ class App extends Component {
             <Route exact path="/admin/property" component = {AdminPropertyPage}/>
             <Route exact path="/admin/user" component = {AdminUserPage}/>
             <Route exact path="/privacy" component = {PrivacyPolicy}/>
+            <Route exact path="/property" component = {PropertyPage}/>
 
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
