@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import './LandingPage.css';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelDetails from './ExpansionPanel/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
+import { currencyFormatter } from '../Resources/currencyFormatter';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
 
 const styles = theme => ({
     root: {
@@ -48,7 +52,7 @@ class Listings extends Component {
             })
             if (response.status === 200) {
                 console.log('status 200');
-                const favorited =  this.props.reduxState.userFavoritesReducer;
+                const favorited = this.props.reduxState.userFavoritesReducer;
                 this.props.dispatch({
                     type: 'SET_FAVORITES',
                     payload: [...favorited, propertyId]
@@ -78,12 +82,12 @@ class Listings extends Component {
             })
             if (response.status === 200) {
                 console.log('status 200');
-                const interests =  this.props.reduxState.userInterestsReducer;
+                const interests = this.props.reduxState.userInterestsReducer;
                 this.props.dispatch({
                     type: 'SET_INTERESTS',
                     payload: [...interests, propertyId]
                 });
-                
+
             }
             if (response.status === 400) {
                 console.log('status 400');
@@ -104,7 +108,7 @@ class Listings extends Component {
         }
         return false
     }
-    checkIfFavoriteButtonDisabled = (propertyId) => {
+    buttonIsDisabled = (propertyId) => {
         const userFavorites = this.props.reduxState.userFavoritesReducer
         // console.log('disabledFavoriteButtons: ', userFavorites);
         for (let i = 0; i < userFavorites.length; i++) {
@@ -115,7 +119,6 @@ class Listings extends Component {
         }
         return false
     }
-
 
     renderListings = () => {
         const props = this.props;
@@ -130,50 +133,58 @@ class Listings extends Component {
                         expanded={this.props.expanded === property.id}
                         onChange={() => {
                             this.props.handlePanelChange(property.id)
-                        }}>
+                        }}
+                        className="expansionPanel"
+                    >
                         <ExpansionPanelSummary
+                            className="ExpansionPanelTitle"
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                         >
-                            <Typography className={classes.heading}>{'$' + property.desired_price}</Typography>
-                            <Typography className={classes.secondaryHeading}>{property.city + ', ' + property.state + ' ' + property.zip_code}
-                            </Typography>
+                            <div>
+                                <Typography className={classes.heading}>{currencyFormatter(property.desired_price)}</Typography>
+                                <Typography className={classes.secondaryHeading}>{property.city + ', ' + property.state + ' ' + property.zip_code}
+                                </Typography>
+                            </div>
+                            {console.log('buttonIsDisabled: ', this.buttonIsDisabled(property.id))
+                            }
+                            { this.buttonIsDisabled(property.id) ? 
+                            <FavoriteIcon 
+                                className="interestedButton" variant="contained"
+                                disabled={this.buttonIsDisabled(property.id)}
+                                onClick={() => { this.favoriteListing(property.id) }}
+                             /> :
+                             <FavoriteBorderIcon 
+                                className="interestedButton" variant="rounded"
+                                disabled={this.buttonIsDisabled(property.id)}
+                                onClick={() => { this.favoriteListing(property.id) }}
+                             />
+                            
+                            
+                            }
+
                         </ExpansionPanelSummary>
-                        <ExpansionPanelDetails >
-                            <Typography className={classes.details}>
-                                Property Type
-                                <br />
-                                {property.property_type}
-                                <Divider />
-                                Net Operating Income
-                                <br />
-                                {property.net_operating_income}
-                                <Divider />
-                                Gross Income
-                                <br />
-                                {property.gross_income}
-                                <Divider />
-                                Gross Expenses
-                                <br />
-                                {property.gross_expense}
-                            </Typography>
+                        <ExpansionPanelDetails
+                            propertyType={property.property_type}
+                            netOperatingIncome={property.net_operating_income}
+                            grossIncome={property.gross_income}
+                            grossExpense={property.gross_expense}
+
+                        >
                         </ExpansionPanelDetails>
                         <div className="propertyButtonsWrapper">
-                            <Button
-                                className="interestedButton" variant="contained"
-                                color="primary"
-                                disabled={this.checkIfFavoriteButtonDisabled(property.id)}
-                                onClick={() => { this.favoriteListing(property.id) }}
-                            >Favorite
+                            <Button>
+                                <Link
+                                    className="interestedButton" variant="contained"
+                                    to="/nda" onClick={() => { this.interestedInListing(property.id) }}
+                                    disabled={this.checkIfInterestButtonDisabled(property.id)}
+                                >
+                                    Get More Information
+                                </Link>
                             </Button>
-                            <Button
-                                className="interestedButton" variant="contained"
-                                color="primary"
-                                disabled={this.checkIfInterestButtonDisabled(property.id)}
-                                onClick={() => { this.interestedInListing(property.id) }}
-                            >I'm Interested
-                            </Button>
+                            {/* <Typography>
+                                </Typography> */}
                         </div>
                     </ExpansionPanel>
                 )
@@ -182,7 +193,7 @@ class Listings extends Component {
             console.log('Listings: cannot get property locations');
         }
     }
- 
+
 
     render() {
         return (

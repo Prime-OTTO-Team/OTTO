@@ -32,7 +32,10 @@ function* loginUser(action) {
       // Could be anything, but most common cause is the server is not started
       yield put({ type: 'LOGIN_FAILED_NO_CODE' });
     }
+  } finally {
+    
   }
+
 }
 
 // worker Saga: will be fired on "LOGOUT" actions
