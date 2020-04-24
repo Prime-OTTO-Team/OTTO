@@ -421,11 +421,12 @@ class ForSalePage extends Component {
                         </form>
                     </div>
                 </Container>
-                <Listings
+                <ForSalePageItems
                         properties={this.state.properties} 
                         handlePanelChange={this.handlePanelChange}
                         expanded={this.state.expanded}
-                    />
+                />
+                
             </div>
 
         )
