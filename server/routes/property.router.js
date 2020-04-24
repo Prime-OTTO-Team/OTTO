@@ -7,6 +7,7 @@ const axios = require('axios');
 console.log('process.env.GOOGLE_API_KEY: ', process.env.GOOGLE_API_KEY);
 router.post('/', async (req, res) => {
     const newProperty = req.body;
+    console.log('logging property from post', newProperty);
     const geocodeResponse = await axios.get(
         'https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
@@ -16,12 +17,12 @@ router.post('/', async (req, res) => {
     }
     )
     const location = geocodeResponse.data.results[0].geometry.location;
-    console.log('geocodeResponse.data.results: ', geocodeResponse.data.results[0].geometry.location);
+    console.log('geocodeResponse.data.results: ', location.lat, location.lng);
 
 
 
-    const queryText = `INSERT INTO "property" (user_id, address, unit_number, state, city, zip_code, property_type, 
-        net_operating_income, gross_income, gross_expense, desired_price, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`;
+    const queryText = `INSERT INTO "property" (user_id, active, address, unit_number, state, city, zip_code, property_type, 
+        net_operating_income, gross_income, gross_expense, desired_price, latitude, longitude) VALUES ($1, TRUE, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`;
     pool.query(queryText, [newProperty.userId, newProperty.address, newProperty.unitNumber, newProperty.state, newProperty.city, newProperty.zipCode,
     newProperty.propertyType, newProperty.netOperatingIncome, newProperty.grossIncome, newProperty.grossExpense, newProperty.desiredPrice, location.lat, location.lng])
 

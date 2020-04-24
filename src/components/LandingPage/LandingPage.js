@@ -33,7 +33,7 @@ class LandingPage extends Component {
         } catch (error) {
             console.log('getProperties error: ', error)
         }
-    
+
     }
    
     handlePanelChange = (id) => {

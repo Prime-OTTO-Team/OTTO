@@ -64,9 +64,9 @@ class PropertyInputPage extends Component {
         this.props.dispatch({ type: 'UNEDIT_LISTING' });
     }
 
-    alumniRegistration = (event) => {
+    newProperty = (event) => {
         event.preventDefault();
-        console.log('firing alumniRegistration with object:', this.state);
+        console.log('firing newProperty with object:', this.state);
         if (this.props.editMode === true) {
             this.props.dispatch({
                 type: 'UPDATE_PROPERTY',
@@ -100,7 +100,7 @@ class PropertyInputPage extends Component {
                     <Typography component="h1" variant="h5">
                         Add Property
         </Typography>
-                    <form className={classes.form} noValidate onSubmit={this.alumniRegistration}>
+                    <form className={classes.form} noValidate onSubmit={this.newProperty}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} >
                                 <TextField
@@ -242,9 +242,9 @@ class PropertyInputPage extends Component {
                             variant="contained"
                             type="submit"
                             name="submit"
-                            value="Register"
+                            value="submit"
                         >
-                            Register
+                            Add Property
               </Button>
 
                     </form>

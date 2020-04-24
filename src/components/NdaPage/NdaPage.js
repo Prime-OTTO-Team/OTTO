@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class NdaPage extends Component {
+    handleClick = () => {
+        this.props.history.push('/property')
+    }
+    
+
     render() {
         return (
             <div className='container'>
@@ -117,6 +122,7 @@ class NdaPage extends Component {
                         Signatures go down here
                     </span>
                 </p>
+                <button onClick={this.handleClick}>Agree</button>
             </div>
         )
     }
