@@ -30,7 +30,6 @@ class AdminUserPage extends Component {
     }
 
     handleClick3 = () => {
-
     }
 
     approveUser = (data) => {
@@ -84,15 +83,14 @@ class AdminUserPage extends Component {
                     </h4>
                     <button onClick={this.handleClick2}>Pending Approval</button>
                     <button onClick={this.handleClick}>Approved Users</button>
-                    <button onClick={this.handleClick3}>Admins</button>
                     <div className='user'>
-                        Here is where listings or favorites go. <br />
+                        Here is where listings or favorites go: <br />
                         {this.state.status ? (
                             <div>
 
                                 {this.props.reduxState.adminUserReducer.map(user => (
                                     <div key={user.id} className="approved" >
-                                        {user.first_name} {user.last_name}
+                                        {user.first_name} {user.last_name} {user.user_type == 1 && 'is already an administrator'}
                                         <button onClick={() => this.unApproveUser(user)}>Unapprove User</button>
                                         <button onClick={() => this.approveAdmin(user)}>Approve Admin</button>
                                         <button onClick={() => this.deleteUser(user)}>Delete</button><br />
