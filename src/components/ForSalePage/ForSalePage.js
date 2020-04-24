@@ -18,6 +18,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ForSalePageItems from './ForSalePageItems';
+import Listings from '../LandingPage/Listings';
+import './ForSalePage.css'
+ 
 
 const styles = theme => ({
     paper: {
@@ -60,6 +63,7 @@ class ForSalePage extends Component {
         },
         filteredProperties: [],
         unfilteredProperties: [],
+        properties: '',
         expanded: 0
 
     }
@@ -222,8 +226,8 @@ class ForSalePage extends Component {
         const { classes } = this.props;
 
         return (
-            <>
-                <Container component="main" maxWidth="xs">
+            <div className="forSalePageWrapper">
+                <Container className="searchWrapper" component="main" maxWidth="xs">
                     <CssBaseline />
 
                     <Typography component="h1" variant="h5">
@@ -417,13 +421,12 @@ class ForSalePage extends Component {
                         </form>
                     </div>
                 </Container>
-
-                <ForSalePageItems
-                    properties={this.state.properties}
-                    handlePanelChange={this.handlePanelChange}
-                    expanded={this.state.expanded}
-                />
-            </>
+                <Listings
+                        properties={this.state.properties} 
+                        handlePanelChange={this.handlePanelChange}
+                        expanded={this.state.expanded}
+                    />
+            </div>
 
         )
     }

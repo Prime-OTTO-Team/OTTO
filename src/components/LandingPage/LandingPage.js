@@ -6,7 +6,6 @@ import GoogleMap from '../GoogleMaps/GoogleMap';
 import Listings from './Listings';
 import './LandingPage.css';
 
-
 class LandingPage extends Component {
     //TODO: set local state "properties" to a redux reducer
     state = {
