@@ -135,9 +135,26 @@ class Listings extends Component {
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                         >
-                            <Typography className={classes.heading}>{'$' + property.desired_price}</Typography>
-                            <Typography className={classes.secondaryHeading}>{property.city + ', ' + property.state + ' ' + property.zip_code}
-                            </Typography>
+                            <div>
+                                <Typography className={classes.heading}>{currencyFormatter(property.desired_price)}</Typography>
+                                <Typography className={classes.secondaryHeading}>{property.city + ', ' + property.state + ' ' + property.zip_code}
+                                </Typography>
+                            </div>
+                            {console.log('buttonIsDisabled: ', this.buttonIsDisabled(property.id))
+                            }
+                            { this.buttonIsDisabled(property.id) ? 
+                            <FavoriteIcon 
+                                className="interestedButton" variant="contained"
+                                disabled={this.buttonIsDisabled(property.id)}
+                                onClick={() => { this.favoriteListing(property.id) }}
+                             /> :
+                             <FavoriteBorderIcon 
+                                className="interestedButton" variant="rounded"
+                                disabled={this.buttonIsDisabled(property.id)}
+                                onClick={() => { this.favoriteListing(property.id) }}
+                             />
+                            }
+
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails >
                             <Typography className={classes.details}>
