@@ -10,7 +10,6 @@
     justify-content: center;
 }
 .expansionPanel {
-    /* flex-direction: column; */
   width: 90%;
 }
 .mapContainer {

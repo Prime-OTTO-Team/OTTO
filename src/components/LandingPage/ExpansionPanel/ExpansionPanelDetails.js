@@ -27,6 +27,7 @@ class ExpansionPanelDetails extends Component {
                     </ListItemText>
                 </ListItem>
                 <Divider light />
+                
                 <ListItem>
                     <ListItemText className="listSubtitle">
                         Gross Income

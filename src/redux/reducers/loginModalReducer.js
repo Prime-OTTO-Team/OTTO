@@ -7,6 +7,4 @@ const loginModalShowing = (state = false, action) => {
   }
 };
 
-// loginMode will be on the redux state at:
-// state.loginMode
 export default loginModalShowing;

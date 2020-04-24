@@ -4,5 +4,6 @@ export const currencyFormatter = (number) => {
         currency: 'USD',
         minimumFractionDigits: 0
     })   
+    
     return formatter.format(number)
 }

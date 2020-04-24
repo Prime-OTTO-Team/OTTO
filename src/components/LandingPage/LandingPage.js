@@ -64,7 +64,7 @@ class LandingPage extends Component {
                             properties={this.state.properties}
                             handlePanelChange={this.handlePanelChange}
                             expanded={this.state.expanded}
-                        />
+                    />
                     {/* </ScrollBox> */}
                     <div className="mapContainer">
                         <GoogleMap markerLocations={this.state.properties} />
