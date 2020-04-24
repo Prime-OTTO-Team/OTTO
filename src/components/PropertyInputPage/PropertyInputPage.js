@@ -45,19 +45,48 @@ const styles = theme => ({
 
 class PropertyInputPage extends Component {
     state = {
-        userId: this.props.user.id,
-        address: this.props.edit.address,
-        unitNumber: this.props.edit.unit_number,
-        city: this.props.edit.city,
-        state: this.props.edit.state,
-        zipCode: this.props.edit.zip_code,
-        propertyType: this.props.edit.property_type,
-        netOperatingIncome: this.props.edit.net_operating_income,
-        grossIncome: this.props.edit.gross_income,
-        grossExpense: this.props.edit.gross_expense,
-        desiredPrice: this.props.edit.desired_price,
-        propertyId: this.props.edit.id
+        userId: 2,
+        address: '400 S 4th St',
+        unitNumber: '',
+        city: 'Minneapolis',
+        state: 'MN',
+        zipCode: 55415,
+        propertyType: 'Commercial',
+        netOperatingIncome: 200000,
+        grossIncome: 900000,
+        grossExpense: 700000,
+        desiredPrice: 60000000,
+        propertyId: 45
+        // userId: this.props.user.id,
+        // address: this.props.edit.address,
+        // unitNumber: this.props.edit.unit_number,
+        // city: this.props.edit.city,
+        // state: this.props.edit.state,
+        // zipCode: this.props.edit.zip_code,
+        // propertyType: this.props.edit.property_type,
+        // netOperatingIncome: this.props.edit.net_operating_income,
+        // grossIncome: this.props.edit.gross_income,
+        // grossExpense: this.props.edit.gross_expense,
+        // desiredPrice: this.props.edit.desired_price,
+        // propertyId: this.props.edit.id
     };
+
+    fakeInput() {
+        this.setState({
+            userId: 2,
+            address: '400 S 4th St',
+                    unitNumber: '',
+                        city: 'Minneapolis',
+                            state: 'MN',
+                                zipCode: 55415,
+                                    propertyType: 'Commercial',
+            netOperatingIncome: 200000,
+            grossIncome: 900000,
+            grossExpense: 700000,
+            desiredPrice: 6000000,
+                                                        propertyId: 46
+        });
+    }
 
     componentWillUnmount = () => {
         this.props.dispatch({ type: 'UNEDIT_MODE' });
@@ -78,9 +107,9 @@ class PropertyInputPage extends Component {
                 type: 'ADD_PROPERTY',
                 payload: this.state
             })
-            
+
         }
-        
+
         console.log('this is the user', this.props.user);
         // this.props.history.push('/account');
     } // end alumniRegistration
@@ -97,7 +126,7 @@ class PropertyInputPage extends Component {
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className={classes.paper}>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h5" >
                         Add Property
         </Typography>
                     <form className={classes.form} noValidate onSubmit={this.newProperty}>
