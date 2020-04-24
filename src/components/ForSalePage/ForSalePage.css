@@ -1,0 +1,7 @@
+.forSalePageWrapper {
+    flex-direction: row;
+}
+
+.searchWrapper {
+    max-width: 20%;
+}

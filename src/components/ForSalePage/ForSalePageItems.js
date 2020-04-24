@@ -9,6 +9,10 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { currencyFormatter } from '../Resources/currencyFormatter';
 
 const styles = theme => ({
     root: {
@@ -123,50 +127,59 @@ class Listings extends Component {
                         expanded={this.props.expanded === property.id}
                         onChange={() => {
                             this.props.handlePanelChange(property.id)
-                        }}>
+                        }}
+                        className="expansionPanel"
+                    >
                         <ExpansionPanelSummary
+                            className="ExpansionPanelTitle"
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                         >
-                            <Typography className={classes.heading}>{'$' + property.desired_price}</Typography>
-                            <Typography className={classes.secondaryHeading}>{property.city + ', ' + property.state + ' ' + property.zip_code}
-                            </Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails >
-                            <Typography className={classes.details}>
-                                Property Type
-                                <br />
-                                {property.property_type}
-                                <Divider />
-                                Net Operating Income
-                                <br />
-                                {property.net_operating_income}
-                                <Divider />
-                                Gross Income
-                                <br />
-                                {property.gross_income}
-                                <Divider />
-                                Gross Expenses
-                                <br />
-                                {property.gross_expense}
-                            </Typography>
-                        </ExpansionPanelDetails>
-                        <div className="propertyButtonsWrapper">
-                            <Button
+                            <div>
+                                <Typography className={classes.heading}>{currencyFormatter(property.desired_price)}</Typography>
+                                <Typography className={classes.secondaryHeading}>{property.city + ', ' + property.state + ' ' + property.zip_code}
+                                </Typography>
+                            </div>
+                            {console.log('checkIfFavoriteButtonDisabled: ', this.checkIfFavoriteButtonDisabled(property.id))
+                            }
+                            { this.checkIfFavoriteButtonDisabled(property.id) ? 
+                            <FavoriteIcon 
                                 className="interestedButton" variant="contained"
-                                color="primary"
                                 disabled={this.checkIfFavoriteButtonDisabled(property.id)}
                                 onClick={() => { this.favoriteListing(property.id) }}
-                            >Favorite
+                             /> :
+                             <FavoriteBorderIcon 
+                                className="interestedButton" variant="rounded"
+                                disabled={this.checkIfFavoriteButtonDisabled(property.id)}
+                                onClick={() => { this.favoriteListing(property.id) }}
+                             />
+                            
+                            
+                            }
+
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails
+                            propertyType={property.property_type}
+                            netOperatingIncome={property.net_operating_income}
+                            grossIncome={property.gross_income}
+                            grossExpense={property.gross_expense}
+
+                        >
+                        </ExpansionPanelDetails>
+                        <div className="propertyButtonsWrapper">
+                            <Button>
+                                <Link
+                                    className="interestedButton" variant="contained"
+                                    to="/nda" 
+                                    // onClick={() => { this.interestedInListing(property.id) }}
+                                    disabled={this.checkIfInterestButtonDisabled(property.id)}
+                                >
+                                    Get More Information
+                                </Link>
                             </Button>
-                            <Button
-                                className="interestedButton" variant="contained"
-                                color="primary"
-                                disabled={this.checkIfInterestButtonDisabled(property.id)}
-                                onClick={() => { this.interestedInListing(property.id) }}
-                            >I'm Interested
-                            </Button>
+                            {/* <Typography>
+                                </Typography> */}
                         </div>
                     </ExpansionPanel>
                 )
