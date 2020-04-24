@@ -1,21 +1,32 @@
 .mapListingContainer {
-    flex-direction: row;
+  flex-direction: row;
 }
 .listingContainer {
-    width: 50%;
-    background-color: 'black';
+  width: 50%;
+  /* background-color: black; */
+  min-height: 70vh;
+  /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+.expansionPanel {
+    /* flex-direction: column; */
+  width: 90%;
 }
 .mapContainer {
-    width:50%;
-    position: absolute;
-    left: 52%;
-    top: 12%;
+  width: 50%;
+  position: absolute;
+  left: 52%;
+  top: 20%;
 }
-
+.ExpansionPanelTitle {
+    justify-content: space-between;
+}
 .propertyButtonsWrapper {
-    width: 100%;
-    align-content: flex-end;
+  width: 100%;
+  justify-content: space-between;
 }
 .interestedButton {
-    align-self: flex-end;
+  align-self: flex-end;
+  color: darkgoldenrod;
 }

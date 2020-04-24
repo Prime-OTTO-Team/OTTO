@@ -1,16 +1,15 @@
 footer {
     margin-top: 80px;
+    flex-direction: row;
+    width: 100%;
 }
 
 .nav-link {
-    float: left;
-    /* color: #f2f2f2; */
-    /* background-color: #00acb0; */
+    /* float: left; */
     text-align: center;
     padding: 24px 10px;
     text-decoration: none;
     font-size: 15px;
-  
     /* these last two make the logout button in
     the nav bar look like another link */
     border:none;

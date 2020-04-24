@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <footer>
-    
     <div className="nav-right">
     <Link className="nav-link" to="/about"> About </Link>
     <Link className="nav-link" to="/contact"> Contact Us </Link>
