@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 // import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 // import UserPage from '../UserPage/UserPage';
@@ -25,7 +25,7 @@ import './App.css';
 
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
-// import NewFooter from '../NewFooter/NewFooter';
+import NewFooter from '../NewFooter/NewFooter';
 
 
 class App extends Component {
@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {/* <ScrollToTop/> */}
+        <ScrollToTop/>
         <div>
           <Nav />
           <Switch>
@@ -55,11 +55,6 @@ class App extends Component {
             <Route exact path="/admin/user" component = {AdminUserPage}/>
             <Route exact path="/privacy" component = {PrivacyPolicy}/>
             <Route exact path="/property" component = {PropertyPage}/>
-
-            {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/home will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
-            Even though it seems like they are different pages, the user is always on localhost:3000/home */}
             <Route
               exact
               path="/home"
@@ -85,8 +80,8 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
+          <NewFooter />
         </div>
-        <Footer />
       </Router>
     )
   }

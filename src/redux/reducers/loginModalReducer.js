@@ -1,4 +1,4 @@
-const loginModalShowing = (state = false, action) => {
+const loginModalShowing = (state = true, action) => {
   switch (action.type) {
     case 'LOGIN_REGISTER_MODAL_OPEN':
       return action.payload;

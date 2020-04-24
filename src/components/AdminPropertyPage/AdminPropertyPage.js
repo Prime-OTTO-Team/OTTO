@@ -48,10 +48,9 @@ class AdminPropertyPage extends Component {
             return (
                 <div className='container'>
                     <h1>Admin Property Page</h1>
-                    <h4>Welcome "<b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>",
-                    Currently logged in as: "<b>{this.props.user.username}</b>"
-                </h4>
-                    <h4>Did you logged in as administrator: <b>{this.props.user.user_type}</b></h4>
+                    <h4>
+                        Welcome "<b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>",
+                    </h4>
                     <button onClick={this.handleClick}>Active Listings</button>
                     <button onClick={this.handleClick2}>History of Listings</button>
                     <div className='admin'>

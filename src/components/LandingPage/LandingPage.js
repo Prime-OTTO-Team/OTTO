@@ -5,7 +5,6 @@ import LoginSignUpModal from '../Modals/LoginSignupModal';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import Listings from './Listings';
 import './LandingPage.css';
-import { ScrollBox, ScrollAxes, FastTrack } from 'react-scroll-box';
 
 
 class LandingPage extends Component {
@@ -16,8 +15,6 @@ class LandingPage extends Component {
     }
     componentDidMount() {
         this.getProperties();
-        console.log('ScrollAxes', ScrollAxes);
-        
     }
     getProperties = async () => {
         try {
@@ -38,7 +35,7 @@ class LandingPage extends Component {
         }
 
     }
-
+   
     handlePanelChange = (id) => {
         if (id != this.state.expanded) {
             this.setState({
@@ -55,19 +52,13 @@ class LandingPage extends Component {
             <div>
                 <LoginSignUpModal />
                 <div className="mapListingContainer">
-                    {/* <ScrollBox 
-                        style={{ height: '400px' }} 
-                        // axes={ScrollAxes.X} 
-                        // fastTrack={FastTrack.PAGING}
-                    > */}
                     <Listings
-                            properties={this.state.properties}
-                            handlePanelChange={this.handlePanelChange}
-                            expanded={this.state.expanded}
-                        />
-                    {/* </ScrollBox> */}
-                    <div className="mapContainer">
-                        <GoogleMap markerLocations={this.state.properties} />
+                        properties={this.state.properties} 
+                        handlePanelChange={this.handlePanelChange}
+                        expanded={this.state.expanded}
+                    />
+                    <div className = "mapContainer">
+                    <GoogleMap markerLocations={this.state.properties}/>
                     </div>
                 </div>
             </div>
