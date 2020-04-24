@@ -1,5 +1,3 @@
-
-
 const propertyReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_PROPERTY':
