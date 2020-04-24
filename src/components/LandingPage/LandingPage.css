@@ -1,21 +1,33 @@
 .mapListingContainer {
     flex-direction: row;
-}
-.listingContainer {
+  }
+  .listingContainer {
     width: 50%;
-    background-color: 'black';
-}
-.mapContainer {
-    width:50%;
+    /* background-color: black; */
+    min-height: 70vh;
+    /* display: flex; */
+      align-items: center;
+      justify-content: center;
+  }
+  .expansionPanel {
+      /* flex-direction: column; */
+    width: 90%;
+  }
+  .mapContainer {
+    width: 50%;
     position: absolute;
     left: 52%;
-    top: 12%;
-}
-
-.propertyButtonsWrapper {
+    top: 20%;
+  }
+  .ExpansionPanelTitle {
+      justify-content: space-between;
+  }
+  .propertyButtonsWrapper {
     width: 100%;
-    align-content: flex-end;
-}
-.interestedButton {
+    justify-content: space-between;
+  }
+  .interestedButton {
     align-self: flex-end;
-}
+    color: darkgoldenrod;
+  }
+  
