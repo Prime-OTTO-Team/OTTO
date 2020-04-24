@@ -20,7 +20,7 @@ router.get('/approved/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminapprovedUser route");
     if (req.isAuthenticated() && req.user.user_type == 1) {
         console.log('req.user:', req.user);
-        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE'`;
+        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE' ORDER BY "first_name", "user_type" ASC;`;
         pool.query(queryString)
             .then(results => {
                 res.send(results.rows);
@@ -37,7 +37,7 @@ router.get('/unapproved/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminUnapprovedUser route");
     if (req.isAuthenticated() && req.user.user_type == 1) {
         console.log('req.user:', req.user);
-        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'FALSE'`;
+        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'FALSE' ORDER BY "first_name", "user_type" ASC;`;
         pool.query(queryString)
             .then(results => {
                 res.send(results.rows);

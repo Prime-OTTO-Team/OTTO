@@ -102,7 +102,7 @@ class AdminUserPage extends Component {
                             <div>
                                 {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
                                     <div key={unapprovedUser.id} className="unapproved" >
-                                        {unapprovedUser.first_name} {unapprovedUser.last_name}
+                                        {unapprovedUser.first_name} {unapprovedUser.last_name} {unapprovedUser.user_type == 1 && 'is already an administrator'}
                                         <button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button>
                                         <button onClick={() => this.approveAdmin(unapprovedUser)}>Approve Admin</button>
                                         <button onClick={() => this.deleteUser(unapprovedUser)}>Delete</button><br />
