@@ -160,7 +160,6 @@ class Listings extends Component {
                                 onClick={() => { this.favoriteListing(property.id) }}
                              />
                             
-                            
                             }
 
                         </ExpansionPanelSummary>
