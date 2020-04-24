@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelDetails from '../LandingPage/ExpansionPanel/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles';
@@ -164,7 +164,6 @@ class Listings extends Component {
                             netOperatingIncome={property.net_operating_income}
                             grossIncome={property.gross_income}
                             grossExpense={property.gross_expense}
-
                         >
                         </ExpansionPanelDetails>
                         <div className="propertyButtonsWrapper">
