@@ -63,7 +63,7 @@ class Listings extends Component {
         }
     }
     interestedInListing = async (propertyId) => {
-        // this.props.history.push('/');
+        this.props.history.push('/nda');
         this.props.dispatch({
             type: 'SET_SINGLE_PROPERTY_ID',
             payload: propertyId
