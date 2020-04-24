@@ -95,7 +95,6 @@ class Listings extends Component {
     }
     checkIfInterestButtonDisabled = (propertyId) => {
         const userInterests = this.props.reduxState.userInterestsReducer
-        // console.log('disabledInterestButtons: ', userInterests);
         for (let i = 0; i < userInterests.length; i++) {
             const userInterest = userInterests[i];
             if (userInterest.property_id === propertyId) {
