@@ -55,11 +55,6 @@ class App extends Component {
             <Route exact path="/admin/user" component = {AdminUserPage}/>
             <Route exact path="/privacy" component = {PrivacyPolicy}/>
             <Route exact path="/property" component = {PropertyPage}/>
-
-            {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/home will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
-            Even though it seems like they are different pages, the user is always on localhost:3000/home */}
             <Route
               exact
               path="/home"
