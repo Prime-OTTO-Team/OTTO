@@ -13,6 +13,7 @@ function* approveUser(action) {
         console.log("error in approving user", error);
     }
 }
+
 function* unApproveUser(action) {
     try {
         let objectToSend = action.payload;
@@ -25,6 +26,20 @@ function* unApproveUser(action) {
         console.log("error in unApproving user", error);
     }
 }
+
+function* approveAdmin(action) {
+    try {
+        let objectToSend = action.payload;
+        console.log('in Sagas approveAdmin', objectToSend);
+        yield axios.put(`/api/admin/user/approveAdmin/${objectToSend.id}`)
+        // yield put({
+        //     type: 'FETCH_ADMIN_USER'
+        // })
+    } catch (error) {
+        console.log("error in approving admin", error);
+    }
+}
+
 function* fetchUnapprovedAdminUser() {
     try {
         const adminUserResponse = yield axios.get(`/api/admin/user/unapproved/`)
@@ -37,6 +52,7 @@ function* fetchUnapprovedAdminUser() {
         console.log("error in fetchUnapprovedAdminUser Sagas", error);
     }
 }
+
 function* fetchApprovedAdminUser() {
     try {
         const adminUserResponse = yield axios.get(`/api/admin/user/approved/`)
@@ -49,6 +65,21 @@ function* fetchApprovedAdminUser() {
         console.log("error in fetchApprovedAdminUser Sagas", error);
     }
 }
+
+
+function* fetchApprovedAdminAdmin() {
+    try {
+        const adminAdminResponse = yield axios.get(`/api/admin/user/approvedAdmin/`)
+        console.log('in the GET fetchApprovedAdminUser', adminAdminResponse)
+        yield put({
+            type: 'SET_ADMIN_APPROVED_ADMIN',
+            payload: adminAdminResponse.data
+        })
+    } catch (error) {
+        console.log("error in fetchApprovedAdminAdmin Sagas", error);
+    }
+}
+
 function* deleteUser(action) {
     try {
         let objectToSend = action.payload;
@@ -61,11 +92,15 @@ function* deleteUser(action) {
         console.log("error in delete user Sagas", error);
     }
 }
+
 function* adminUserSaga() {
     yield takeEvery('FETCH_ADMIN_USER', fetchUnapprovedAdminUser);
     yield takeEvery('FETCH_ADMIN_USER', fetchApprovedAdminUser);
+    yield takeEvery('FETCH_ADMIN_ADMIN', fetchApprovedAdminAdmin);
     yield takeEvery('APPROVE_USER', approveUser);
     yield takeEvery('UNAPPROVE_USER', unApproveUser);
+    yield takeEvery('APPROVE_ADMIN', approveAdmin);
     yield takeEvery('DELETE_ADMIN_USER', deleteUser);
 }
+
 export default adminUserSaga;

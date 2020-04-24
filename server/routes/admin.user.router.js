@@ -20,7 +20,7 @@ router.get('/approved/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminapprovedUser route");
     if (req.isAuthenticated() && req.user.user_type == 1) {
         console.log('req.user:', req.user);
-        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE'`;
+        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE' ORDER BY "first_name", "user_type" ASC;`;
         pool.query(queryString)
             .then(results => {
                 res.send(results.rows);
@@ -37,7 +37,7 @@ router.get('/unapproved/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminUnapprovedUser route");
     if (req.isAuthenticated() && req.user.user_type == 1) {
         console.log('req.user:', req.user);
-        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'FALSE'`;
+        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'FALSE' ORDER BY "first_name", "user_type" ASC;`;
         pool.query(queryString)
             .then(results => {
                 res.send(results.rows);
@@ -49,6 +49,24 @@ router.get('/unapproved/', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
+
+router.get('/approvedAdmin/', rejectUnauthenticated, (req, res) => {
+    console.log("in getAdminapprovedAdmin route");
+    if (req.isAuthenticated() && req.user.user_type == 1) {
+        console.log('req.user:', req.user);
+        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "user_type" = 1`;
+        pool.query(queryString)
+            .then(results => {
+                res.send(results.rows);
+            }).catch(error => {
+                console.log(error);
+                res.sendStatus(500);
+            })
+    } else {
+        req.sendStatus(403)
+    }
+});
+
 
 router.put('/approve/:id', rejectUnauthenticated, (req, res) => {
     const updateUser = req.params.id;
@@ -85,6 +103,25 @@ router.put('/unapprove/:id', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
+
+router.put('/approveAdmin/:id', rejectUnauthenticated, (req, res) => {
+    const updateUser = req.params.id;
+    console.log('in adminUserRouter Put for approving admin', updateUser);
+    if (req.isAuthenticated() && req.user.user_type == 1) {
+        console.log('req.user:', req.user);
+        const queryText = `UPDATE "user" SET "user_type" = 1 WHERE "id"=$1`;
+        pool.query(queryText, [updateUser])
+            .then(() => {
+                res.sendStatus(200)
+            }).catch(error => {
+                console.log(error);
+                res.sendStatus(500)
+            })
+    } else {
+        req.sendStatus(403)
+    }
+});
+
 
 router.delete('/delete/:id', rejectUnauthenticated, async (req, res) => {
     console.log("in deleteAdminUser route", req.params.id);
