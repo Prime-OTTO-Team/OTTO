@@ -177,7 +177,8 @@ class Listings extends Component {
                             <Button>
                                 <Link
                                     className="interestedButton" variant="contained"
-                                    to="/nda" onClick={() => { this.interestedInListing(property.id) }}
+                                    to="/nda" 
+                                    // onClick={() => { this.interestedInListing(property.id) }}
                                     disabled={this.checkIfInterestButtonDisabled(property.id)}
                                 >
                                     Get More Information
