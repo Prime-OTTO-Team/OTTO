@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
+import Logo from './logo_with_text.png';
 
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">OTTO</h2>
+      <img className='logo' src={Logo} height='55px' />
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/admin/property">Admin Properties</Link>
