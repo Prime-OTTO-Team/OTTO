@@ -67,7 +67,7 @@ class Listings extends Component {
         }
     }
     interestedInListing = async (propertyId) => {
-        this.props.history.push('/nda');
+        // this.props.history.push('/nda');
         this.props.dispatch({
             type: 'SET_SINGLE_PROPERTY_ID',
             payload: propertyId
@@ -175,14 +175,27 @@ class Listings extends Component {
                         </ExpansionPanelDetails>
                         <div className="propertyButtonsWrapper">
                             <Button>
+                                {this.props.reduxState.user.id ?
                                 <Link
                                     className="interestedButton" variant="contained"
                                     to="/nda" 
-                                    // onClick={() => { this.interestedInListing(property.id) }}
+                                    onClick={() => { this.interestedInListing(property.id) }}
                                     disabled={this.checkIfInterestButtonDisabled(property.id)}
                                 >
                                     Get More Information
                                 </Link>
+                                :
+                                    <Link
+                                        className="interestedButton" variant="contained"
+                                        onClick={() => {
+                                            console.log('login clicked');
+                                            props.dispatch({ type: 'LOGIN_REGISTER_MODAL_OPEN', payload: true })
+                                        }}
+                                        disabled={this.checkIfInterestButtonDisabled(property.id)}
+                                    >
+                                        Get More Information
+                                </Link>
+                              }
                             </Button>
                             {/* <Typography>
                                 </Typography> */}

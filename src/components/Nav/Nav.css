@@ -5,7 +5,10 @@
     color: rgb(81, 78, 78);
     padding-left: 10px;
 }
-
+.logo{
+  padding-top: 15px;
+  padding-left: 10px;
+}
 .nav {
   overflow: hidden;
   position: -webkit-sticky;
