@@ -96,6 +96,13 @@ class ForSalePage extends Component {
     }
     componentDidMount() {
         this.getProperties();
+        if(this.state.search.zip_code){
+            this.filterZip();
+            this.props.dispatch({
+                type: 'SET_SEARCH_RESULT',
+                payload: this.state.filteredProperties
+            })
+        }
     }
     getProperties = async () => {
         try {
@@ -115,12 +122,22 @@ class ForSalePage extends Component {
                 type: 'SET_SEARCH_RESULT',
                 payload: response.data
             })
+           
             // console.log('this.state.properties', this.state.properties);
         } catch (error) {
             console.log('getProperties error: ', error)
         }
         ;
         console.log('logging state from end of get properties', this.state);
+        if (this.props.reduxState.zipReducer) {
+            this.setState({
+                search: {
+                    ...this.state.search,
+                    zip_code: this.props.reduxState.zipReducer
+                }
+            })
+            console.log('loggin state from zip push', this.state.search);
+        }
 
     }
     handleInputChangeFor = propertyName => (event) => {
@@ -135,6 +152,8 @@ class ForSalePage extends Component {
 
         const search = this.state.search;
         if (search.zip_code) {
+            console.log('filtering by zip from search function');
+            
             this.filterZip();
         }
         if (search.property_type) {

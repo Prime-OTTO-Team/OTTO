@@ -17,6 +17,7 @@ import editListingReducer from './editListingReducer';
 import editModeReducer from './editModeReducer';
 import propertyReducer from './propertyReducer';
 import singlePropertyIdReducer from './singlePropertyIdReducer';
+import zipReducer from './zipReducer'
 
 
 // rootReducer is the primary reducer for our entire project
@@ -44,6 +45,7 @@ const rootReducer = combineReducers({
   editModeReducer, //establishes if the user is trying to edit on input property page
   propertyReducer, // holds results from get all properties
   singlePropertyIdReducer, // holds the property a user is interested in to display on offer page. 
+  zipReducer //holds zip search from landing page
 });
 
 export default rootReducer;
