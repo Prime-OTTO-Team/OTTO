@@ -159,7 +159,7 @@ class LandingPage extends Component {
                         expanded={this.state.expanded}
                     />
                     <div className="mapContainer">
-                        {/* <GoogleMap markerLocations={this.state.properties}/> */}
+                        <GoogleMap markerLocations={this.state.properties}/>
                     </div>
                 </div>
             </div>
