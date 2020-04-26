@@ -60,9 +60,11 @@ router.delete('/delete/:id', rejectUnauthenticated, async (req, res) => {
         try {
             await connection.query('BEGIN');
             const queryString = `DELETE FROM "interest" WHERE "property_id" = $1`;
-            const queryString2 = `DELETE FROM "property" WHERE "id" = $1`;
             await connection.query(queryString, [propertyId]);
+            const queryString2 = `DELETE FROM "favorite" WHERE "property_id: =$1`;
             await connection.query(queryString2, [propertyId]);
+            const queryString3 = `DELETE FROM "property" WHERE "id" = $1`;
+            await connection.query(queryString3, [propertyId]);
             await connection.query('COMMIT');
             res.sendStatus(200);
             console.log('end of Commit');
