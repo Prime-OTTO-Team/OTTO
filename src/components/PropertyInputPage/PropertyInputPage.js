@@ -84,22 +84,22 @@ class PropertyInputPage extends Component {
     newProperty = (event) => {
         event.preventDefault();
         console.log('firing newProperty with object:', this.state);
-        // if (this.props.editMode === true) {
-        //     this.props.dispatch({
-        //         type: 'UPDATE_PROPERTY',
-        //         payload: this.state
-        //     })
-        // }
-        // else {
-        //     this.props.dispatch({
-        //         type: 'ADD_PROPERTY',
-        //         payload: this.state
-        //     })
+        if (this.props.editMode === true) {
+            this.props.dispatch({
+                type: 'UPDATE_PROPERTY',
+                payload: this.state
+            })
+        }
+        else {
+            this.props.dispatch({
+                type: 'ADD_PROPERTY',
+                payload: this.state
+            })
 
-        // }
+        }
 
-        // console.log('this is the user', this.props.user);
-        // this.props.history.push('/account');
+        console.log('this is the user', this.props.user);
+        this.props.history.push('/account');
     } // end alumniRegistration
 
     handleChangeFor = (propertyName, event) => {
