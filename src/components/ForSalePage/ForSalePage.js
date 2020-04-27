@@ -96,12 +96,14 @@ class ForSalePage extends Component {
     }
     componentDidMount() {
         this.getProperties();
+        console.log('finding zip code bug',this.state);
+        
         if(this.state.search.zip_code){
             this.filterZip();
-            this.props.dispatch({
-                type: 'SET_SEARCH_RESULT',
-                payload: this.state.filteredProperties
-            })
+            // this.props.dispatch({
+            //     type: 'SET_SEARCH_RESULT',
+            //     payload: this.state.filteredProperties
+            // })
         }
     }
     getProperties = async () => {
@@ -128,8 +130,8 @@ class ForSalePage extends Component {
             console.log('getProperties error: ', error)
         }
         ;
-        console.log('logging state from end of get properties', this.state);
-        if (this.props.reduxState.zipReducer) {
+        console.log('logging state from end of get properties', this.state, this.props.reduxState);
+        if (this.props.reduxState.zipReducer.length>=1) {
             this.setState({
                 search: {
                     ...this.state.search,
@@ -157,7 +159,7 @@ class ForSalePage extends Component {
             this.filterZip();
         }
         if (search.property_type) {
-            this.filterPropertyType();
+            this.filterPropertyType();  
         }
         if (search.net_operating_income_low || search.net_operating_income_high) {
             this.filterNoi();
