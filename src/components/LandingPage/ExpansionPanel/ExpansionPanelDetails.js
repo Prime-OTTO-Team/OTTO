@@ -12,12 +12,12 @@ class ExpansionPanelDetails extends Component {
             <List className="detailsContainer">
                 <table className="detailsTable">
                     <tr>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText className="listSubtitle">
                                 Property Type
                             </ListItemText>
                         </th>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText>
                                 {this.props.propertyType}
                             </ListItemText>
@@ -27,12 +27,12 @@ class ExpansionPanelDetails extends Component {
                     <Divider light />
                 <table  className="detailsTable">
                     <tr>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText className="listSubtitle">
                                 Net Operating Income
                             </ListItemText>
                         </th>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText>
                                 {currencyFormatter(this.props.netOperatingIncome)}
                             </ListItemText>
@@ -42,12 +42,12 @@ class ExpansionPanelDetails extends Component {
                 <Divider light />
                 <table  className="detailsTable">
                     <tr>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText className="listSubtitle">
                             Gross Income
                             </ListItemText>
                         </th>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText>
                                 {currencyFormatter(this.props.grossIncome)}
                             </ListItemText>
@@ -57,12 +57,12 @@ class ExpansionPanelDetails extends Component {
                 <Divider light />
                 <table  className="detailsTable">
                     <tr>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText className="listSubtitle">
                             Gross Expenses
                             </ListItemText>
                         </th>
-                        <th>
+                        <th className="detailsCell">
                             <ListItemText>
                                 {currencyFormatter(this.props.grossExpense)}
                             </ListItemText>
