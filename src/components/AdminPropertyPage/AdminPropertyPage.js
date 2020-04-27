@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 class AdminPropertyPage extends Component {
     state = {
@@ -51,8 +53,8 @@ class AdminPropertyPage extends Component {
                     <h4>
                         Welcome <b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>
                     </h4>
-                    <button onClick={this.handleClick}>Active Listings</button>
-                    <button onClick={this.handleClick2}>History of Listings</button>
+                    <Button color="primary" onClick={this.handleClick}>Active Listings</Button>
+                    <Button color="primary" onClick={this.handleClick2}>History of Listings</Button>
                     <div className='admin'>
                         <br />
                         <table className="table">
@@ -90,7 +92,7 @@ class AdminPropertyPage extends Component {
                                                 <td>{property.gross_income}</td>
                                                 <td>{property.gross_expense}</td>
                                                 <td>{property.desired_price}</td>
-                                                <td><button onClick={() => this.removeListing(property)}>Remove Listing</button></td>
+                                                <td><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Remove Listing</Button></td>
                                             </tr>
                                         ))}
                                     </>
@@ -110,7 +112,7 @@ class AdminPropertyPage extends Component {
                                                     <td>{inactiveProperty.gross_income}</td>
                                                     <td>{inactiveProperty.gross_expense}</td>
                                                     <td>{inactiveProperty.desired_price}</td>
-                                                    <td><button onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</button></td>
+                                                    <td><Button variant="outlined" color="secondary" onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</Button></td>
                                                 </tr>
                                             ))}
                                         </>)}

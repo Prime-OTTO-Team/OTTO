@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 class AccountPage extends Component {
     state = {
@@ -58,8 +60,8 @@ class AccountPage extends Component {
                 <h4>
                         Hello "<b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>",
                 </h4>
-                <button onClick={this.handleClick}>My Listings</button>
-                <button onClick={this.handleClick2}>My Favorites</button>
+                <Button color="primary" onClick={this.handleClick}>My Listings</Button>
+                <Button color="primary" onClick={this.handleClick2}>My Favorites</Button>
                 <div className='account'>
                     
                     <table className="table">
@@ -78,8 +80,8 @@ class AccountPage extends Component {
                             
                                     <tr key={property.id} className="property" >
                                     <td>{property.address}</td>
-                                    <td><button onClick={() => this.removeListing(property)}>Remove Listing</button></td>
-                                    <td><button onClick={() => this.editListing(property)}>Edit Listing</button></td>
+                                    <td><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Remove Listing</Button></td>
+                                    <td><Button variant="outlined" color="primary" onClick={() => this.editListing(property)}>Edit Listing</Button></td>
                                     </tr>
                                    
                                
@@ -90,7 +92,7 @@ class AccountPage extends Component {
                                 {this.props.reduxState.accountFavorite.map(favorite => (
                                         <tr key={favorite.id} className="favorite" >
                                         <td>{favorite.address}</td>
-                                        <td><button onClick={() => this.removeFavorite(favorite)}>Remove Favorite</button></td>
+                                        <td><Button variant="outlined" color="secondary" onClick={() => this.removeFavorite(favorite)}>Remove Favorite</Button></td>
                                         </tr>
                                 ))}
                             </>)}
