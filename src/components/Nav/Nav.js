@@ -11,8 +11,12 @@ const Nav = (props) => (
       <img className='logo' src={Logo} height='55px' />
     </Link>
     <div className="nav-right">
+      {props.user.user_type === 1 && 
+      <>
       <Link className="nav-link" to="/admin/property">Admin Properties</Link>
       <Link className="nav-link" to="/admin/user">Admin Users</Link>
+      </>
+      }
      
       {/* Show the link to the For Sale/ Add Listing/ Account Page and the Log Out if the user is logged in */}
       {props.user.id && (
