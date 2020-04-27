@@ -4,6 +4,7 @@ import axios from 'axios';
 import './NdaPage.css'
 import SignaturePad from 'react-signature-canvas';
 import userFavoritesReducer from '../../redux/reducers/userFavoritesReducer';
+import Moment from 'react-moment';
 
 
 class NdaPage extends Component {
@@ -36,6 +37,7 @@ class NdaPage extends Component {
         }
     }
 
+
     render() {
         return (
             <div className='ndaContainer'>
@@ -46,7 +48,7 @@ class NdaPage extends Component {
                 </p>
                 <p>
                     <span>
-                        This NON-DISCLOSURE AGREEMENT (this “<b>Agreement</b>”) is made effective as of <b>Insert Date</b> by and
+                        This NON-DISCLOSURE AGREEMENT (this “<b>Agreement</b>”) is made effective as of <b><Moment format="MMM Do, YYYY"/></b> by and
                         among OTTO LLC (together with its affiliates, the “<b>Disclosing Party</b>”) and <b>{this.props.reduxState.user.first_name} {this.props.reduxState.user.last_name}</b> (together
                         with its affiliates, the “<b>Recipient</b>”). This Agreement creates no binding obligations on either party to
                         consummate any transaction. Recipient has expressed interest in an opportunity to purchase certain assets
