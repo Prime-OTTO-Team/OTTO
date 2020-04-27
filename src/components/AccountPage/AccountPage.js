@@ -91,6 +91,7 @@ class AccountPage extends Component {
                                         <tr key={favorite.id} className="favorite" >
                                         <td>{favorite.address}</td>
                                         <td><button onClick={() => this.removeFavorite(favorite)}>Remove Favorite</button></td>
+                                        <td></td>
                                         </tr>
                                 ))}
                             </>)}
