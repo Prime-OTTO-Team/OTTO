@@ -61,25 +61,41 @@ class AccountPage extends Component {
                 <button onClick={this.handleClick}>My Listings</button>
                 <button onClick={this.handleClick2}>My Favorites</button>
                 <div className='account'>
-                    Here is where listings or favorites go. <br />
+                    
+                    <table id="table">
+                        <thead>
+                            <tr>
+                                <th>Address</th>
+                                <th>Remove</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                  
                     {this.state.status ? (
-                        <div>
+                        <>
                             {this.props.reduxState.accountListing.map(property => (
-                                <div key={property.id} className="property" >
-                                    {property.address}
-                                    <button onClick={() => this.removeListing(property)}>Remove Listing</button>
-                                    <button onClick={() => this.editListing(property)}>Edit Listing</button><br />
-                                </div>
+                            
+                                    <tr key={property.id} className="property" >
+                                    <td>{property.address}</td>
+                                    <td><button onClick={() => this.removeListing(property)}>Remove Listing</button></td>
+                                    <td><button onClick={() => this.editListing(property)}>Edit Listing</button></td>
+                                    </tr>
+                                   
+                               
                             ))}
-                        </div>
+                        </>
                     ) : (
-                            <div>
+                            <>
                                 {this.props.reduxState.accountFavorite.map(favorite => (
-                                    <div key={favorite.id} className="favorite" >
-                                        {favorite.address}<button onClick={() => this.removeFavorite(favorite)}>Remove Favorite</button><br />
-                                    </div>
+                                        <tr key={favorite.id} className="favorite" >
+                                        <td>{favorite.address}</td>
+                                        <td><button onClick={() => this.removeFavorite(favorite)}>Remove Favorite</button></td>
+                                        </tr>
                                 ))}
-                            </div>)}
+                            </>)}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         )
