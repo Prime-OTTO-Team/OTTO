@@ -106,7 +106,7 @@ class AdminUserPage extends Component {
                                         
                                         <tr key={user.id} className="approved" >
                                             <td>{user.first_name}</td>
-                                            <td>{user.last_name}</td>
+                                        <td>{user.last_name}  {user.user_type == 1 && '*Administrator*'}</td>
                                             <td>{user.username}</td>
                                             <td>{user.phone_number}</td>
                                             <td><button onClick={() => this.deleteUser(user)}>Delete</button><br /></td>
@@ -114,7 +114,7 @@ class AdminUserPage extends Component {
                                             <td><button onClick={() => this.approveAdmin(user)}>Approve Admin</button></td>
                                        </tr>
                                            
-                                        //   {user.user_type == 1 && 'is already an administrator'}
+                                        // 
                                 ))}
 
                             </>
@@ -131,7 +131,6 @@ class AdminUserPage extends Component {
                                         <td><button onClick={() => this.approveAdmin(unapprovedUser)}>Approve Admin</button></td>
                                         
                                     </tr>
-                                //    { unapprovedUser.user_type == 1 && 'is already an administrator' }
                                 ))}
                             </>)}
                             </tbody>
