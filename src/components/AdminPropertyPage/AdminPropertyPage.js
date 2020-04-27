@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { currencyFormatter } from '../Resources/currencyFormatter';
 
 class AdminPropertyPage extends Component {
     state = {
@@ -47,12 +48,13 @@ class AdminPropertyPage extends Component {
         if (this.props.user.user_type == 1) {
             return (
                 <div className='container'>
-                    <h1>Admin Property Page</h1>
-                    <h4>
-                        Welcome <b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>
-                    </h4>
+                    {/* <h1>Admin Property Page</h1> */}
+                    <h2>
+                        Viewing Listings as Admin ({this.props.user.first_name})
+                    </h2>
                     <button onClick={this.handleClick}>Active Listings</button>
                     <button onClick={this.handleClick2}>History of Listings</button>
+                    {this.state.status ? (<h1>Active Listings:</h1>) : (<h1>Inactive Listings:</h1>)}
                     <div className='admin'>
                         <br />
                         <table className="table">
@@ -86,10 +88,10 @@ class AdminPropertyPage extends Component {
                                                 <td>{property.state}</td>
                                                 <td>{property.zip_code}</td>
                                                 <td>{property.property_type}</td>
-                                                <td>{property.net_operating_income}</td>
-                                                <td>{property.gross_income}</td>
-                                                <td>{property.gross_expense}</td>
-                                                <td>{property.desired_price}</td>
+                                                <td>{currencyFormatter(property.net_operating_income)}</td>
+                                                <td>{currencyFormatter(property.gross_income)}</td>
+                                                <td>{currencyFormatter(property.gross_expense)}</td>
+                                                <td>{currencyFormatter(property.desired_price)}</td>
                                                 <td><button onClick={() => this.removeListing(property)}>Remove Listing</button></td>
                                             </tr>
                                         ))}
@@ -106,10 +108,10 @@ class AdminPropertyPage extends Component {
                                                     <td>{inactiveProperty.state}</td>
                                                     <td>{inactiveProperty.zip_code}</td>
                                                     <td>{inactiveProperty.property_type}</td>
-                                                    <td>{inactiveProperty.net_operating_income}</td>
-                                                    <td>{inactiveProperty.gross_income}</td>
-                                                    <td>{inactiveProperty.gross_expense}</td>
-                                                    <td>{inactiveProperty.desired_price}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.net_operating_income)}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.gross_income)}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.gross_expense)}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.desired_price)}</td>
                                                     <td><button onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</button></td>
                                                 </tr>
                                             ))}
