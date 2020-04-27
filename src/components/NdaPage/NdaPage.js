@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import './NdaPage.css'
 import SignaturePad from 'react-signature-canvas';
+import userFavoritesReducer from '../../redux/reducers/userFavoritesReducer';
 
 
 class NdaPage extends Component {
@@ -46,10 +47,10 @@ class NdaPage extends Component {
                 <p>
                     <span>
                         This NON-DISCLOSURE AGREEMENT (this “<b>Agreement</b>”) is made effective as of <b>Insert Date</b> by and
-                        among OTTO LLC (together with its affiliates, the “<b>Disclosing Party</b>”) and <b>Insert Buyers’ Name</b> (together
+                        among OTTO LLC (together with its affiliates, the “<b>Disclosing Party</b>”) and <b>{this.props.reduxState.user.first_name} {this.props.reduxState.user.last_name}</b> (together
                         with its affiliates, the “<b>Recipient</b>”). This Agreement creates no binding obligations on either party to
                         consummate any transaction. Recipient has expressed interest in an opportunity to purchase certain assets
-                        and/or real estate referred to as <b>Insert Specific Property Name/Description</b> (the “<b>Opportunity</b>”). To
+                        and/or real estate referred to as <b>Property Name to be Revealed After Agreement</b> (the “<b>Opportunity</b>”). To
                         facilitate Recipient’s evaluation of the Opportunity, Disclosing Party may disclose nonpublic information
                         to Recipient. In consideration of the disclosure to Recipient by the Disclosing Party of nonpublic
                         information, Recipient agrees as follows:
@@ -134,7 +135,7 @@ class NdaPage extends Component {
                 </p>
                 <p>
                     <span>
-                        <b>RECIPIENT</b><b>Disclosing Party</b>
+                        <b>RECIPIENT</b>
                     </span>
                     <span className ="disclosingParty">
                     <b>Disclosing Party</b>
@@ -143,7 +144,7 @@ class NdaPage extends Component {
                 <br />
                 <p>
                     <span>
-                        <b>INSERT BUYERS NAME</b>
+                        <b>{this.props.reduxState.user.first_name} {this.props.reduxState.user.last_name}</b>
                     </span>
                     <span className ="otto">
                     <b>OTTO, LLC</b>
