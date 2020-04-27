@@ -87,54 +87,54 @@ class AdminUserPage extends Component {
                     <div className='user'>
                         <table className="table">
                             <thead>
-                            <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
-                                <th>Remove User</th>
-                                <th>Status</th>
-                                <th>Approve Admin</th>
-                            </tr>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Remove User</th>
+                                    <th>Status</th>
+                                    <th>Approve Admin</th>
+                                </tr>
                             </thead>
                             <tbody>
-                        {this.state.status ? (
-                            <>
-                               
-                                {this.props.reduxState.adminUserReducer.map(user => (
-                                 
-                                        
-                                        <tr key={user.id} className="approved" >
-                                            <td>{user.first_name}</td>
-                                        <td>{user.last_name}</td>
-                                            <td>{user.username}</td>
-                                            <td>{user.phone_number}</td>
-                                            <td><button onClick={() => this.deleteUser(user)}>Delete</button><br /></td>
-                                            <td><button onClick={() => this.unApproveUser(user)}>Unapprove User</button></td>
-                                        <td>{user.user_type == 1 ? ('*Administrator*') : <button onClick={() => this.approveAdmin(user)}>Make Admin</button>}</td>
-                                       </tr>
-                                           
-                                        // 
-                                ))}
+                                {this.state.status ? (
+                                    <>
 
-                            </>
-                        ) : (
-                            <>
-                                {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
-                                    <tr key={unapprovedUser.id} className="unapproved" >
-                                        <td>{unapprovedUser.first_name}</td>
-                                        <td>{unapprovedUser.last_name}</td>
-                                        <td>{unapprovedUser.username}</td>
-                                        <td>{unapprovedUser.phone_number}</td>
-                                        <td><button onClick={() => this.deleteUser(unapprovedUser)}>Delete</button></td>
-                                        <td><button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button></td>
-                                        <td><button onClick={() => this.approveAdmin(unapprovedUser)}>Make Admin</button></td>
-                                        
-                                    </tr>
-                                ))}
-                            </>)}
+                                        {this.props.reduxState.adminUserReducer.map(user => (
+
+
+                                            <tr key={user.id} className="approved" >
+                                                <td>{user.first_name}</td>
+                                                <td>{user.last_name}</td>
+                                                <td>{user.username}</td>
+                                                <td>{user.phone_number}</td>
+                                                <td><button onClick={() => this.deleteUser(user)}>Delete</button><br /></td>
+                                                <td><button onClick={() => this.unApproveUser(user)}>Unapprove User</button></td>
+                                                <td>{user.user_type == 1 ? ('*Administrator*') : <button onClick={() => this.approveAdmin(user)}>Make Admin</button>}</td>
+                                            </tr>
+
+                                            // 
+                                        ))}
+
+                                    </>
+                                ) : (
+                                        <>
+                                            {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
+                                                <tr key={unapprovedUser.id} className="unapproved" >
+                                                    <td>{unapprovedUser.first_name}</td>
+                                                    <td>{unapprovedUser.last_name}</td>
+                                                    <td>{unapprovedUser.username}</td>
+                                                    <td>{unapprovedUser.phone_number}</td>
+                                                    <td><button onClick={() => this.deleteUser(unapprovedUser)}>Delete</button></td>
+                                                    <td><button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button></td>
+                                                    <td><button onClick={() => this.approveAdmin(unapprovedUser)}>Make Admin</button></td>
+
+                                                </tr>
+                                            ))}
+                                        </>)}
                             </tbody>
-                             </table>
+                        </table>
                     </div>
                 </div>
             )
