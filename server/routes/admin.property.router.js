@@ -8,7 +8,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminProperty route");
     if (req.isAuthenticated() && req.user.user_type == 1) {
         console.log('req.user:', req.user);
-        let queryString = `SELECT * FROM "property" WHERE "active" = 'TRUE'`;
+        let queryString = `SELECT "property"."id", "active", "address", "unit_number", "state", "city", "zip_code", "property_type",
+        "net_operating_income", "gross_income", "gross_expense", "desired_price", "user"."username", "user"."first_name", "user"."last_name"
+        FROM "property" JOIN "user" ON "property"."user_id"= "user"."id" WHERE "active" = 'TRUE';`;
         pool.query(queryString)
             .then(results => {
                 res.send(results.rows);
@@ -25,7 +27,9 @@ router.get('/history/', rejectUnauthenticated, (req, res) => {
     console.log("in getAdminPropertyHistory route");
     if (req.isAuthenticated() && req.user.user_type == 1) {
         console.log('req.user:', req.user);
-        let queryString = `SELECT * FROM "property" WHERE "active" = 'FALSE'`;
+        let queryString = `SELECT "property"."id", "active", "address", "unit_number", "state", "city", "zip_code", "property_type",
+        "net_operating_income", "gross_income", "gross_expense", "desired_price", "user"."username", "user"."first_name", "user"."last_name"
+        FROM "property" JOIN "user" ON "property"."user_id"= "user"."id" WHERE "active" = 'FALSE';`;
         pool.query(queryString)
             .then(results => {
                 res.send(results.rows);
