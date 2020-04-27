@@ -75,10 +75,10 @@ class PropertyPage extends Component {
                                 <td>{this.state.state}</td>
                                 <td>{this.state.zip_code}</td>
                                 <td>{this.state.property_type}</td>
-                                <td>{this.state.net_operating_income}</td>
-                                <td>{this.state.gross_income}</td>
-                                <td>{this.state.gross_expense}</td>
-                                <td>{this.state.desired_price}</td>
+                                <td>${this.state.net_operating_income}</td>
+                                <td>${this.state.gross_income}</td>
+                                <td>${this.state.gross_expense}</td>
+                                <td>${this.state.desired_price}</td>
                             </tbody>
                         </table>
                     </div>
