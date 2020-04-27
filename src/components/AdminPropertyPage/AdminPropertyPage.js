@@ -58,6 +58,8 @@ class AdminPropertyPage extends Component {
                         <table className="table">
                             <thead>
                                 <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
                                     <th>Address</th>
                                     <th>Unit Number</th>
                                     <th>City</th>
@@ -76,6 +78,8 @@ class AdminPropertyPage extends Component {
                                     <>
                                         {this.props.reduxState.adminPropertyReducer.map(property => (
                                             <tr key={property.id} className="active" >
+                                                <td>{property.first_name} {property.last_name}</td>
+                                                <td>{property.username}</td>
                                                 <td>{property.address}</td>
                                                 <td>{property.unit_number}</td>
                                                 <td>{property.city}</td>
@@ -94,6 +98,8 @@ class AdminPropertyPage extends Component {
                                         <>
                                             {this.props.reduxState.adminPropertyHistoryReducer.map(inactiveProperty => (
                                                 <tr key={inactiveProperty.id} className="inactive" >
+                                                    <td>{inactiveProperty.first_name} {inactiveProperty.last_name}</td>
+                                                    <td>{inactiveProperty.username}</td>
                                                     <td>{inactiveProperty.address}</td>
                                                     <td>{inactiveProperty.unit_number}</td>
                                                     <td>{inactiveProperty.city}</td>
