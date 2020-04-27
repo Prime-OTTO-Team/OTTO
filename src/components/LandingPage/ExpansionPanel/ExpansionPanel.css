@@ -1,3 +1,11 @@
 .detailsContainer {
     width: 100%;
+    justify-content: center;
+}
+.detailsTable {
+    width: 80%;
+}
+
+th {
+    width: 50%;
 }
