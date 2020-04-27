@@ -46,7 +46,7 @@ router.put('/approve/:id', (req, res) => {
 router.get('/public', async (req, res) => {
     const results = await pool.query(`
     SELECT "id", "active", "city", "state", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price", ROUND("latitude", 2) AS "latitude", ROUND("longitude", 2) AS "longitude"
-    FROM property WHERE active = true ORDER BY "id" DESC LIMIT 9;`)
+    FROM property WHERE active = true ORDER BY "id" DESC;`)
     try {
         res.send(results.rows)
     } catch (error) {
