@@ -12,7 +12,6 @@ class ExpansionPanelDetails extends Component {
             <List className="detailsContainer">
                 <table className="detailsTable">
                     <tr>
-                        {/* <ListItem> */}
                         <th>
                             <ListItemText className="listSubtitle">
                                 Property Type
@@ -23,7 +22,6 @@ class ExpansionPanelDetails extends Component {
                                 {this.props.propertyType}
                             </ListItemText>
                         </th>
-                        {/* </ListItem> */}
                     </tr>
                 </table>
                     <Divider light />
@@ -42,8 +40,6 @@ class ExpansionPanelDetails extends Component {
                     </tr>
                 </table>
                 <Divider light />
-
-
                 <table  className="detailsTable">
                     <tr>
                         <th>
