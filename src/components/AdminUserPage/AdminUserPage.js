@@ -85,7 +85,7 @@ class AdminUserPage extends Component {
                     <button onClick={this.handleClick2}>Pending Approval</button>
                     <button onClick={this.handleClick}>Approved Users</button>
                     <div className='user'>
-                        <table id="table">
+                        <table className="table">
                             <thead>
                             <tr>
                                 <th>First Name</th>

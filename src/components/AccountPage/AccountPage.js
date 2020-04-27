@@ -62,7 +62,7 @@ class AccountPage extends Component {
                 <button onClick={this.handleClick2}>My Favorites</button>
                 <div className='account'>
                     
-                    <table id="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>Address</th>
