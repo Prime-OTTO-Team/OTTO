@@ -1,41 +1,14 @@
-.mapListingContainer {
-    flex-direction: row;
-  }
-  .listingContainer {
-    width: 50%;
-    /* background-color: black; */
-    min-height: 70vh;
-    /* display: flex; */
-      align-items: center;
-      justify-content: center;
-  }
-  .expansionPanel {
-      /* flex-direction: column; */
-    width: 90%;
-  }
-  .mapContainer {
-    width: 50%;
-    position: absolute;
-    left: 52%;
-    top: 20%;
-  }
-  .ExpansionPanelTitle {
-      justify-content: space-between;
-  }
-  .propertyButtonsWrapper {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .interestedButton {
-    align-self: flex-end;
-    color: darkgoldenrod;
-  }
-  .banner{
-   max-width: 100%;
-  height: auto;
-  }
+/* .container {
+  position: relative;
+  text-align: center;
+} */
 
-  .searchBar{
+.banner {
+  max-width: 100%;
+  height: auto;
+}
+
+.searchBar {
   position: absolute;
   top: 35%;
   left: 50%;
@@ -45,12 +18,52 @@
   padding-bottom: 0px;
   padding-left: 5px;
   padding-right: 5px; */
-  
 }
-/* .container {
-  position: relative;
-  text-align: center;
-} */
-.searchField{
-  background:rgba(255,255,255, 1);
+
+.searchField {
+  background: rgba(255, 255, 255, 1);
 }
+
+.mapListingContainer {
+  flex-direction: row;
+}
+
+.mapContainer {
+  width: 50%;
+  position: absolute;
+  left: 52%;
+  top: 58%;
+}
+
+.listingContainer {
+  width: 50%;
+  /* background-color: black; */
+  min-height: 70vh;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.expansionPanel {
+  /* flex-direction: column; */
+  width: 90%;
+  left: 7%;
+}
+
+.ExpansionPanelTitle {
+  justify-content: space-between;
+}
+
+.propertyButtonsWrapper {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.interestedButton {
+  align-self: flex-end;
+  color: darkgoldenrod;
+}
+
+
