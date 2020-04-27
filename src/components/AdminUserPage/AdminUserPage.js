@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import './AdminUserPage.css';
 
 class AdminUserPage extends Component {
     state = {
@@ -84,31 +85,57 @@ class AdminUserPage extends Component {
                     <button onClick={this.handleClick2}>Pending Approval</button>
                     <button onClick={this.handleClick}>Approved Users</button>
                     <div className='user'>
-                        Here is where listings or favorites go: <br />
+                        <table id="table">
+                            <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Remove User</th>
+                                <th>Status</th>
+                                <th>Approve Admin</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                         {this.state.status ? (
-                            <div>
-
+                            <>
+                               
                                 {this.props.reduxState.adminUserReducer.map(user => (
-                                    <div key={user.id} className="approved" >
-                                        {user.first_name} {user.last_name} {user.user_type == 1 && 'is already an administrator'}
-                                        <button onClick={() => this.unApproveUser(user)}>Unapprove User</button>
-                                        <button onClick={() => this.approveAdmin(user)}>Approve Admin</button>
-                                        <button onClick={() => this.deleteUser(user)}>Delete</button><br />
-                                    </div>
+                                 
+                                        
+                                        <tr key={user.id} className="approved" >
+                                            <td>{user.first_name}</td>
+                                            <td>{user.last_name}</td>
+                                            <td>{user.username}</td>
+                                            <td>{user.phone_number}</td>
+                                            <td><button onClick={() => this.deleteUser(user)}>Delete</button><br /></td>
+                                            <td><button onClick={() => this.unApproveUser(user)}>Unapprove User</button></td>
+                                            <td><button onClick={() => this.approveAdmin(user)}>Approve Admin</button></td>
+                                       </tr>
+                                           
+                                        //   {user.user_type == 1 && 'is already an administrator'}
                                 ))}
 
-                            </div>
+                            </>
                         ) : (
-                            <div>
+                            <>
                                 {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
-                                    <div key={unapprovedUser.id} className="unapproved" >
-                                        {unapprovedUser.first_name} {unapprovedUser.last_name} {unapprovedUser.user_type == 1 && 'is already an administrator'}
-                                        <button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button>
-                                        <button onClick={() => this.approveAdmin(unapprovedUser)}>Approve Admin</button>
-                                        <button onClick={() => this.deleteUser(unapprovedUser)}>Delete</button><br />
-                                    </div>
+                                    <tr key={unapprovedUser.id} className="unapproved" >
+                                        <td>{unapprovedUser.first_name}</td>
+                                        <td>{unapprovedUser.last_name}</td>
+                                        <td>{unapprovedUser.username}</td>
+                                        <td>{unapprovedUser.phone_number}</td>
+                                        <td><button onClick={() => this.deleteUser(unapprovedUser)}>Delete</button></td>
+                                        <td><button onClick={() => this.approveUser(unapprovedUser)}>Approve User</button></td>
+                                        <td><button onClick={() => this.approveAdmin(unapprovedUser)}>Approve Admin</button></td>
+                                        
+                                    </tr>
+                                //    { unapprovedUser.user_type == 1 && 'is already an administrator' }
                                 ))}
-                            </div>)}
+                            </>)}
+                            </tbody>
+                             </table>
                     </div>
                 </div>
             )
