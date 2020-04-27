@@ -1,7 +1,20 @@
-.forSalePageWrapper {
+.flexbox-container {
+    display: flex;
     flex-direction: row;
 }
 
-.searchWrapper {
+.flexbox-item {
+    width: 250px;
+    margin: 0px;
+    padding:30px;
+    border: 2px solid rgb(226, 226, 226);
+    background-color: #fff;
+}
+
+.flexbox-item-1 {
+    max-width: 20%;
+}
+
+.flexbox-item-2 {
     max-width: 20%;
 }
