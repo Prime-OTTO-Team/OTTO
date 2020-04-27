@@ -56,19 +56,20 @@ router.get('/public', async (req, res) => {
     }
 });
 
-router.get('/private', async (req, res) => {
-    console.log('req.body', req.body);
-    
-    // const results = await pool.query(`
-    // SELECT "id", "active", "city", "state", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price", ROUND("latitude", 2) AS "latitude", ROUND("longitude", 2) AS "longitude"
-    // FROM property
-    // WHERE active = true;`)
-    // try {
-    //     res.send(results.rows)
-    // } catch (error) {
-    //     console.log(error);
-    //     res.sendStatus(500)
-    // }
+router.post('/private', async (req, res) => {
+    console.log('private req: ', req.body.singlePropertyId);
+    const results = await pool.query(`
+    SELECT "id", "active", "address", "unit_number", "city", "state", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price", CAST("latitude" AS DECIMAL), CAST("longitude" AS DECIMAL)
+    FROM property
+    WHERE id = ${req.body.singlePropertyId};`)
+    try {
+        res.send(results.rows)
+        console.log('Detailed Property Query: ', results.rows);
+        
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500)
+    }
 });
 
 

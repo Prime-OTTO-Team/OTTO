@@ -7,13 +7,9 @@ import Listings from './Listings';
 import './LandingPage.css';
 import Banner from './skyline.jpg';
 import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
-import { white } from 'material-ui/styles/colors';
 
 
 

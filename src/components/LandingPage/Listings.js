@@ -51,7 +51,6 @@ class Listings extends Component {
                 }
             })
             if (response.status === 200) {
-                console.log('status 200');
                 const favorited = this.props.reduxState.userFavoritesReducer;
                 this.props.dispatch({
                     type: 'SET_FAVORITES',
@@ -72,13 +71,14 @@ class Listings extends Component {
             {
                 type: 'SET_SINGLE_PROPERTY_ID',
                 payload: propertyId
-            },
-            {
-                type: 'SET_DETAILED_PROPERTY',
-                payload: {id: propertyId}
             }
         )
-
+        this.props.dispatch(
+            {
+                type: 'SET_DETAILED_PROPERTY',
+                payload: propertyId
+            }
+        )
     }
     checkIfInterestButtonDisabled = (propertyId) => {
         const userInterests = this.props.reduxState.userInterestsReducer
@@ -166,7 +166,7 @@ class Listings extends Component {
                                         disabled={this.checkIfInterestButtonDisabled(property.id)}
                                     >
                                         Get More Information
-                                </Link>
+                                    </Link>
                                     :
                                     <Link
                                         className="interestedButton" variant="contained"

@@ -5,14 +5,14 @@ import Marker from './Marker.js'
 class MiniMap extends Component {
     state = {
         defaultCenter: {
-            lat: this.props.position.lat,
-            lng: this.props.position.lat
+            lat: Number( this.props.position.lat ),
+            lng: Number( this.props.position.lng )
         },
         // center: {
         //     lat: 44.9778,
         //     lng: -93.2650
         // },
-        zoom: 18
+        zoom: 16
     };
     // centerMap = (latitude, longitude) => {
     //     console.log('in centerMap');
@@ -25,15 +25,15 @@ class MiniMap extends Component {
     render() {
         if (this.props.position) {
             return (
-                <div style={{ height: '300px', width: '300px' }}>
+                <div style={{ height: '500px', width: '500px' }}>
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: 'AIzaSyCHElb_DfSY05GT5sQL4K_8PU8fWIE--xo' }}
-                        defaultCenter={this.props.defaultCenter}
+                        defaultCenter={this.state.defaultCenter}
                         defaultZoom={this.state.zoom}
                     >
                         <Marker
-                            lat={this.props.defaultCenter.lat}
-                            lng={this.props.defaultCenter.lng}
+                            lat={this.props.position.lat}
+                            lng={this.props.position.lng}
                             color="rgb(222, 213, 16)"
                         />
                     </GoogleMapReact>

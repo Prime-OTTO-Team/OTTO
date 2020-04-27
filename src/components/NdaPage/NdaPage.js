@@ -1,12 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import './NdaPage.css'
 
+
 class NdaPage extends Component {
-    handleClick = () => {
-        this.props.history.push('/property')
+    handleClick = async() => {
+        await this.getDetailedPropertyInfo();
+        this.props.history.push('/property');
     }
-    
+    getDetailedPropertyInfo = async() => {
+        const singlePropertyId = this.props.reduxState.singlePropertyIdReducer;
+        try {
+            const response = await axios({
+                url: 'api/property/private',
+                method: 'POST',
+                data: {
+                    singlePropertyId
+                }
+            })
+            if (response.status === 200) {
+                this.props.dispatch({
+                    type: 'SET_DETAILED_PROPERTY',
+                    payload: response.data[0]
+                });
+            }
+            if (response.status === 400) {
+                console.log('status 400');
+            }
+            console.log('response: ', response);
+        } catch (error) {
+            console.log('error : ', error)
+        }
+    }
 
     render() {
         return (
@@ -40,7 +66,7 @@ class NdaPage extends Component {
                             private, privileged, valuable and proprietary assets of the Disclosing Party and that its misuse could
                             adversely affect the business and interests of the Disclosing Party.
                         </li>
-                        <br/>
+                        <br />
                         <li>
                             2. <b>Limited Permitted Use</b>. Recipient agrees that the Confidential Information is disclosed for
                             Recipient’s sole use with regard to evaluating the Opportunity and that conveyance of this material by
@@ -52,7 +78,7 @@ class NdaPage extends Component {
                             any such opportunity. All Confidential Information shall be destroyed or returned to Disclosing Party
                             upon completion of the limited business purpose.
                         </li>
-                        <br/>
+                        <br />
                         <li>
                             3. <b>No Unauthorized Disclosures.</b> Recipient agrees to protect all Confidential Information and not to
                             communicate, duplicate or disclose any such information and materials to any person or entity except
@@ -68,7 +94,7 @@ class NdaPage extends Component {
                             the business and interests of Disclosing Party. Recipient agrees not to circumvent Disclosing Party
                             with regard to any Relationships or the Opportunity.
                         </li>
-                        <br/>
+                        <br />
                         <li>
                             5. <b>Breach.</b> In the event of a breach or threatened breach by the Recipient of the provisions of this
                             Agreement, the Disclosing Party shall be entitled to injunctive relief and reasonable liquidated
@@ -76,42 +102,42 @@ class NdaPage extends Component {
                             pursuing any available remedy for breach. Recipient agrees to indemnify Disclosing Party for any
                             costs and legal expenses that Disclosing Party may incur in connection with enforcing this Agreement.
                         </li>
-                        <br/>
+                        <br />
                         <li>
                             6. <b>Governing Law.</b> The parties consent to jurisdiction and venue in the State of Minnesota. The laws of
                             Minnesota shall govern the terms of this Agreement without regard to conflict of laws considerations.
-                        </li> 
-                        <br/> 
+                        </li>
+                        <br />
                         <li>
                             7. <b>Authorization.</b> Each party represents that the signer of this Agreement on its behalf is duly authorized
                             to execute this Agreement and that the obligations of this Agreement will not create a conflict of
                             interest, violation of any laws, or breach of any existing contractual or legal obligations of such party.
                         </li>
-                        <br/>
+                        <br />
                         <li>
                             8. <b>Execution.</b> This Agreement may be executed by emails containing scanned signatures in one or more
                             counterparts, each of which shall be deemed an original but all of which shall constitute the same
                             instrument.
                         </li>
-                        <br/>
+                        <br />
                         <li>
                             9. <b>Modification.</b> Each party has had the opportunity to review this Agreement with legal counsel prior to
                             execution. The Agreement may be modified only by mutual written consent of both parties.
                         </li>
                     </ul>
-                </p>  
+                </p>
                 <p>
                     <span>
                         Accepted and agreed as of the date first written above.
                     </span>
-                </p>            
+                </p>
                 <p>
                     <span>
                         <b>RECIPIENT</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Disclosing Party</b>
                     </span>
                 </p>
-                <br/>
+                <br />
                 <p>
                     <span>
                         <b>INSERT BUYERS NAME</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
