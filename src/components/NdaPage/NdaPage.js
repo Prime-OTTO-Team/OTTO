@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SignaturePad from 'react-signature-canvas';
+import './/NdaPage.css';
 
 class NdaPage extends Component {
     handleClick = () => {
         this.props.history.push('/property')
     }
     
-
     render() {
         return (
             <div className='container'>
@@ -106,20 +107,33 @@ class NdaPage extends Component {
                 </p>            
                 <p>
                     <span>
-                        <b>RECIPIENT</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Disclosing Party</b>
+                        <b>RECIPIENT</b><b>Disclosing Party</b>
+                    </span>
+                    <span className ="disclosingParty">
+                    <b>Disclosing Party</b>
                     </span>
                 </p>
                 <br/>
                 <p>
                     <span>
-                        <b>INSERT BUYERS NAME</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b>OTTO, LLC</b>
+                        <b>INSERT BUYERS NAME</b>
+                    </span>
+                    <span className ="otto">
+                    <b>OTTO, LLC</b>
                     </span>
                 </p>
                 <p>
                     <span>
-                        Signatures go down here
+                        <SignaturePad 
+                        canvasProps={{
+                            className: "signatureCanvas"
+                        }}
+                            />
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        Signature
                     </span>
                 </p>
                 <button onClick={this.handleClick}>Agree</button>

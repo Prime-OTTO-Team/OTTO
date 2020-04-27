@@ -95,7 +95,9 @@ class PropertyInputPage extends Component {
                 type: 'ADD_PROPERTY',
                 payload: this.state
             })
-
+        this.props.dispatch({
+            type: 'FETCH_ACCOUNT'
+        });
         }
 
         console.log('this is the user', this.props.user);
