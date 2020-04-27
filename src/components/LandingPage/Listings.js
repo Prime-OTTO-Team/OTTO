@@ -72,6 +72,7 @@ class Listings extends Component {
             type: 'SET_SINGLE_PROPERTY_ID',
             payload: propertyId
         })
+        
         try {
             const response = await axios({
                 url: 'api/interest',
@@ -96,6 +97,7 @@ class Listings extends Component {
         } catch (error) {
             console.log('error : ', error)
         }
+        console.log('logging single property reducer from interested in listing', this.props.reduxState);
     }
     checkIfInterestButtonDisabled = (propertyId) => {
         const userInterests = this.props.reduxState.userInterestsReducer
