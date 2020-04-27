@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { currencyFormatter } from '../Resources/currencyFormatter';
+import Swal from 'sweetalert2';
+
 
 class AdminPropertyPage extends Component {
     state = {
@@ -39,22 +42,40 @@ class AdminPropertyPage extends Component {
     }
 
     deleteHistory(data) {
-        this.props.dispatch({
-            type: 'DELETE_ADMIN_PROPERTY',
-            payload: data
-        });
+        Swal.fire({
+            title: 'Are you sure you want to delete this listing history?',
+            text: 'This cannot be undone!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#fec52d',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete listing history!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Listing history delted!'
+                )
+                this.props.dispatch({
+                    type: 'DELETE_ADMIN_PROPERTY',
+                    payload: data
+                });
+            }
+        })
+       
     }
 
     render() {
         if (this.props.user.user_type == 1) {
             return (
                 <div className='container'>
-                    <h1>Admin Property Page</h1>
-                    <h4>
-                        Welcome <b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>
-                    </h4>
-                    <Button color="primary" onClick={this.handleClick}>Active Listings</Button>
+                    {/* <h1>Admin Property Page</h1> */}
+                    <h2>
+                        Viewing Listings as Admin ({this.props.user.first_name})
+                    </h2>
+                     <Button color="primary" onClick={this.handleClick}>Active Listings</Button>
                     <Button color="primary" onClick={this.handleClick2}>History of Listings</Button>
+                    {this.state.status ? (<h1>Active Listings:</h1>) : (<h1>Inactive Listings:</h1>)}
+
                     <div className='admin'>
                         <br />
                         <table className="table">
@@ -88,11 +109,12 @@ class AdminPropertyPage extends Component {
                                                 <td>{property.state}</td>
                                                 <td>{property.zip_code}</td>
                                                 <td>{property.property_type}</td>
-                                                <td>{property.net_operating_income}</td>
-                                                <td>{property.gross_income}</td>
-                                                <td>{property.gross_expense}</td>
-                                                <td>{property.desired_price}</td>
+                                                <td>{currencyFormatter(property.net_operating_income)}</td>
+                                                <td>{currencyFormatter(property.gross_income)}</td>
+                                                <td>{currencyFormatter(property.gross_expense)}</td>
+                                                <td>{currencyFormatter(property.desired_price)}</td>
                                                 <td><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Remove Listing</Button></td>
+
                                             </tr>
                                         ))}
                                     </>
@@ -108,10 +130,10 @@ class AdminPropertyPage extends Component {
                                                     <td>{inactiveProperty.state}</td>
                                                     <td>{inactiveProperty.zip_code}</td>
                                                     <td>{inactiveProperty.property_type}</td>
-                                                    <td>{inactiveProperty.net_operating_income}</td>
-                                                    <td>{inactiveProperty.gross_income}</td>
-                                                    <td>{inactiveProperty.gross_expense}</td>
-                                                    <td>{inactiveProperty.desired_price}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.net_operating_income)}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.gross_income)}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.gross_expense)}</td>
+                                                    <td>{currencyFormatter(inactiveProperty.desired_price)}</td>
                                                     <td><Button variant="outlined" color="secondary" onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</Button></td>
                                                 </tr>
                                             ))}

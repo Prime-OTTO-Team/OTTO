@@ -146,7 +146,6 @@ class LandingPage extends Component {
                         </form>
                     </div>
                 </div>
-                
                 <LoginSignUpModal />
 
                 <div className="mapListingContainer">
@@ -155,9 +154,11 @@ class LandingPage extends Component {
                         handlePanelChange={this.handlePanelChange}
                         expanded={this.state.expanded}
                     />
+                    <span className="landingPagePrimer"> Markers shown on maps are not exact locations, but general ones to protect privacy of owners.</span>
                     <div className="mapContainer">
                         <GoogleMap markerLocations={this.state.properties} />
                     </div>
+                    
                 </div>
             </div>
         )

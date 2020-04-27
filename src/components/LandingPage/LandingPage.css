@@ -66,4 +66,12 @@
   color: darkgoldenrod;
 }
 
+.landingPagePrimer {
+    width: 50%;
+  position: absolute;
+  left: 52%;
+  top: 56%;
+  font-size: 16px;
+}
+
 

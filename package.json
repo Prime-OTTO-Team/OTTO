@@ -15,12 +15,14 @@
     "google-map-react": "^1.1.7",
     "google-maps-react": "^2.0.2",
     "material-ui": "^0.20.2",
+    "moment": "^2.24.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-moment": "^0.9.7",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.3.1",
@@ -28,7 +30,8 @@
     "react-sticky": "^6.0.3",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.0.2"
+    "redux-saga": "^1.0.2",
+    "sweetalert2": "^9.10.12"
   },
   "scripts": {
     "start": "node server/server.js",

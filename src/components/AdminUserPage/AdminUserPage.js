@@ -44,6 +44,7 @@ class AdminUserPage extends Component {
             type: 'FETCH_ADMIN_USER'
         })
         console.log('in approveUser');
+        window.location.reload();
     }
 
     unApproveUser = (data) => {
@@ -55,6 +56,7 @@ class AdminUserPage extends Component {
             type: 'FETCH_ADMIN_USER'
         })
         console.log('in unApproveUser');
+        window.location.reload();
     }
 
     approveAdmin = (data) => {
@@ -66,6 +68,7 @@ class AdminUserPage extends Component {
         //     type: 'FETCH_ADMIN_USER'
         // })
         console.log('in approveAdmin');
+        window.location.reload();
     }
 
     deleteUser = (data) => {
@@ -74,18 +77,19 @@ class AdminUserPage extends Component {
             payload: data
         });
         console.log('in deleteUser');
+        window.location.reload();
     }
 
     render() {
         if (this.props.user.user_type == 1) {
             return (
                 <div className='container'>
-                    <h1>Admin List of All Users</h1>
-                    <h4>
-                        Welcome "<b>{this.props.user.first_name}</b> <b>{this.props.user.last_name}</b>",
-                    </h4>
-                    <Button color="primary" onClick={this.handleClick2}>Pending Approval</Button>
+                    <h2>
+                        Viewing Users as Admin ({this.props.user.first_name})
+                    </h2>
+                     <Button color="primary" onClick={this.handleClick2}>Pending Approval</Button>
                     <Button color="primary" onClick={this.handleClick}>Approved Users</Button>
+                    {this.state.status ? (<h1>Approved Users:</h1>) : (<h1>Users Pending Approval:</h1>)}
                     <div className='user'>
                         <table className="table">
                             <thead>

@@ -177,60 +177,58 @@ class PrivacyPolicy extends Component {
                         We may share your personal information with:
                     </span>
                 </p>
-                <p>
-                    <ul>
-                        <li>
-                            The public and other members of the Service.  Your profile information and content you post
-                            to public areas of the Service will be viewable by others on the Service and the public.
-                            Please do not provide personal information you would not want to be public.  You may be
-                            able to control the visibility of some of your information in your Profile page (see “Control
-                            Over Your Information” below);
+                <ul>
+                    <li>
+                        The public and other members of the Service.  Your profile information and content you post
+                        to public areas of the Service will be viewable by others on the Service and the public.
+                        Please do not provide personal information you would not want to be public.  You may be
+                        able to control the visibility of some of your information in your Profile page (see “Control
+                        Over Your Information” below);
                         </li>
-                        <br/>
-                        <li>
-                            Other users of the Service. We share your information with third parties to whom you
-                            express your interest in on the Service, for example, if you request information on a
-                            particular asset, download document from an Asset’s Property Page on our Site or submit an
-                            offer on a particular Asset, then the seller and/or its representative will be given access to
-                            your information. When you log-in and visit any property on the Service, we also share your
-                            information, such as User Content you provide consisting of information about individual properties,
-                            including but not limited to information regarding title and legal status, current and potential valuations,
-                            physical condition and aesthetic/tenant improvement attributes, environmental reports, encumbrances, rent
-                            roll and pending lease negotiations, and tenant defaults or issues, with the broker or seller associated
-                            with that property. You control who you want to share information with;
+                    <br />
+                    <li>
+                        Other users of the Service. We share your information with third parties to whom you
+                        express your interest in on the Service, for example, if you request information on a
+                        particular asset, download document from an Asset’s Property Page on our Site or submit an
+                        offer on a particular Asset, then the seller and/or its representative will be given access to
+                        your information. When you log-in and visit any property on the Service, we also share your
+                        information, such as User Content you provide consisting of information about individual properties,
+                        including but not limited to information regarding title and legal status, current and potential valuations,
+                        physical condition and aesthetic/tenant improvement attributes, environmental reports, encumbrances, rent
+                        roll and pending lease negotiations, and tenant defaults or issues, with the broker or seller associated
+                        with that property. You control who you want to share information with;
                         </li>
-                        <br/>
-                        <li>
-                            Third-party vendors and other service providers that perform services on our behalf, as
-                            needed to carry out their work for us, which may include payment processing services,
-                            identifying and serving targeted advertisements, providing mailing services, providing tax and
-                            accounting services, web hosting, or providing analytic services;
+                    <br />
+                    <li>
+                        Third-party vendors and other service providers that perform services on our behalf, as
+                        needed to carry out their work for us, which may include payment processing services,
+                        identifying and serving targeted advertisements, providing mailing services, providing tax and
+                        accounting services, web hosting, or providing analytic services;
                         </li>
-                        <br/>
-                        <li>
-                            Other companies and brands owned or controlled by OTTO and other companies owned by
-                            or under common ownership as OTTO, which also includes our subsidiaries (i.e., any
-                            organization we own or control) or our ultimate holding company (i.e., any organization that
-                            owns or controls us) and any subsidiaries it owns.  These companies will use your personal
-                            information in the same way as we can under this Policy;
+                    <br />
+                    <li>
+                        Other companies and brands owned or controlled by OTTO and other companies owned by
+                        or under common ownership as OTTO, which also includes our subsidiaries (i.e., any
+                        organization we own or control) or our ultimate holding company (i.e., any organization that
+                        owns or controls us) and any subsidiaries it owns.  These companies will use your personal
+                        information in the same way as we can under this Policy;
                         </li>
-                        <br/>
-                        <li>
-                            Other parties in connection with a company transaction, such as a merger, sale of company
-                            assets or shares, reorganization, financing, change of control or acquisition of all or a portion
-                            of our business by another company or third party, or in the event of a bankruptcy or related
-                            or similar proceedings; and
+                    <br />
+                    <li>
+                        Other parties in connection with a company transaction, such as a merger, sale of company
+                        assets or shares, reorganization, financing, change of control or acquisition of all or a portion
+                        of our business by another company or third party, or in the event of a bankruptcy or related
+                        or similar proceedings; and
                         </li>
-                        <br/>
-                        <li>
-                            Third parties as required by law or subpoena or if we reasonably believe that such action is
-                            necessary to (a) comply with the law and the reasonable requests of law enforcement; (b) to
+                    <br />
+                    <li>
+                        Third parties as required by law or subpoena or if we reasonably believe that such action is
+                        necessary to (a) comply with the law and the reasonable requests of law enforcement; (b) to
                             enforce our <a href="https://ww.Otto.com/TOS">Terms of Service</a> (https://www.OTTO.com/tos) or to protect the security or
                             integrity of our Service; and/or (c) to exercise or protect the rights, property, or personal
                             safety of OTTO, our visitors, or others.
                         </li>
-                    </ul>
-                </p>
+                </ul>
                 <p>
                     <span>
                         We may also share information with others in an aggregated or otherwise anonymized form that does not
@@ -264,7 +262,7 @@ class PrivacyPolicy extends Component {
                         <b>Modifying or deleting your information:</b>  If you have any questions about reviewing, modifying, or
                         deleting your information, or if you want to remove your name or comments from our Service or
                         publicly displayed content, you can visit your profile page, available
-                        at <a href="https://www.OTTO.com/dashboard/profile">https://www.OTTO.com/dashboard/profile</a>, 
+                        at <a href="https://www.OTTO.com/dashboard/profile">https://www.OTTO.com/dashboard/profile</a>,
                         or contact us directly at privacy@OTTO.com.  We may
                         not be able to modify or delete your information in all circumstances.
                     </span>
@@ -307,38 +305,36 @@ class PrivacyPolicy extends Component {
                         <b><u>Your Choices:</u></b>
                     </span>
                 </p>
-                <p>
-                    <ul>
-                        <li>
-                            <b>Interest-based advertising</b>. To learn about interest-based advertising and how you may be
+                <ul>
+                    <li>
+                        <b>Interest-based advertising</b>. To learn about interest-based advertising and how you may be
                             able to opt-out of some of this advertising, you may wish to visit the Network Advertising
-                            Initiative’s online resources at <a href="http://www.networkadvertising.org/choices">http://www.networkadvertising.org/choices</a> 
+                            Initiative’s online resources at <a href="http://www.networkadvertising.org/choices">http://www.networkadvertising.org/choices</a>
                             and/or the DAA’s resources at <a href="www.aboutads.info/choices">www.aboutads.info/choices</a>.
                         </li>
-                        <br/>
-                        <li>
-                            <b>Cross-device linking</b>.  Please note that opting-out of receiving interest-based advertising
+                    <br />
+                    <li>
+                        <b>Cross-device linking</b>.  Please note that opting-out of receiving interest-based advertising
                             through the NAI’s and DAA’s online resources will only opt-out a user from receiving interest-
                             based ads on that specific browser or device, but the user may still receive interest-based
                             ads on his or her other devices.  You must perform the opt-out on each browser or device
                             you use.
                         </li>
-                        <br/>
-                        <li>
-                            Mobile advertising.  You may also be able to limit interest-based advertising through the
-                            settings on your mobile device by selecting “limit ad tracking” (iOS) or “opt-out of interest
-                            based ads” (Android).  You may also be able to opt-out of some—but not all—interest-based
-                            ads served by mobile ad networks by visiting <a href="http://youradchoices.com/appchoices">http://youradchoices.com/appchoices</a> 
+                    <br />
+                    <li>
+                        Mobile advertising.  You may also be able to limit interest-based advertising through the
+                        settings on your mobile device by selecting “limit ad tracking” (iOS) or “opt-out of interest
+                        based ads” (Android).  You may also be able to opt-out of some—but not all—interest-based
+                            ads served by mobile ad networks by visiting <a href="http://youradchoices.com/appchoices">http://youradchoices.com/appchoices</a>
                             and downloading the mobile AppChoices app.
                         </li>
-                        <br/>
-                        <li>
-                            Some of these opt-outs may not be effective unless your browser is set to accept cookies.  If
-                            you delete cookies, change your browser settings, switch browsers or computers, or use
-                            another operating system, you will need to opt-out again.
+                    <br />
+                    <li>
+                        Some of these opt-outs may not be effective unless your browser is set to accept cookies.  If
+                        you delete cookies, change your browser settings, switch browsers or computers, or use
+                        another operating system, you will need to opt-out again.
                         </li>
-                    </ul>
-                </p>
+                </ul>
                 <p>
                     <span>
                         <b><u>Google Analytics and Advertising</u></b>.  We use Google Analytics to recognize you and link the devices you
@@ -348,7 +344,7 @@ class PrivacyPolicy extends Component {
                         how our users interact with our Service and to tailor our advertisements and content to you.  For
                         information on how Google Analytics collects and processes data, as well as how you can control
                         information sent to Google, review Google's site “How Google uses data when you use our partners’
-                        sites or apps” located at <a href="www.google.com/policies/privacy/partners/">www.google.com/policies/privacy/partners/</a>. 
+                        sites or apps” located at <a href="www.google.com/policies/privacy/partners/">www.google.com/policies/privacy/partners/</a>.
                         You can learn about Google Analytics’ currently available opt-outs, including the Google Analytics Browser Ad-On
                         here <a href="https://tools.google.com/dlpage/gaoptout/">https://tools.google.com/dlpage/gaoptout/</a>.
                     </span>
@@ -432,11 +428,11 @@ class PrivacyPolicy extends Component {
                     </span>
                 </p>
                 <p>
-                    Attn: Privacy Department <br/>
-                    Commercial Real Estate Exchange, Inc. <br/>
-                    13360 Beach Avenue <br/>
-                    Marina Del Rey, California  90292 <br/>
-                    Email: privacy@OTTO.com <br/>
+                    Attn: Privacy Department <br />
+                    Commercial Real Estate Exchange, Inc. <br />
+                    13360 Beach Avenue <br />
+                    Marina Del Rey, California  90292 <br />
+                    Email: privacy@OTTO.com <br />
                     Phone: (888) 273-0423
                 </p>
                 <p>
@@ -458,8 +454,8 @@ class PrivacyPolicy extends Component {
                         consenting to the changes.
                     </span>
                 </p>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <p>
                     <span>
                         This privacy policy was last modified on August 7, 2018.

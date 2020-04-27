@@ -113,7 +113,7 @@ class Listings extends Component {
         const properties = this.props.reduxState.propertyReducer;
         console.log('props', props);
         if (properties) {
-            return properties.map((property) => {
+            return properties.slice(0, 11).map((property) => {
                 return (
                     <ExpansionPanel
                         key={property.id}

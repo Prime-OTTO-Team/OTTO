@@ -46,7 +46,7 @@ class Listings extends Component {
                 url: 'api/favorite',
                 method: 'POST',
                 params: {
-                    propertyId: propertyId
+                    singlePropertyId: propertyId
                 }
             })
             if (response.status === 200) {
@@ -67,13 +67,27 @@ class Listings extends Component {
     }
     interestedInListing = async (propertyId) => {
         console.log('interestedInListing propertyId: ', propertyId);
+        this.props.dispatch(
+            {
+                type: 'SET_SINGLE_PROPERTY_ID',
+                payload: propertyId
+
+            }
+        )
+        this.props.dispatch(
+            {
+                type: 'SET_DETAILED_PROPERTY',
+                payload: propertyId
+            }
+
+        )
         
         try {
             const response = await axios({
                 url: 'api/property/private',
-                method: 'GET',
-                params: {
-                    propertyId: propertyId
+                method: 'POST',
+                data: {
+                    singlePropertyId: propertyId
                 }
             })
             if (response.status === 200) {
@@ -89,7 +103,7 @@ class Listings extends Component {
             }
             console.log('response: ', response);
         } catch (error) {
-            console.log('error : ', error)
+            console.log('error from interestedInListing: ', error)
         }
     }
     checkIfInterestButtonDisabled = (propertyId) => {
@@ -171,7 +185,7 @@ class Listings extends Component {
                                 <Link
                                     className="interestedButton" variant="contained"
                                     to="/nda" 
-                                    // onClick={() => { this.interestedInListing(property.id) }}
+                                    onClick={() => { this.interestedInListing(property.id) }}
                                     disabled={this.checkIfInterestButtonDisabled(property.id)}
                                 >
                                     Get More Information
