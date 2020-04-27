@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { currencyFormatter } from '../Resources/currencyFormatter';
+import Swal from 'sweetalert2';
 
 class AdminPropertyPage extends Component {
     state = {
@@ -38,10 +39,26 @@ class AdminPropertyPage extends Component {
     }
 
     deleteHistory(data) {
-        this.props.dispatch({
-            type: 'DELETE_ADMIN_PROPERTY',
-            payload: data
-        });
+        Swal.fire({
+            title: 'Are you sure you want to delete this listing history?',
+            text: 'This cannot be undone!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#fec52d',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete listing history!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Listing history delted!'
+                )
+                this.props.dispatch({
+                    type: 'DELETE_ADMIN_PROPERTY',
+                    payload: data
+                });
+            }
+        })
+       
     }
 
     render() {
