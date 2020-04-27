@@ -53,23 +53,34 @@ class PropertyPage extends Component {
 
                 <div className="propertyDetailsWrapper">
                     <div key={this.state.id} className="active" >
-                        <b>Address:</b> {this.state.address}
-                        <br></br>
-                        <b>City:</b> {this.state.city}
-                        <br></br>
-                        <b>State:</b> {this.state.state}
-                        <br></br>
-                        <b>Property Type:</b> {this.state.property_type}
-                        <br></br>
-                        <b>Zipcode:</b> {this.state.zip_code}
-                        <br></br>
-                        <b>Net operating Income:</b> {this.state.net_operating_income}
-                        <br></br>
-                        <b>Gross Income:</b> {this.state.gross_income}
-                        <br></br>
-                        <b>Gross Expense</b>: {this.state.gross_expense}
-                        <br></br>
-                        <b>Desired Price:</b> {this.state.desired_price}
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>Address</th>
+                                    <th>Unit Number</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip Code</th>
+                                    <th>Property Type</th>
+                                    <th>Net Operating Income</th>
+                                    <th>Gross Income</th>
+                                    <th>Gross Expense</th>
+                                    <th>Desired Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td>{this.state.address}</td>
+                                <td>{this.state.unit_number}</td>
+                                <td>{this.state.city}</td>
+                                <td>{this.state.state}</td>
+                                <td>{this.state.zip_code}</td>
+                                <td>{this.state.property_type}</td>
+                                <td>{this.state.net_operating_income}</td>
+                                <td>{this.state.gross_income}</td>
+                                <td>{this.state.gross_expense}</td>
+                                <td>{this.state.desired_price}</td>
+                            </tbody>
+                        </table>
                     </div>
                     {/* ))}                            */}
                     <button styles="flex-row:">Make an offer to Client
