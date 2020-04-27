@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Swal from 'sweetalert2';
+
 
 class AccountPage extends Component {
     state = {
@@ -85,13 +88,15 @@ class AccountPage extends Component {
     render() {
         return (
             <div className='container'>
+
                 <h2>
                         {this.props.user.first_name}, here is your Account
                 </h2>
             
-                <button onClick={this.handleClick}>My Listings</button>
-                <button onClick={this.handleClick2}>My Favorites</button>
+                  <Button color="primary" onClick={this.handleClick}>My Listings</Button>
+                <Button color="primary" onClick={this.handleClick2}>My Favorites</Button>
                 {this.state.status ? (<h1>Listings:</h1>):(<h1>Favorites:</h1>)}
+
                 <div className='account'>
                     
                     <table className="table">
@@ -112,8 +117,10 @@ class AccountPage extends Component {
                                     <tr key={property.id} className="property" >
                                     <td>{property.address}</td>
                                     <td>{currencyFormatter(property.desired_price)}</td>
-                                    <td><button onClick={() => this.removeListing(property)}>Delete Listing</button></td>
-                                    <td><button onClick={() => this.editListing(property)}>Edit Listing</button></td>
+                                    <td><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Delete Listing</Button></td>
+                                    <td><Button variant="outlined" color="primary" onClick={() => this.editListing(property)}>Edit Listing</Button></td>
+                                
+
                                     </tr>
                                    
                                
@@ -125,7 +132,7 @@ class AccountPage extends Component {
                                         <tr key={favorite.id} className="favorite" >
                                         <td>{favorite.address}</td>
                                         <td>{currencyFormatter(favorite.desired_price)}</td>
-                                        <td><button onClick={() => this.removeFavorite(favorite)}>Remove Favorite</button></td>
+                                         <td><Button variant="outlined" color="secondary" onClick={() => this.removeFavorite(favorite)}>Remove Favorite</Button></td>
                                         <td></td>
                                         </tr>
                                 ))}

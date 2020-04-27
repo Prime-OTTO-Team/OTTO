@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Swal from 'sweetalert2';
+
 
 class AdminPropertyPage extends Component {
     state = {
@@ -69,9 +72,10 @@ class AdminPropertyPage extends Component {
                     <h2>
                         Viewing Listings as Admin ({this.props.user.first_name})
                     </h2>
-                    <button onClick={this.handleClick}>Active Listings</button>
-                    <button onClick={this.handleClick2}>History of Listings</button>
+                     <Button color="primary" onClick={this.handleClick}>Active Listings</Button>
+                    <Button color="primary" onClick={this.handleClick2}>History of Listings</Button>
                     {this.state.status ? (<h1>Active Listings:</h1>) : (<h1>Inactive Listings:</h1>)}
+
                     <div className='admin'>
                         <br />
                         <table className="table">
@@ -109,7 +113,8 @@ class AdminPropertyPage extends Component {
                                                 <td>{currencyFormatter(property.gross_income)}</td>
                                                 <td>{currencyFormatter(property.gross_expense)}</td>
                                                 <td>{currencyFormatter(property.desired_price)}</td>
-                                                <td><button onClick={() => this.removeListing(property)}>Remove Listing</button></td>
+                                                <td><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Remove Listing</Button></td>
+
                                             </tr>
                                         ))}
                                     </>
@@ -129,7 +134,7 @@ class AdminPropertyPage extends Component {
                                                     <td>{currencyFormatter(inactiveProperty.gross_income)}</td>
                                                     <td>{currencyFormatter(inactiveProperty.gross_expense)}</td>
                                                     <td>{currencyFormatter(inactiveProperty.desired_price)}</td>
-                                                    <td><button onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</button></td>
+                                                    <td><Button variant="outlined" color="secondary" onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</Button></td>
                                                 </tr>
                                             ))}
                                         </>)}
