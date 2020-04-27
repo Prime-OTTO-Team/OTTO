@@ -51,7 +51,6 @@ class Listings extends Component {
                 }
             })
             if (response.status === 200) {
-                console.log('status 200');
                 const favorited = this.props.reduxState.userFavoritesReducer;
                 this.props.dispatch({
                     type: 'SET_FAVORITES',
@@ -68,36 +67,22 @@ class Listings extends Component {
     }
     interestedInListing = async (propertyId) => {
         // this.props.history.push('/nda');
-        this.props.dispatch({
-            type: 'SET_SINGLE_PROPERTY_ID',
-            payload: propertyId
-        })
-        
-        try {
-            const response = await axios({
-                url: 'api/interest',
-                method: 'POST',
-                params: {
-                    propertyId: propertyId
-                }
-            })
-            if (response.status === 200) {
-                console.log('status 200');
-                const interests = this.props.reduxState.userInterestsReducer;
-                this.props.dispatch({
-                    type: 'SET_INTERESTS',
-                    payload: [...interests, propertyId]
-                });
+
+        this.props.dispatch(
+            {
+                type: 'SET_SINGLE_PROPERTY_ID',
+                payload: propertyId
 
             }
-            if (response.status === 400) {
-                console.log('status 400');
+        )
+        this.props.dispatch(
+            {
+                type: 'SET_DETAILED_PROPERTY',
+                payload: propertyId
             }
-            console.log('response: ', response);
-        } catch (error) {
-            console.log('error : ', error)
-        }
-        console.log('logging single property reducer from interested in listing', this.props.reduxState);
+
+        )
+
     }
     checkIfInterestButtonDisabled = (propertyId) => {
         const userInterests = this.props.reduxState.userInterestsReducer
@@ -151,19 +136,19 @@ class Listings extends Component {
                             </div>
                             {console.log('buttonIsDisabled: ', this.buttonIsDisabled(property.id))
                             }
-                            { this.buttonIsDisabled(property.id) ? 
-                            <FavoriteIcon 
-                                className="interestedButton" variant="contained"
-                                disabled={this.buttonIsDisabled(property.id)}
-                                onClick={() => { this.favoriteListing(property.id) }}
-                             /> :
-                             <FavoriteBorderIcon 
-                                className="interestedButton" variant="rounded"
-                                disabled={this.buttonIsDisabled(property.id)}
-                                onClick={() => { this.favoriteListing(property.id) }}
-                             />
-                            
-                            
+                            {this.buttonIsDisabled(property.id) ?
+                                <FavoriteIcon
+                                    className="interestedButton" variant="contained"
+                                    disabled={this.buttonIsDisabled(property.id)}
+                                    onClick={() => { this.favoriteListing(property.id) }}
+                                /> :
+                                <FavoriteBorderIcon
+                                    className="interestedButton" variant="rounded"
+                                    disabled={this.buttonIsDisabled(property.id)}
+                                    onClick={() => { this.favoriteListing(property.id) }}
+                                />
+
+
                             }
 
                         </ExpansionPanelSummary>
@@ -178,26 +163,25 @@ class Listings extends Component {
                         <div className="propertyButtonsWrapper">
                             <Button>
                                 {this.props.reduxState.user.id ?
-                                <Link
-                                    className="interestedButton" variant="contained"
-                                    to="/nda" 
-                                    onClick={() => { this.interestedInListing(property.id) }}
-                                    disabled={this.checkIfInterestButtonDisabled(property.id)}
-                                >
-                                    Get More Information
-                                </Link>
-                                :
+                                    <Link
+                                        className="interestedButton" variant="contained"
+                                        to="/nda"
+                                        onClick={() => { this.interestedInListing(property.id) }}
+                                        disabled={this.checkIfInterestButtonDisabled(property.id)}
+                                    >
+                                        Get More Information
+                                    </Link>
+                                    :
                                     <Link
                                         className="interestedButton" variant="contained"
                                         onClick={() => {
                                             console.log('login clicked');
                                             props.dispatch({ type: 'LOGIN_REGISTER_MODAL_OPEN', payload: true })
                                         }}
-                                        disabled={this.checkIfInterestButtonDisabled(property.id)}
                                     >
                                         Get More Information
                                 </Link>
-                              }
+                                }
                             </Button>
                             {/* <Typography>
                                 </Typography> */}

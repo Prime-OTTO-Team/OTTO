@@ -66,10 +66,12 @@ class Listings extends Component {
         }
     }
     interestedInListing = async (propertyId) => {
+        console.log('interestedInListing propertyId: ', propertyId);
+        
         try {
             const response = await axios({
-                url: 'api/interest',
-                method: 'POST',
+                url: 'api/property/private',
+                method: 'GET',
                 params: {
                     propertyId: propertyId
                 }

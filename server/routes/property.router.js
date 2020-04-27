@@ -55,5 +55,21 @@ router.get('/public', async (req, res) => {
     }
 });
 
+router.post('/private', async (req, res) => {
+    console.log('private req: ', req.body.singlePropertyId);
+    const results = await pool.query(`
+    SELECT "id", "active", "address", "unit_number", "city", "state", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price", CAST("latitude" AS DECIMAL), CAST("longitude" AS DECIMAL)
+    FROM property
+    WHERE id = ${req.body.singlePropertyId};`)
+    try {
+        res.send(results.rows)
+        console.log('Detailed Property Query: ', results.rows);
+        
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500)
+    }
+});
+
 
 module.exports = router;

@@ -1,3 +1,10 @@
+
+.ndaContainer {
+    margin-left: 10%;
+    max-width: 80%;
+    justify-content: center;
+    text-align: center;
+
 .signatureCanvas {
     border: 1px solid black;
     width: 30%;
