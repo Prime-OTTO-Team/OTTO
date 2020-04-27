@@ -58,7 +58,6 @@ class NdaPage extends Component {
                         information, Recipient agrees as follows:
                     </span>
                 </p>
-                <p>
                     <ul>
                         <li>
                             1. <b>Confidentiality</b>. Recipient acknowledges that it may receive from the Disclosing Part information
@@ -129,7 +128,6 @@ class NdaPage extends Component {
                             execution. The Agreement may be modified only by mutual written consent of both parties.
                         </li>
                     </ul>
-                </p>
                 <p>
                     <span>
                         Accepted and agreed as of the date first written above.
