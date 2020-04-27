@@ -17,20 +17,20 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 const styles = theme => ({
     root: {
-        width: '100%',
+        width: '100%'
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
-        flexBasis: '33.33%',
-        flexShrink: 0,
+        flex: '33.33%',
+        flexShrink: 0
     },
     secondaryHeading: {
         fontSize: theme.typography.pxToRem(15),
-        color: theme.palette.text.secondary,
+        color: theme.palette.text.secondary
     },
     details: {
         fontSize: theme.typography.pxToRem(13),
-        flexBasis: '100%',
+        flex: '100%'
     }
 });
 
@@ -66,8 +66,6 @@ class Listings extends Component {
         }
     }
     interestedInListing = async (propertyId) => {
-        // this.props.history.push('/nda');
-
         this.props.dispatch(
             {
                 type: 'SET_SINGLE_PROPERTY_ID',
@@ -80,9 +78,7 @@ class Listings extends Component {
                 type: 'SET_DETAILED_PROPERTY',
                 payload: propertyId
             }
-
         )
-
     }
     checkIfInterestButtonDisabled = (propertyId) => {
         const userInterests = this.props.reduxState.userInterestsReducer
@@ -95,9 +91,9 @@ class Listings extends Component {
         }
         return false
     }
-    buttonIsDisabled = (propertyId) => {
+    propertyIsFavorited = (propertyId) => {
         const userFavorites = this.props.reduxState.userFavoritesReducer
-        // console.log('disabledFavoriteButtons: ', userFavorites);
+        console.log('userFavorites: ', userFavorites);
         for (let i = 0; i < userFavorites.length; i++) {
             const userFavorite = userFavorites[i];
             if (userFavorite.property_id === propertyId) {
@@ -134,23 +130,20 @@ class Listings extends Component {
                                 <Typography className={classes.secondaryHeading}>{property.city + ', ' + property.state + ' ' + property.zip_code}
                                 </Typography>
                             </div>
-                            {console.log('buttonIsDisabled: ', this.buttonIsDisabled(property.id))
-                            }
-                            {this.buttonIsDisabled(property.id) ?
-                                <FavoriteIcon
-                                    className="interestedButton" variant="contained"
-                                    disabled={this.buttonIsDisabled(property.id)}
-                                    onClick={() => { this.favoriteListing(property.id) }}
-                                /> :
-                                <FavoriteBorderIcon
-                                    className="interestedButton" variant="rounded"
-                                    disabled={this.buttonIsDisabled(property.id)}
-                                    onClick={() => { this.favoriteListing(property.id) }}
-                                />
-
-
-                            }
-
+                            <div>
+                                {this.propertyIsFavorited(property.id) ?
+                                    <FavoriteIcon
+                                        className="interestedButton" variant="contained"
+                                        disabled={this.propertyIsFavorited(property.id)}
+                                        onClick={() => { this.favoriteListing(property.id) }}
+                                    /> :
+                                    <FavoriteBorderIcon
+                                        className="interestedButton" variant="rounded"
+                                        disabled={this.propertyIsFavorited(property.id)}
+                                        onClick={() => { this.favoriteListing(property.id) }}
+                                    />
+                                }
+                            </div>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails
                             propertyType={property.property_type}
@@ -161,7 +154,7 @@ class Listings extends Component {
                         >
                         </ExpansionPanelDetails>
                         <div className="propertyButtonsWrapper">
-                            <Button>
+                            <Button className="moreInfoButton">
                                 {this.props.reduxState.user.id ?
                                     <Link
                                         className="interestedButton" variant="contained"

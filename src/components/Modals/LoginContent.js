@@ -43,7 +43,7 @@ class LoginContent extends Component {
         password: null,
     };
 
-    login = (event) => {
+    login = async(event) => {
         event.preventDefault();
 
         if (this.state.username && this.state.password) {
@@ -60,7 +60,7 @@ class LoginContent extends Component {
         if (this.props.user) {
             console.log('logged in getting favorites and interests for', this.props.user);
             
-            this.getFavoritesInterests();
+            await this.getFavoritesInterests();
             this.props.handleClose();
         }
     } // end login
@@ -70,37 +70,37 @@ class LoginContent extends Component {
             [propertyName]: event.target.value,
         });
     }
-    getFavoritesInterests = () => {
+    getFavoritesInterests = async() => {
         console.log('in getFavoritesInterests');
         this.props.dispatch({
                 type: 'FETCH_ACCOUNT'
                 });
-        // try {
-        //     const response = await axios({
-        //         url: 'api/interest/favoritesAndInterests',
-        //         method: 'GET',
-        //     })
-        //     console.log('getDisabledButtons response: ', response);
-        //     if (response.status === 200) {
-        //         console.log('status 200');
-        //         console.log('favorites then interests', response.data.favorites, response.data.interests );
+        try {
+            const response = await axios({
+                url: 'api/interest/favoritesAndInterests',
+                method: 'GET',
+            })
+            console.log('getDisabledButtons response: ', response);
+            if (response.status === 200) {
+                console.log('status 200');
+                console.log('favorites then interests', response.data.favorites, response.data.interests );
                 
-        //         this.props.dispatch({
-        //             type: 'SET_FAVORITES',
-        //             payload: response.data.favorites
-        //         });
-        //         this.props.dispatch({
-        //             type: 'SET_INTERESTS',
-        //             payload: response.data.interests
-        //         });
-        //     }
-        //     if (response.status === 400) {
-        //         console.log('status 400');
-        //     }
-        //     console.log('response: ', response);
-        // } catch (error) {
-        //     console.log('error : ', error)
-        // }
+                this.props.dispatch({
+                    type: 'SET_FAVORITES',
+                    payload: response.data.favorites
+                });
+                this.props.dispatch({
+                    type: 'SET_INTERESTS',
+                    payload: response.data.interests
+                });
+            }
+            if (response.status === 400) {
+                console.log('status 400');
+            }
+            console.log('response: ', response);
+        } catch (error) {
+            console.log('error : ', error)
+        }
     }
     render() {
         const { classes } = this.props;
