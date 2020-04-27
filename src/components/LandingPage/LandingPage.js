@@ -144,7 +144,7 @@ class LandingPage extends Component {
                                     value="Search"
                                 >
                                     Search
-                                        </Button>
+                                </Button>
                             </FormControl>
 
                         </form>

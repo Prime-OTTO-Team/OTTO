@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './NdaPage.css'
 
 class NdaPage extends Component {
     handleClick = () => {
@@ -9,7 +10,7 @@ class NdaPage extends Component {
 
     render() {
         return (
-            <div className='container'>
+            <div className='ndaContainer'>
                 <p styles="text-align: center" align="center">
                     <b>
                         <span styles="font-size: 9pt">Non-Disclosure Agreement</span>

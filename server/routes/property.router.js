@@ -56,5 +56,20 @@ router.get('/public', async (req, res) => {
     }
 });
 
+router.get('/private', async (req, res) => {
+    console.log('req.body', req.body);
+    
+    // const results = await pool.query(`
+    // SELECT "id", "active", "city", "state", "zip_code", "property_type", "net_operating_income", "gross_income", "gross_expense", "desired_price", ROUND("latitude", 2) AS "latitude", ROUND("longitude", 2) AS "longitude"
+    // FROM property
+    // WHERE active = true;`)
+    // try {
+    //     res.send(results.rows)
+    // } catch (error) {
+    //     console.log(error);
+    //     res.sendStatus(500)
+    // }
+});
+
 
 module.exports = router;
