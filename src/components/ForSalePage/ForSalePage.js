@@ -245,8 +245,8 @@ class ForSalePage extends Component {
         const { classes } = this.props;
 
         return (
-            <div className="forSalePageWrapper">
-                <Container className="searchWrapper" component="main" maxWidth="xs">
+            <div className="flexbox-container">
+                <Container className="flexbox-item flexbox-item-1" component="main" maxWidth="xs">
                     <CssBaseline />
 
                     <Typography component="h1" variant="h5">
@@ -440,7 +440,7 @@ class ForSalePage extends Component {
                         </form>
                     </div>
                 </Container>
-                <ForSalePageItems
+                <ForSalePageItems className="flexbox-item flexbox-item-2"
                         properties={this.state.properties} 
                         handlePanelChange={this.handlePanelChange}
                         expanded={this.state.expanded}

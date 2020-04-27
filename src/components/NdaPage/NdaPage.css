@@ -1,6 +1,25 @@
+
 .ndaContainer {
     margin-left: 10%;
     max-width: 80%;
     justify-content: center;
     text-align: center;
+
+.signatureCanvas {
+    border: 1px solid black;
+    width: 30%;
+    height: auto;
+}
+
+.otto {
+    float: right;
+    margin-right: 30%;
+}
+.disclosingParty {
+    float: right;
+    margin-right: 27.5%;
+}
+
+.container {
+    padding: 50px;
 }

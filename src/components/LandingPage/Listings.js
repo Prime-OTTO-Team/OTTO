@@ -67,10 +67,12 @@ class Listings extends Component {
     }
     interestedInListing = async (propertyId) => {
         // this.props.history.push('/nda');
+
         this.props.dispatch(
             {
                 type: 'SET_SINGLE_PROPERTY_ID',
                 payload: propertyId
+
             }
         )
         this.props.dispatch(
@@ -78,7 +80,9 @@ class Listings extends Component {
                 type: 'SET_DETAILED_PROPERTY',
                 payload: propertyId
             }
+
         )
+
     }
     checkIfInterestButtonDisabled = (propertyId) => {
         const userInterests = this.props.reduxState.userInterestsReducer

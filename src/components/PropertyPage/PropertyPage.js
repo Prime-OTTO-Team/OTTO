@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import MiniMap from '../GoogleMaps/MiniMap';
 import axios from 'axios';
 
+
 class PropertyPage extends Component {
 
     state = {
+
         id: 1,
         address: '400 S 4th St',
         unitNumber: '',
@@ -40,6 +42,7 @@ class PropertyPage extends Component {
                 desired_price: detailedProperty.desired_price,
             })
         }
+
     }
 
     render() {
@@ -47,6 +50,7 @@ class PropertyPage extends Component {
             <div className='container'>
                 <MiniMap position={{ lat: this.state.lat, lng: this.state.lng }} />
                 {/* {this.props.reduxState.propertyReducer.map(property => ( */}
+
                 <div className="propertyDetailsWrapper">
                     <div key={this.state.id} className="active" >
                         <b>Address:</b> {this.state.address}
@@ -71,6 +75,7 @@ class PropertyPage extends Component {
                     <button styles="flex-row:">Make an offer to Client
                     </button>
                 </div>
+
 
             </div>
         )

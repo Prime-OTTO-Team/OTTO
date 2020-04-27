@@ -156,8 +156,6 @@ class Listings extends Component {
                                 disabled={this.checkIfFavoriteButtonDisabled(property.id)}
                                 onClick={() => { this.favoriteListing(property.id) }}
                              />
-                            
-                            
                             }
 
                         </ExpansionPanelSummary>
