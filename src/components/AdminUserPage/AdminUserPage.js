@@ -116,7 +116,7 @@ class AdminUserPage extends Component {
                                                 <td>{user.username}</td>
                                                 <td>{user.phone_number}</td>
                                                 <td><Button variant="contained" color="secondary" onClick={() => this.deleteUser(user)}>Delete</Button><br /></td>
-                                                <td><Button variant="outlined" color="secondary" onClick={() => this.unApproveUser(user)}>Unapprove User</Button></td>
+                                                <td><Button variant="outlined" color="secondary" onClick={() => this.unApproveUser(user)}>Revoke Approval</Button></td>
                                                 <td>{user.user_type == 1 ? ('*Administrator*') : <Button variant="outlined" color="primary" onClick={() => this.approveAdmin(user)}>Make Admin</Button>}</td>
                                             </tr>
 

@@ -32,10 +32,11 @@
   width: 50%;
   position: absolute;
   left: 52%;
-  top: 58%;
+  top: 59%;
 }
 
 .listingContainer {
+
   width: 50%;
   /* background-color: black; */
   min-height: 70vh;
@@ -70,7 +71,7 @@
     width: 50%;
   position: absolute;
   left: 52%;
-  top: 56%;
+  top: 130%;
   font-size: 16px;
 }
 
