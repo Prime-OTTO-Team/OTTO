@@ -94,7 +94,7 @@ class LandingPage extends Component {
     searchZip = (event) => {
         event.preventDefault();
         console.log('logging zip from landing page', this.state.search);
-        this.props.dispatch ({
+        this.props.dispatch({
             type: 'SET_ZIP_SEARCH',
             payload: this.state.search.zip_code
         })
@@ -150,16 +150,17 @@ class LandingPage extends Component {
                         </form>
                     </div>
                 </div>
+                
                 <LoginSignUpModal />
 
                 <div className="mapListingContainer">
-                    <Listings
+                    <Listings className="mapListingContainer"
                         properties={this.state.properties}
                         handlePanelChange={this.handlePanelChange}
                         expanded={this.state.expanded}
                     />
                     <div className="mapContainer">
-                        <GoogleMap markerLocations={this.state.properties}/>
+                        <GoogleMap markerLocations={this.state.properties} />
                     </div>
                 </div>
             </div>
