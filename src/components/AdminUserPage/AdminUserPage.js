@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 // import './AdminUserPage.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Swal from 'sweetalert2';
 
 class AdminUserPage extends Component {
     state = {
@@ -72,12 +73,29 @@ class AdminUserPage extends Component {
     }
 
     deleteUser = (data) => {
-        this.props.dispatch({
-            type: 'DELETE_ADMIN_USER',
-            payload: data
-        });
-        console.log('in deleteUser');
-        window.location.reload();
+        Swal.fire({
+            title: 'Are you sure you want to delete this user?',
+            text: 'This cannot be undone!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f44336',
+            cancelButtonColor: '#2196f3',
+            confirmButtonText: 'Yes, delete user!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'User delted!'
+                )
+                this.props.dispatch({
+                    type: 'DELETE_ADMIN_USER',
+                    payload: data
+                });
+                console.log('in deleteUser');
+                window.location.reload();
+            }
+        })
+       
+      
     }
 
     render() {

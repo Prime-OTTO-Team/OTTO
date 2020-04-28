@@ -47,8 +47,8 @@ class AdminPropertyPage extends Component {
             text: 'This cannot be undone!',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#fec52d',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#f44336',
+            cancelButtonColor: '#2196f3',
             confirmButtonText: 'Yes, delete listing history!'
         }).then((result) => {
             if (result.value) {
