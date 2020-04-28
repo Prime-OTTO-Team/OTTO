@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import MiniMap from '../GoogleMaps/MiniMap';
 import axios from 'axios';
 import { currencyFormatter } from '../Resources/currencyFormatter';
-
+import Button from '@material-ui/core/Button';
 
 class PropertyPage extends Component {
 
@@ -84,8 +84,8 @@ class PropertyPage extends Component {
                         </table>
                     </div>
                     {/* ))}                            */}
-                    <button styles="flex-row:">Make an offer to Client
-                    </button>
+                    <Button variant="contained" color="primary" styles="flex-row:">Make an offer to Client
+                    </Button>
                 </div>
 
 
