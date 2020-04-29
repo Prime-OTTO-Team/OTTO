@@ -11,6 +11,7 @@ const LogOutButton = props => (
     variant="outlined"
     className={props.className}
     onClick={() => props.dispatch({ type: 'LOGOUT' })}
+    size ="small"
   >
     Log Out
   </Button>

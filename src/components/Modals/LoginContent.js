@@ -60,7 +60,7 @@ class LoginContent extends Component {
         if (this.props.user) {
             console.log('logged in getting favorites and interests for', this.props.user);
             
-            await this.getFavoritesInterests();
+            // await this.getFavoritesInterests();
             this.props.handleClose();
         }
     } // end login

@@ -5,7 +5,7 @@ import './NdaPage.css'
 import SignaturePad from 'react-signature-canvas';
 import userFavoritesReducer from '../../redux/reducers/userFavoritesReducer';
 import Moment from 'react-moment';
-
+import Button from '@material-ui/core/Button';
 
 class NdaPage extends Component {
     handleClick = async() => {
@@ -164,7 +164,7 @@ class NdaPage extends Component {
                         Signature
                     </span>
                 </p>
-                <button onClick={this.handleClick}>Agree</button>
+                <Button variant="contained" color="primary" onClick={this.handleClick}>Agree</Button>
             </div>
         )
     }

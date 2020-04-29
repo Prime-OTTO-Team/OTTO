@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,6 +11,19 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Swal from 'sweetalert2';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    palette: {
+        secondary: {
+            main: '#BE191D'
+        },
+        primary: {
+            main: '#0087CB'
+        }
+
+    },
+});
 
 
 class AccountPage extends Component {
@@ -54,8 +66,8 @@ class AccountPage extends Component {
             title: 'Are you sure you want to remove this favorite?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#fec52d',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#BE191D',
+            cancelButtonColor: '#0087CB',
             confirmButtonText: 'Yes, remove favorite!'
         }).then((result) => {
             if (result.value) {
@@ -75,8 +87,8 @@ class AccountPage extends Component {
             title: 'Are you sure you want to delete this listing?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#fec52d',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#BE191D',
+            cancelButtonColor: '#0087CB',
             confirmButtonText: 'Yes, delete listing!'
         }).then((result) => {
             if (result.value) {
@@ -95,11 +107,10 @@ class AccountPage extends Component {
     render() {
         return (
             <div className='container'>
-
+                <MuiThemeProvider theme={theme}>
                 <h2>
                     {this.props.user.first_name}, here is your Account
                 </h2>
-
                 <Button color="primary" onClick={this.handleClick}>My Listings</Button>
                 <Button color="primary" onClick={this.handleClick2}>My Favorites</Button>
                 {this.state.status ? (<h1>Listings:</h1>) : (<h1>Favorites:</h1>)}
@@ -147,6 +158,7 @@ class AccountPage extends Component {
                         </TableBody>
                     </Table>
                 </TableContainer>
+
             </div>
         )
     }

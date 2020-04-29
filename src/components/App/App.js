@@ -26,6 +26,19 @@ import './App.css';
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import NewFooter from '../NewFooter/NewFooter';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: '#BE191D'
+    },
+    primary: {
+      main: '#0087CB'
+    }
+
+  },
+});
 
 
 class App extends Component {
@@ -35,9 +48,11 @@ class App extends Component {
 
   render() {
     return (
+
       <Router>
         <ScrollToTop/>
         <div>
+          <MuiThemeProvider theme={theme}>
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -81,6 +96,7 @@ class App extends Component {
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <NewFooter />
+          </MuiThemeProvider>
         </div>
       </Router>
     )

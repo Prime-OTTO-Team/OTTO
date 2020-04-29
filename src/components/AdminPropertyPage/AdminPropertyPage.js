@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Swal from 'sweetalert2';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,6 +14,18 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
+const theme = createMuiTheme({
+    palette: {
+        secondary: {
+            main: '#BE191D'
+        },
+        primary: {
+            main: '#0087CB'
+        }
+
+    },
+});
 
 class AdminPropertyPage extends Component {
     state = {
@@ -55,13 +68,13 @@ class AdminPropertyPage extends Component {
             text: 'This cannot be undone!',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#fec52d',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#BE191D',
+            cancelButtonColor: '#0087CB',
             confirmButtonText: 'Yes, delete listing history!'
         }).then((result) => {
             if (result.value) {
                 Swal.fire(
-                    'Listing history delted!'
+                    'Listing history deleted!'
                 )
                 this.props.dispatch({
                     type: 'DELETE_ADMIN_PROPERTY',
@@ -108,6 +121,7 @@ class AdminPropertyPage extends Component {
                                 {this.state.status ? (
                                     <>
                                         {this.props.reduxState.adminPropertyReducer.map(property => (
+
                                             <TableRow key={property.id} className="active" >
                                                 <TableCell align="center">{property.first_name} {property.last_name}</TableCell>
                                                 <TableCell align="center">{property.username}</TableCell>
@@ -124,6 +138,7 @@ class AdminPropertyPage extends Component {
                                                 <TableCell align="center"><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Remove Listing</Button></TableCell>
 
                                             </TableRow>
+
                                         ))}
                                     </>
                                 ) : (
@@ -144,6 +159,7 @@ class AdminPropertyPage extends Component {
                                                     <TableCell align="center">{currencyFormatter(inactiveProperty.desired_price)}</TableCell>
                                                     <TableCell align="center"><Button variant="outlined" color="secondary" onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</Button></TableCell>
                                                 </TableRow>
+
                                             ))}
                                         </>)}
                             </TableBody>

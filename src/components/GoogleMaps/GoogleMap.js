@@ -32,7 +32,7 @@ class GoogleMap extends Component {
                         lat={marker.latitude}
                         lng={marker.longitude}
                         name="My Marker"
-                        color="rgb(222, 213, 16)"
+                        color="#fec52d"
                         onClick={() => { 
                             this.centerMap(marker.latitude, marker.longitude) }}
                     />
