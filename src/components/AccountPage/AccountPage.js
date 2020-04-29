@@ -107,7 +107,7 @@ class AccountPage extends Component {
     render() {
         return (
             <div className='container'>
-                <MuiThemeProvider theme={theme}>
+         
                 <h2>
                     {this.props.user.first_name}, here is your Account
                 </h2>
