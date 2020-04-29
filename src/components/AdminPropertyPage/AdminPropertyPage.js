@@ -4,7 +4,20 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Swal from 'sweetalert2';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+
+const theme = createMuiTheme({
+    palette: {
+        secondary: {
+            main: '#BE191D'
+        },
+        primary: {
+            main: '#0087CB'
+        }
+
+    },
+});
 
 class AdminPropertyPage extends Component {
     state = {
@@ -47,13 +60,13 @@ class AdminPropertyPage extends Component {
             text: 'This cannot be undone!',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#fec52d',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#BE191D',
+            cancelButtonColor: '#0087CB',
             confirmButtonText: 'Yes, delete listing history!'
         }).then((result) => {
             if (result.value) {
                 Swal.fire(
-                    'Listing history delted!'
+                    'Listing history deleted!'
                 )
                 this.props.dispatch({
                     type: 'DELETE_ADMIN_PROPERTY',
@@ -113,8 +126,9 @@ class AdminPropertyPage extends Component {
                                                 <td>{currencyFormatter(property.gross_income)}</td>
                                                 <td>{currencyFormatter(property.gross_expense)}</td>
                                                 <td>{currencyFormatter(property.desired_price)}</td>
+                                                <MuiThemeProvider theme={theme}>
                                                 <td><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Remove Listing</Button></td>
-
+                                                </MuiThemeProvider>
                                             </tr>
                                         ))}
                                     </>
@@ -134,7 +148,9 @@ class AdminPropertyPage extends Component {
                                                     <td>{currencyFormatter(inactiveProperty.gross_income)}</td>
                                                     <td>{currencyFormatter(inactiveProperty.gross_expense)}</td>
                                                     <td>{currencyFormatter(inactiveProperty.desired_price)}</td>
+                                                    <MuiThemeProvider theme={theme}>
                                                     <td><Button variant="outlined" color="secondary" onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</Button></td>
+                                                    </MuiThemeProvider>
                                                 </tr>
                                             ))}
                                         </>)}

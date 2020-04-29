@@ -41,6 +41,8 @@ class Listings extends Component {
         }
     }
     favoriteListing = async (propertyId) => {
+        console.log('in favorite listing');
+        
         try {
             const response = await axios({
                 url: 'api/favorite',

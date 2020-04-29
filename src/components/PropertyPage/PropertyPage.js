@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MiniMap from '../GoogleMaps/MiniMap';
 import axios from 'axios';
-
+import { currencyFormatter } from '../Resources/currencyFormatter';
+import Button from '@material-ui/core/Button';
 
 class PropertyPage extends Component {
 
@@ -75,16 +76,16 @@ class PropertyPage extends Component {
                                 <td>{this.state.state}</td>
                                 <td>{this.state.zip_code}</td>
                                 <td>{this.state.property_type}</td>
-                                <td>${this.state.net_operating_income}</td>
-                                <td>${this.state.gross_income}</td>
-                                <td>${this.state.gross_expense}</td>
-                                <td>${this.state.desired_price}</td>
+                                <td>{currencyFormatter(this.state.net_operating_income)}</td>
+                                <td>{currencyFormatter(this.state.gross_income)}</td>
+                                <td>{currencyFormatter(this.state.gross_expense)}</td>
+                                <td>{currencyFormatter(this.state.desired_price)}</td>
                             </tbody>
                         </table>
                     </div>
                     {/* ))}                            */}
-                    <button styles="flex-row:">Make an offer to Client
-                    </button>
+                    <Button variant="contained" color="primary" styles="flex-row:">Make an offer to Client
+                    </Button>
                 </div>
 
 

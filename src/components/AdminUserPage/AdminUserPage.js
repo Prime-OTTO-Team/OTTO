@@ -3,12 +3,29 @@ import { connect } from 'react-redux';
 // import './AdminUserPage.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Swal from 'sweetalert2';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+const theme = createMuiTheme({
+    palette: {
+        secondary: {
+            main: '#BE191D'
+        },
+        primary:{
+            main: '#0087CB'
+        }
+       
+    },
+});
 
 class AdminUserPage extends Component {
+   
+
     state = {
         status: true
     }
-
+    
     componentDidMount() {
         this.getAdminUser();
     }
@@ -72,17 +89,36 @@ class AdminUserPage extends Component {
     }
 
     deleteUser = (data) => {
-        this.props.dispatch({
-            type: 'DELETE_ADMIN_USER',
-            payload: data
-        });
-        console.log('in deleteUser');
-        window.location.reload();
+        Swal.fire({
+            title: 'Are you sure you want to delete this user?',
+            text: 'This cannot be undone!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f44336',
+            cancelButtonColor: '#2196f3',
+            confirmButtonText: 'Yes, delete user!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'User delted!'
+                )
+                this.props.dispatch({
+                    type: 'DELETE_ADMIN_USER',
+                    payload: data
+                });
+                console.log('in deleteUser');
+                window.location.reload();
+            }
+        })
+       
+      
     }
-
+    
     render() {
+       
         if (this.props.user.user_type == 1) {
             return (
+                
                 <div className='container'>
                     <h2>
                         Viewing Users as Admin ({this.props.user.first_name})
@@ -115,9 +151,11 @@ class AdminUserPage extends Component {
                                                 <td>{user.last_name}</td>
                                                 <td>{user.username}</td>
                                                 <td>{user.phone_number}</td>
+                                                <MuiThemeProvider theme={theme}>
                                                 <td><Button variant="contained" color="secondary" onClick={() => this.deleteUser(user)}>Delete</Button><br /></td>
                                                 <td><Button variant="outlined" color="secondary" onClick={() => this.unApproveUser(user)}>Revoke Approval</Button></td>
                                                 <td>{user.user_type == 1 ? ('*Administrator*') : <Button variant="outlined" color="primary" onClick={() => this.approveAdmin(user)}>Make Admin</Button>}</td>
+                                                </MuiThemeProvider>
                                             </tr>
 
                                             // 
@@ -132,10 +170,11 @@ class AdminUserPage extends Component {
                                                     <td>{unapprovedUser.last_name}</td>
                                                     <td>{unapprovedUser.username}</td>
                                                     <td>{unapprovedUser.phone_number}</td>
+                                                    <MuiThemeProvider theme={theme}>
                                                     <td><Button variant="contained" color="secondary" onClick={() => this.deleteUser(unapprovedUser)}>Delete</Button></td>
                                                     <td><Button variant="outlined" color="primary" onClick={() => this.approveUser(unapprovedUser)}>Approve User</Button></td>
                                                     <td><Button variant="outlined" color="primary" onClick={() => this.approveAdmin(unapprovedUser)}>Make Admin</Button></td>
-
+                                                    </MuiThemeProvider>
                                                 </tr>
                                             ))}
                                         </>)}

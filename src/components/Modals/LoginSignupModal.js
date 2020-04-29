@@ -23,6 +23,8 @@ class LoginSignUpModal extends Component {
         return this.props.reduxState.loginModalReducer;
     }
     handleClose = () => {
+        console.log('HITTING HANDLE CLOSE');
+        
         this.props.dispatch({
             type: 'LOGIN_REGISTER_MODAL_OPEN',
             payload: false
