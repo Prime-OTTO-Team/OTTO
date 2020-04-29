@@ -19,6 +19,14 @@ const theme = createMuiTheme({
     },
 });
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
 class AdminUserPage extends Component {
    
 
@@ -126,37 +134,34 @@ class AdminUserPage extends Component {
                      <Button color="primary" onClick={this.handleClick2}>Pending Approval</Button>
                     <Button color="primary" onClick={this.handleClick}>Approved Users</Button>
                     {this.state.status ? (<h1>Approved Users:</h1>) : (<h1>Users Pending Approval:</h1>)}
-                    <div className='user'>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Remove User</th>
-                                    <th>Status</th>
-                                    <th>Approve Admin</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <TableContainer className="user" component={Paper}>
+                        <Table className="table" aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align="center">First Name</TableCell>
+                                    <TableCell align="center">Last Name</TableCell>
+                                    <TableCell align="center">Email</TableCell>
+                                    <TableCell align="center">Phone Number</TableCell>
+                                    <TableCell align="center">Remove User</TableCell>
+                                    <TableCell align="center">Status</TableCell>
+                                    <TableCell align="center">Approve Admin</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                                 {this.state.status ? (
                                     <>
 
                                         {this.props.reduxState.adminUserReducer.map(user => (
+                                            <TableRow key={user.id} className="approved" >
+                                                <TableCell align="center">{user.first_name}</TableCell>
+                                                <TableCell align="center">{user.last_name}</TableCell>
+                                                <TableCell align="center">{user.username}</TableCell>
+                                                <TableCell align="center">{user.phone_number}</TableCell>
+                                                <TableCell align="center"><Button variant="contained" color="secondary" onClick={() => this.deleteUser(user)}>Delete</Button><br /></TableCell>
+                                                <TableCell align="center"><Button variant="outlined" color="secondary" onClick={() => this.unApproveUser(user)}>Unapprove User</Button></TableCell>
+                                                <TableCell align="center">{user.user_type == 1 ? (<Button variant="outlined" disabled>Administrator</Button>) : <Button variant="outlined" onClick={() => this.approveAdmin(user)}>Make Admin</Button>}</TableCell>
+                                            </TableRow>
 
-
-                                            <tr key={user.id} className="approved" >
-                                                <td>{user.first_name}</td>
-                                                <td>{user.last_name}</td>
-                                                <td>{user.username}</td>
-                                                <td>{user.phone_number}</td>
-                                                <MuiThemeProvider theme={theme}>
-                                                <td><Button variant="contained" color="secondary" onClick={() => this.deleteUser(user)}>Delete</Button><br /></td>
-                                                <td><Button variant="outlined" color="secondary" onClick={() => this.unApproveUser(user)}>Revoke Approval</Button></td>
-                                                <td>{user.user_type == 1 ? ('*Administrator*') : <Button variant="outlined" color="primary" onClick={() => this.approveAdmin(user)}>Make Admin</Button>}</td>
-                                                </MuiThemeProvider>
-                                            </tr>
 
                                             // 
                                         ))}
@@ -165,22 +170,22 @@ class AdminUserPage extends Component {
                                 ) : (
                                         <>
                                             {this.props.reduxState.adminUnapprovedUserReducer.map(unapprovedUser => (
-                                                <tr key={unapprovedUser.id} className="unapproved" >
-                                                    <td>{unapprovedUser.first_name}</td>
-                                                    <td>{unapprovedUser.last_name}</td>
-                                                    <td>{unapprovedUser.username}</td>
-                                                    <td>{unapprovedUser.phone_number}</td>
-                                                    <MuiThemeProvider theme={theme}>
-                                                    <td><Button variant="contained" color="secondary" onClick={() => this.deleteUser(unapprovedUser)}>Delete</Button></td>
-                                                    <td><Button variant="outlined" color="primary" onClick={() => this.approveUser(unapprovedUser)}>Approve User</Button></td>
-                                                    <td><Button variant="outlined" color="primary" onClick={() => this.approveAdmin(unapprovedUser)}>Make Admin</Button></td>
-                                                    </MuiThemeProvider>
-                                                </tr>
+                                                <TableRow key={unapprovedUser.id} className="unapproved" >
+                                                    <TableCell align="center">{unapprovedUser.first_name}</TableCell>
+                                                    <TableCell align="center">{unapprovedUser.last_name}</TableCell>
+                                                    <TableCell align="center">{unapprovedUser.username}</TableCell>
+                                                    <TableCell align="center">{unapprovedUser.phone_number}</TableCell>
+                                                    <TableCell align="center"><Button variant="contained" color="secondary" onClick={() => this.deleteUser(unapprovedUser)}>Delete</Button></TableCell>
+                                                    <TableCell align="center"><Button variant="outlined" color="primary" onClick={() => this.approveUser(unapprovedUser)}>Approve User</Button></TableCell>
+                                                    <TableCell align="center"><Button variant="outlined" onClick={() => this.approveAdmin(unapprovedUser)}>Make Admin</Button></TableCell>
+
+                                                </TableRow>
+
                                             ))}
                                         </>)}
-                            </tbody>
-                        </table>
-                    </div>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
             )
         } else {

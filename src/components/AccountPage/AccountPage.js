@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Swal from 'sweetalert2';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -23,7 +30,7 @@ class AccountPage extends Component {
     state = {
         status: true
     }
-    
+
     editListing(data) {
         console.log('Edit doesnt do anything yet');
         this.props.dispatch({
@@ -94,7 +101,7 @@ class AccountPage extends Component {
                 })
             }
         })
-        
+
     }
 
     render() {
@@ -102,66 +109,62 @@ class AccountPage extends Component {
             <div className='container'>
                 <MuiThemeProvider theme={theme}>
                 <h2>
-                        {this.props.user.first_name}, here is your Account
+                    {this.props.user.first_name}, here is your Account
                 </h2>
-               
-                  <Button color="primary" onClick={this.handleClick}>My Listings</Button>
+                <Button color="primary" onClick={this.handleClick}>My Listings</Button>
                 <Button color="primary" onClick={this.handleClick2}>My Favorites</Button>
-                
-                {this.state.status ? (<h1>Listings:</h1>):(<h1>Favorites:</h1>)}
+                {this.state.status ? (<h1>Listings:</h1>) : (<h1>Favorites:</h1>)}
 
-                <div className='account'>
-                    
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Address</th>
-                                <th>Price</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                         
-                    {this.state.status ? (
-                        <>
-                                  
-                            {this.props.reduxState.accountListing.map(property => (
-                            
-                                    <tr key={property.id} className="property" >
-                                    <td>{property.address}</td>
-                                    <td>{currencyFormatter(property.desired_price)}</td>
-                                    
-                                    <td><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Delete Listing</Button></td>
-                                    <td><Button variant="outlined" color="primary" onClick={() => this.editListing(property)}>Edit Listing</Button></td>
-                                    
-                                    </tr>
-                                   
-                               
-                            ))}
-                        </>
-                    ) : (
-                            <>
-                                {this.props.reduxState.accountFavorite.map(favorite => (
-                                        <tr key={favorite.id} className="favorite" >
-                                        <td>{favorite.address}</td>
-                                        <td>{currencyFormatter(favorite.desired_price)}</td>
-                                        
-                                         <td><Button variant="outlined" color="secondary" onClick={() => this.removeFavorite(favorite)}>Remove Favorite</Button></td>
-                                       
-                                        <td></td>
-                                        </tr>
-                                ))}
-                            </>)}
-                          
-                        </tbody>
-                    </table>
-                </div>
-                </MuiThemeProvider>
+                <TableContainer className='account'>
+
+                    <Table className="table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell align="center">Address</TableCell>
+                                <TableCell align="center">Price</TableCell>
+                                <TableCell align="center">Delete</TableCell>
+                                <TableCell align="center">Edit</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+
+                            {this.state.status ? (
+                                <>
+                                    {this.props.reduxState.accountListing.map(property => (
+
+                                        <TableRow key={property.id} className="property" >
+                                            <TableCell align="center">{property.address}</TableCell>
+                                            <TableCell align="center">{currencyFormatter(property.desired_price)}</TableCell>
+                                            <TableCell align="center"><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Delete Listing</Button></TableCell>
+                                            <TableCell align="center"><Button variant="outlined" color="primary" onClick={() => this.editListing(property)}>Edit Listing</Button></TableCell>
+
+
+                                        </TableRow>
+
+
+                                    ))}
+                                </>
+                            ) : (
+                                    <>
+                                        {this.props.reduxState.accountFavorite.map(favorite => (
+                                            <TableRow key={favorite.id} className="favorite" >
+                                                <TableCell align="center">{favorite.address}</TableCell>
+                                                <TableCell align="center">{currencyFormatter(favorite.desired_price)}</TableCell>
+                                                <TableCell align="center"><Button variant="outlined" color="secondary" onClick={() => this.removeFavorite(favorite)}>Remove Favorite</Button></TableCell>
+                                                <TableCell align="center"><Button variant="outlined" disabled>Edit</Button></TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </>)}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+
             </div>
         )
     }
 }
+
+
 const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
     reduxState,
