@@ -57,7 +57,7 @@ class PropertyInputPage extends Component {
         // grossExpense: this.props.edit.gross_expense,
         // desiredPrice: this.props.edit.desired_price,
         // propertyId: this.props.edit.id
-        userId: 2,
+        userId: 1,
         address: '400 S 4th St',
         unitNumber: '',
         city: 'Minneapolis',
@@ -67,8 +67,8 @@ class PropertyInputPage extends Component {
         netOperatingIncome: 1000000,
         grossIncome: 1500000,
         grossExpense: 500000,
-        desiredPrice: 6000000,
-        propertyId: 48
+        desiredPrice: 60000000,
+        propertyId: ''
     };
 
     fakeInput() {

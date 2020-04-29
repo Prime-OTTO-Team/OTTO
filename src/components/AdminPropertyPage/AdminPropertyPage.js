@@ -66,7 +66,7 @@ class AdminPropertyPage extends Component {
         }).then((result) => {
             if (result.value) {
                 Swal.fire(
-                    'Listing history delted!'
+                    'Listing history deleted!'
                 )
                 this.props.dispatch({
                     type: 'DELETE_ADMIN_PROPERTY',
