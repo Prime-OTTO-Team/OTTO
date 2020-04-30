@@ -1,115 +1,68 @@
-# Prime Project:
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+# OTTO
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+## Description
 
-## Download (Don't Clone) This Repository
+_Duration: 2 Week Sprint_
 
-* Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
-* Unzip the project and start with the code in that folder.
-* Create a new GitHub project and push this code to the new repository.
+Otto is an app to help faciliate off market, owner to owner commercial real estate transactions. Placing commercial real estate on the open market can often alert tenants and give them more negotiating power. It also begins a count up on days listed on the market and the higher the number of days gets, the worse it looks. These are just some reasons why sellers might prefer selling off market. Otto provides a space in which users will have complete privacy. They will be able to add their listing to the site with there desired price and only after a buyer is fully interested will the seller and buyer be connected. 
 
-## Prerequisites
+Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
 
-Before you get started, make sure you have the following software installed on your computer:
+To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com) -add site in readme 
+
+### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
-## Create database and table
+## Installation
 
-Create a new database called `prime_app` and create a `user` table:
+How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+If your application has secret keys (for example --  Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the `.env` file.
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+1. Create a database named `otto_database`,
+2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using [Postico]() to run those queries as that was used to create the queries,
+3. Open up your editor of choice and run an `npm install`
+4. Run `npm run server` in your terminal
+5. Run `npm run client` in your terminal
+6. The `npm run client` command will open up a new browser tab for you!
+7. To fully use Google Maps you must sign up and add an [API key](https://developers.google.com/maps/documentation/javascript/get-api-key). 
+8. You must also create an `.env` file and place it in there. 
 
-## Development Setup Instructions
+## Usage
 
-* Run `npm install`
-* Create a `.env` file at the root of the project and paste this line into the file:
-    ```
-    SERVER_SESSION_SECRET=superDuperSecret
-    ```
-    While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run server`
-* Run `npm run client`
-* Navigate to `localhost:3000`
+1. Users register an account when the modal pops up and then signs in. 
+2. The landing page will contain a map with properties general location marked and recent listings on the site. 
+3. Users must be approved by site admins before searching for specific properties or posting their own listinsg.
+4. The Add a Listing link at the top directs the user to a page where a property can be added. 
+5. The Account link directs the user to a page with any listings they have submitted and any properties they have favorited.
+6. The For Sale link direct the user to a search page to look for properties with predefined criteria. 
+7. When You are interested in a property you will be contacted to Market Fare and sign an NDA to be provided more information. 
+8. After signing an NDA the user will recieve the full address of a property.
+9. If the user wishes to purchase the property they will be sent a letter of intent to sign and will be connected with the seller. 
 
-## Debugging
+## Built With
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
+React
+Google Maps API
+Material UI
+React-Sagas
+React-Redux
+Node.js
+PostgreSql
+Passport
+Bcrypt
+Sweetalerts
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. We thank our instructors Casie Seikman, Dev Jana, and our cohort Chien.
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
+## Support
+If you have suggestions or issues, please email any of us at our respective emails: 
+- Farshid Erwin Zadeh - farshidmzadeh@icloud.com
+- Kyle Greene - kylengreene@gmail.com
+- Matt Kimlinger - Mkimlinger123@gmail.com
+- Derek Boat - derek.boat@gmail.com
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
-
-
-## Testing Routes with Postman
-
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum. 
-
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
-
-1. Start the server - `npm run server`
-2. [Import the sample routes JSON file](./PostmanPrimeSoloRoutes.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-    1. `POST /api/user/register` registers a new user, see body to change username/password
-    2. `POST /api/user/login` will login a user, see body to change username/password
-    3. `GET /api/user` will get user information, by default it's not very much
-
-After running the login route above, you can try any other route you've created that requires a logged in user!
-
-
-## Production Build
-
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
-
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm start`
-* Navigate to `localhost:5000`
-
-## Lay of the Land
-
-* `src/` contains the React application
-* `public/` contains static assets for the client-side
-* `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-* `server/` contains the Express App
-
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-* src/components
-  * App/App
-  * Footer/Footer
-  * Nav/Nav
-  * AboutPage/AboutPage
-  * InfoPage/InfoPage
-  * UserPage/UserPage
-  * LoginPage/LoginPage
-  * RegisterPage/RegisterPage
-  * LogOutButton/LogOutButton
-  * ProtectedRoute/ProtectedRoute
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
