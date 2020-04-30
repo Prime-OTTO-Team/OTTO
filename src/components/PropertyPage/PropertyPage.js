@@ -5,6 +5,9 @@ import axios from 'axios';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Button from '@material-ui/core/Button';
 
+
+
+
 class PropertyPage extends Component {
 
     state = {
@@ -46,6 +49,16 @@ class PropertyPage extends Component {
 
     }
 
+    sendEmail = ()=> {
+    let emailPayload = ''
+    emailPayload = {property:this.props.reduxState.detailedPropertyReducer, client:this.props.reduxState.user}
+    this.props.dispatch({
+        type:'SEND_EMAIL',
+        payload:emailPayload
+    })
+
+    }
+
     render() {
         return (
             <div className='container'>
@@ -84,7 +97,7 @@ class PropertyPage extends Component {
                         </table>
                     </div>
                     {/* ))}                            */}
-                    <Button variant="contained" color="primary" styles="flex-row:">Make an offer to Client
+                    <Button onClick={this.sendEmail} variant="contained" color="primary" styles="flex-row:">Make an offer to Client
                     </Button>
                 </div>
 

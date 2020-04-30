@@ -22,7 +22,6 @@ import TermsOfServicePage from '../TermsOfServicePage/TermsOfServicePage';
 import PropertyInputPage from '../PropertyInputPage/PropertyInputPage'
 import PropertyPage from '../PropertyPage/PropertyPage';
 import './App.css';
-
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import NewFooter from '../NewFooter/NewFooter';
