@@ -1,25 +1,11 @@
+// Requirements
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-
-
-// router.get('/approved/', (req, res) => {
-//     console.log("in getAdminapprovedUser route");
-//     let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE'`;
-//     pool.query(queryString)
-//         .then(results => {
-//             res.send(results.rows);
-//         }).catch(error => {
-//             console.log(error);
-//             res.sendStatus(500);
-//         });
-// });
+const { rejectUnauthenticated } = require('../modules/authentication-middleware'); // This rejects any unlogged in users from accessing site. 
 
 router.get('/approved/', rejectUnauthenticated, (req, res) => {
-    console.log("in getAdminapprovedUser route");
-    if (req.isAuthenticated() && req.user.user_type == 1) {
-        console.log('req.user:', req.user);
+    if (req.isAuthenticated() && req.user.user_type == 1) { // this is to check if the user is an admin
         let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'TRUE' ORDER BY "first_name", "user_type" ASC;`;
         pool.query(queryString)
             .then(results => {
@@ -32,11 +18,10 @@ router.get('/approved/', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
+// Gets all approved users to be displayed on Admin Users page
 
 router.get('/unapproved/', rejectUnauthenticated, (req, res) => {
-    console.log("in getAdminUnapprovedUser route");
-    if (req.isAuthenticated() && req.user.user_type == 1) {
-        console.log('req.user:', req.user);
+    if (req.isAuthenticated() && req.user.user_type == 1) { // this is to check if the user is an admin
         let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "approved_user" = 'FALSE' ORDER BY "first_name", "user_type" ASC;`;
         pool.query(queryString)
             .then(results => {
@@ -49,30 +34,11 @@ router.get('/unapproved/', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
-
-router.get('/approvedAdmin/', rejectUnauthenticated, (req, res) => {
-    console.log("in getAdminapprovedAdmin route");
-    if (req.isAuthenticated() && req.user.user_type == 1) {
-        console.log('req.user:', req.user);
-        let queryString = `SELECT "id", "username", "first_name", "last_name", "user_type", "phone_number" FROM "user" WHERE "user_type" = 1`;
-        pool.query(queryString)
-            .then(results => {
-                res.send(results.rows);
-            }).catch(error => {
-                console.log(error);
-                res.sendStatus(500);
-            })
-    } else {
-        req.sendStatus(403)
-    }
-});
-
+// Gets all unapproved users to be displayed on Admin Users page. These users are ones that have just signed up. 
 
 router.put('/approve/:id', rejectUnauthenticated, (req, res) => {
     const updateUser = req.params.id;
-    console.log('in adminRouter Put for approving user', updateUser);
-    if (req.isAuthenticated() && req.user.user_type == 1) {
-        console.log('req.user:', req.user);
+    if (req.isAuthenticated() && req.user.user_type == 1) { // this is to check if the user is an admin
         const queryText = `UPDATE "user" SET "approved_user" = 'TRUE' WHERE "id"=$1`;
         pool.query(queryText, [updateUser])
             .then(() => {
@@ -85,11 +51,11 @@ router.put('/approve/:id', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
+// Sets the status of users to approved by updating a boolean in the database. 
 
 router.put('/unapprove/:id', rejectUnauthenticated, (req, res) => {
     const updateUser = req.params.id;
-    console.log('in adminRouter Put for unapproving user', updateUser);
-    if (req.isAuthenticated() && req.user.user_type == 1) {
+    if (req.isAuthenticated() && req.user.user_type == 1) { // this is to check if the user is an admin
         console.log('req.user:', req.user);
         const queryText = `UPDATE "user" SET "approved_user" = 'FALSE' WHERE "id"= $1`;
         pool.query(queryText, [updateUser])
@@ -103,10 +69,10 @@ router.put('/unapprove/:id', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
+// Sets th status of users to unapproved by updating a boolean in the database. 
 
 router.put('/approveAdmin/:id', rejectUnauthenticated, (req, res) => {
     const updateUser = req.params.id;
-    console.log('in adminUserRouter Put for approving admin', updateUser);
     if (req.isAuthenticated() && req.user.user_type == 1) {
         console.log('req.user:', req.user);
         const queryText = `UPDATE "user" SET "user_type" = 1 WHERE "id"=$1`;
@@ -121,16 +87,16 @@ router.put('/approveAdmin/:id', rejectUnauthenticated, (req, res) => {
         req.sendStatus(403)
     }
 });
-
+// This route adds the ability to create a new admin
 
 router.delete('/delete/:id', rejectUnauthenticated, async (req, res) => {
-    console.log("in deleteAdminUser route", req);
+
     const userId = req.params.id;
     const connection = await pool.connect();
-    if (req.isAuthenticated() && req.user.user_type == 1) {
+    if (req.isAuthenticated() && req.user.user_type == 1) { // this is to check if the user is an admin
         console.log('req.user:', req.user);
         try {
-            await connection.query('BEGIN');
+            await connection.query('BEGIN'); // This is a SQL transaction that waits for everyting to finish before committing
             const queryString = `DELETE FROM "interest" WHERE "user_id" = $1`;
             await connection.query(queryString, [userId]);
             const queryString2 = `DELETE FROM "favorite" WHERE "user_id" = $1`;
@@ -143,18 +109,16 @@ router.delete('/delete/:id', rejectUnauthenticated, async (req, res) => {
             await connection.query(queryString5, [userId]);
             await connection.query('COMMIT');
             res.sendStatus(200);
-            console.log('end of Commit');
         } catch (error) {
             await connection.query('ROLLBACK');
-            console.log('error in deleting history', error);
             sendStatus(500);
         } finally {
             connection.release();
-            console.log('released');
         }
     } else {
         req.sendStatus(403)
     }
 });
+// The SQL transaction makes sure everything related to a user is delted before deleting the user and rolls it back incase of failure. 
 
 module.exports = router;
