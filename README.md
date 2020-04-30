@@ -1,30 +1,16 @@
-(View Raw will give you the markdown that you can copy to your repos!)
-
-
-![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
-![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
-
 # OTTO
 
 ## Description
 
-_Duration: 2.5 Week Sprint_
+_Duration: 2 Week Sprint_
 
-Otto is an app to help faciliate off market, owner to owner commercial real estate transactions. Placing commercial real estate on the open market can often alert tenants and give them more negotiating power. It also begins a count up on days listed on the market and the higher the number of days gets, the worse it looks. These are some reasons why sellers might prefer selling off market. But unfortunately it is hard for brokerage firms to list off market properties on a website without opportunites getting poached. Otto provides that solution by listing properties on the site but limiting the data for the public to see 
+Otto is an app to help faciliate off market, owner to owner commercial real estate transactions. Placing commercial real estate on the open market can often alert tenants and give them more negotiating power. It also begins a count up on days listed on the market and the higher the number of days gets, the worse it looks. These are just some reasons why sellers might prefer selling off market. Otto provides a space in which users will have complete privacy. They will be able to add their listing to the site with there desired price and only after a buyer is fully interested will the seller and buyer be connected. 
 
 Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
 
 To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com) -add site in readme 
 
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
 ### Prerequisites
-
-
 
 - [Node.js](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
@@ -43,6 +29,7 @@ If your application has secret keys (for example --  Twilio), make sure you tell
 5. Run `npm run client` in your terminal
 6. The `npm run client` command will open up a new browser tab for you!
 7. To fully use Google Maps you must sign up and add an [API key](https://developers.google.com/maps/documentation/javascript/get-api-key). 
+8. You must also create an `.env` file and place it in there. 
 
 ## Usage
 
@@ -56,15 +43,26 @@ If your application has secret keys (for example --  Twilio), make sure you tell
 8. After signing an NDA the user will recieve the full address of a property.
 9. If the user wishes to purchase the property they will be sent a letter of intent to sign and will be connected with the seller. 
 
-
 ## Built With
 
 React
 Google Maps API
 Material UI
+React-Sagas
+React-Redux
+Node.js
+PostgreSql
+Passport
+Bcrypt
+Sweetalerts
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. We thank our instructors Casie Seikman and Dev
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. We thank our instructors Casie Seikman, Dev Jana, and our cohort Chien.
 
 ## Support
-If you have suggestions or issues, please email me at [youremail@whatever.com](www.google.com)
+If you have suggestions or issues, please email any of us at our respective emails: 
+- Farshid Erwin Zadeh - farshidmzadeh@icloud.com
+- Kyle Greene - kylengreene@gmail.com
+- Matt Kimlinger - Mkimlinger123@gmail.com
+- Derek Boat - derek.boat@gmail.com
+
