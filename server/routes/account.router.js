@@ -1,8 +1,10 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get('/property', (req, res) => {
+
+router.get('/property', rejectUnauthenticated, (req, res) => {
     const userId = req.user.id;
     console.log("in getAccount/porperty route with userId", userId);
     let queryString = `SELECT * FROM "property" WHERE "user_id" = $1 AND "active"= 'TRUE' ORDER BY "id" ASC`;
@@ -14,7 +16,7 @@ router.get('/property', (req, res) => {
             res.sendStatus(500);
         });
 });
-router.get('/favorite', (req, res) => {
+router.get('/favorite', rejectUnauthenticated, (req, res) => {
     const userId = req.user.id;
     console.log("in getAccount/favorite route with userId", userId);
     let queryString = `SELECT "favorite"."id", "favorite"."user_id", "active", "address", "unit_number", "state", "city", "zip_code", "property_type",
@@ -28,7 +30,7 @@ router.get('/favorite', (req, res) => {
             res.sendStatus(500);
         });
 });
-router.get('/interest', (req, res) => {
+router.get('/interest', rejectUnauthenticated, (req, res) => {
     const userId = req.user.id;
     console.log("in getAccountInterests route with userId", userId);
     let queryString = `SELECT "interest"."id", "interest"."user_id", "active", "address", "unit_number", "state", "city", "zip_code", "property_type",
@@ -43,7 +45,7 @@ router.get('/interest', (req, res) => {
         });
 });
 
-router.delete('/interest/:id', (req, res) => {
+router.delete('/interest/:id', rejectUnauthenticated, (req, res) => {
     console.log("in deleteAccountInterest route", req.params);
     let queryString = `DELETE FROM "favorite" WHERE "id" = $1`;
     pool.query(queryString, [req.params.id])
@@ -51,7 +53,7 @@ router.delete('/interest/:id', (req, res) => {
         .catch(() => res.sendStatus(500));
 });
 
-router.put('/property/:id', (req, res) => {
+router.put('/property/:id', rejectUnauthenticated, (req, res) => {
     console.log("in updateAccountProperty route", req.params);
     let queryString = `UPDATE "property" SET "active" = 'FALSE' WHERE "id" = $1`;
     pool.query(queryString, [req.params.id])

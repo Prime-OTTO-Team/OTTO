@@ -28,6 +28,13 @@ import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import NewFooter from '../NewFooter/NewFooter';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+
+//After adding (MuiThemeProvider, createMuiTheme) to the top of the component, 
+//we can set up the primary and secondery colors for Material UI over here.
+//We have to wrap the rest of the components inside the App.js with:  
+//<MuiThemeProvider theme={theme}></MuiThemeProvider> like line 61 to 105,
+//to have the same colors in all those components between, 
+//otherwise we have to do this individually in any component which is using Material UI colors 
 const theme = createMuiTheme({
   palette: {
     secondary: {

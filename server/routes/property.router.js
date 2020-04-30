@@ -3,8 +3,8 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const axios = require('axios');
 
-
 console.log('process.env.GOOGLE_API_KEY: ', process.env.GOOGLE_API_KEY);
+
 router.post('/', async (req, res) => {
     const newProperty = req.body;
     console.log('logging property from post', newProperty);
