@@ -8,6 +8,7 @@ import userFavoritesReducer from '../../redux/reducers/userFavoritesReducer';
 import Moment from 'react-moment';
 import Button from '@material-ui/core/Button';
 import styles from './NdaPage.css';
+import PdfExporter from '../PdfExporter';
 
 class NdaPage extends Component {
 
@@ -191,6 +192,7 @@ dispatchSignature = () =>{
                     </span>
                 </p>
                 <Button variant="contained" color="primary" onClick={this.handleClick}>Agree</Button>
+                <PdfExporter/>
             </div>
         )
     }
