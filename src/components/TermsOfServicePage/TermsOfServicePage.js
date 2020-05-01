@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
-
-
-
-
 class TermsOfServicePage extends Component {
     render() {
         return (

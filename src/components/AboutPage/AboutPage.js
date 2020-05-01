@@ -5,7 +5,7 @@ class AboutPage extends Component {
     render() {
         return (
             <div className='container'>
-                <h1>Otto is an owner to owner commericial real estate marketplace!</h1>
+                <h1>Otto is an owner to owner commericial real estate marketplace</h1>
                 <br />
                 <div>Otto provides annonymity to thier clients and allows them to place commericial real estate listings off market.
                 </div>

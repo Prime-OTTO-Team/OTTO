@@ -21,7 +21,6 @@ import ForSalePageItems from './ForSalePageItems';
 import Listings from '../LandingPage/Listings';
 import './ForSalePage.css'
  
-
 const styles = theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -48,8 +47,6 @@ const styles = theme => ({
         marginTop: theme.spacing(-1)
     }
 });
-
-
 class ForSalePage extends Component {
     state = {
         search: {
@@ -59,19 +56,16 @@ class ForSalePage extends Component {
             net_operating_income_high: '',
             desired_price_low: '',
             desired_price_high: '',
-
         },
         filteredProperties: [],
         unfilteredProperties: [],
         properties: '',
         expanded: 0
-
     }
     reset() {
         this.getProperties();
         this.clearInputs();
     }
-
     clearInputs(){
         this.setState({
             search: {
@@ -81,10 +75,8 @@ class ForSalePage extends Component {
                 net_operating_income_high: '',
                 desired_price_low: '',
                 desired_price_high: '',
-
             }
         });
-        console.log(this.state);
     }
     handleChangeFor = (propertyName, event) => {
         this.setState({
@@ -96,8 +88,6 @@ class ForSalePage extends Component {
     }
     componentDidMount() {
         this.getProperties();
-        console.log('finding zip code bug',this.state);
-        
         if(this.state.search.zip_code){
             this.filterZip();
             // this.props.dispatch({

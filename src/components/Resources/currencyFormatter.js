@@ -6,3 +6,4 @@ export const currencyFormatter = (number) => {
     })   
     return formatter.format(number)
 }
+// This function formats numbers into currency format

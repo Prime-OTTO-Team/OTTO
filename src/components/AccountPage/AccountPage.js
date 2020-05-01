@@ -25,7 +25,6 @@ const theme = createMuiTheme({
     },
 });
 
-
 class AccountPage extends Component {
     state = {
         status: true
@@ -107,7 +106,7 @@ class AccountPage extends Component {
     render() {
         return (
             <div className='container'>
-         
+
                 <h2>
                     {this.props.user.first_name}, here is your Account
                 </h2>
