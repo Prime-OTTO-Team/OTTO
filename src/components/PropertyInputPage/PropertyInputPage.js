@@ -4,11 +4,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
@@ -16,7 +12,6 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
     paper: {
@@ -60,7 +55,7 @@ class PropertyInputPage extends Component {
     componentWillUnmount = () => {
         this.props.dispatch({ type: 'UNEDIT_MODE' });
         this.props.dispatch({ type: 'UNEDIT_LISTING' });
-    }
+    } // end of componentWillUnmount
     newProperty = (event) => {
         event.preventDefault();
         if (this.props.editMode === true) {
@@ -70,7 +65,6 @@ class PropertyInputPage extends Component {
             })
         }
         else {
-            console.log('hell0');
             this.props.dispatch({
                 type: 'ADD_PROPERTY',
                 payload: this.state
@@ -80,18 +74,19 @@ class PropertyInputPage extends Component {
             });
         }
         this.props.history.push('/account');
-    } 
+    } // end of newProperty, adds a new property
 
     handleChangeFor = (propertyName, event) => {
         this.setState({
             [propertyName]: event.target.value
         })
-    }
+    } // end of handleChangeFor
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
-    }
+    } // end of handleInputChangeFor
+
     render() {
         const { classes } = this.props;
         return (

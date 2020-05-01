@@ -8,20 +8,8 @@ class MiniMap extends Component {
             lat: Number( this.props.position.lat ),
             lng: Number( this.props.position.lng )
         },
-        // center: {
-        //     lat: 44.9778,
-        //     lng: -93.2650
-        // },
         zoom: 16
     };
-    // centerMap = (latitude, longitude) => {
-    //     console.log('in centerMap');
-    //     this.setState({
-    //         center: {
-    //             lat: latitude, lng: longitude
-    //         }
-    //     })
-    // }
     render() {
         if (this.props.position) {
             return (

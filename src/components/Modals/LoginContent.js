@@ -33,19 +33,15 @@ const styles = theme => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     }
-});
-
+}); // styling 
 
 class LoginContent extends Component {
-
     state = {
         username: null,
         password: null,
     };
-
-    login = async(event) => {
+    login = async (event) => {
         event.preventDefault();
-
         if (this.state.username && this.state.password) {
             this.props.dispatch({
                 type: 'LOGIN',
@@ -58,33 +54,24 @@ class LoginContent extends Component {
             this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
         }
         if (this.props.user) {
-            console.log('logged in getting favorites and interests for', this.props.user);
-            
-            // await this.getFavoritesInterests();
             this.props.handleClose();
         }
     } // end login
-
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
-    }
-    getFavoritesInterests = async() => {
-        console.log('in getFavoritesInterests');
+    } // end of handleInputChangeFor
+    getFavoritesInterests = async () => {
         this.props.dispatch({
-                type: 'FETCH_ACCOUNT'
-                });
+            type: 'FETCH_ACCOUNT'
+        });
         try {
             const response = await axios({
                 url: 'api/interest/favoritesAndInterests',
                 method: 'GET',
             })
-            console.log('getDisabledButtons response: ', response);
             if (response.status === 200) {
-                console.log('status 200');
-                console.log('favorites then interests', response.data.favorites, response.data.interests );
-                
                 this.props.dispatch({
                     type: 'SET_FAVORITES',
                     payload: response.data.favorites
@@ -95,13 +82,11 @@ class LoginContent extends Component {
                 });
             }
             if (response.status === 400) {
-                console.log('status 400');
             }
-            console.log('response: ', response);
         } catch (error) {
-            console.log('error : ', error)
+            console.log(error)
         }
-    }
+    }// end of getFavoritesInterests
     render() {
         const { classes } = this.props;
         return (
@@ -147,7 +132,6 @@ class LoginContent extends Component {
                                 value={this.state.password}
                                 onChange={this.handleInputChangeFor('password')}
                             />
-
                         </div>
                         <div>
                             <Button variant="contained" color="primary"
@@ -168,13 +152,9 @@ class LoginContent extends Component {
     }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
     errors: state.errors,
     user: state.user
 });
-
 
 export default connect(mapStateToProps)(withStyles(styles)(LoginContent));

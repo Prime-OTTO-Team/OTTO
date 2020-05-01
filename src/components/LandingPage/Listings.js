@@ -64,13 +64,12 @@ class Listings extends Component {
         } catch (error) {
             console.log('error : ', error)
         }
-    }
+    } // end of favoriteListing, this favorites a property for the user 
     interestedInListing = async (propertyId) => {
         this.props.dispatch(
             {
                 type: 'SET_SINGLE_PROPERTY_ID',
                 payload: propertyId
-
             }
         )
         this.props.dispatch(
@@ -79,10 +78,9 @@ class Listings extends Component {
                 payload: propertyId
             }
         )
-    }
+    } //end of interestedInListing // This sets what a user is interested in
     checkIfInterestButtonDisabled = (propertyId) => {
         const userInterests = this.props.reduxState.userInterestsReducer
-        // console.log('disabledInterestButtons: ', userInterests);
         for (let i = 0; i < userInterests.length; i++) {
             const userInterest = userInterests[i];
             if (userInterest.property_id === propertyId) {
@@ -90,10 +88,9 @@ class Listings extends Component {
             }
         }
         return false
-    }
+    } // end of checkIfInterestButtonDisabled, checks if the button works
     propertyIsFavorited = (propertyId) => {
         const userFavorites = this.props.reduxState.userFavoritesReducer
-        console.log('userFavorites: ', userFavorites);
         for (let i = 0; i < userFavorites.length; i++) {
             const userFavorite = userFavorites[i];
             if (userFavorite.property_id === propertyId) {
@@ -101,13 +98,11 @@ class Listings extends Component {
             }
         }
         return false
-    }
-
+    } // end of propertyIsFavorited 
     renderListings = () => {
         const props = this.props;
         const { classes } = this.props;
         const properties = this.props.reduxState.propertyReducer;
-        console.log('props', props);
         if (properties) {
             return properties.slice(0, 11).map((property) => {
                 return (
@@ -168,7 +163,6 @@ class Listings extends Component {
                                     <Link
                                         className="interestedButton" variant="contained"
                                         onClick={() => {
-                                            console.log('login clicked');
                                             props.dispatch({ type: 'LOGIN_REGISTER_MODAL_OPEN', payload: true })
                                         }}
                                     >
@@ -176,18 +170,13 @@ class Listings extends Component {
                                 </Link>
                                 }
                             </Button>
-                            {/* <Typography>
-                                </Typography> */}
                         </div>
                     </ExpansionPanel>
                 )
             })
         } else {
-            console.log('Listings: cannot get property locations');
         }
     }
-
-
     render() {
         return (
             <div className='listingContainer'>
@@ -200,5 +189,4 @@ const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
     reduxState
 })
-
 export default connect(mapStateToProps)(withStyles(styles)(Listings));

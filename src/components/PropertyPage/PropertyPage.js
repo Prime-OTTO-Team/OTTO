@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MiniMap from '../GoogleMaps/MiniMap';
-import axios from 'axios';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Button from '@material-ui/core/Button';
 

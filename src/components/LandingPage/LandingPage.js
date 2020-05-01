@@ -96,7 +96,6 @@ class LandingPage extends Component {
         })
         this.props.history.push('/ForSalePage');
     }
-
     handlePanelChange = (id) => {
         if (id != this.state.expanded) {
             this.setState({
@@ -164,7 +163,6 @@ class LandingPage extends Component {
         )
     }
 }
-
 const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
     reduxState

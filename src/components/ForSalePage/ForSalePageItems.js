@@ -51,7 +51,6 @@ class Listings extends Component {
                 }
             })
             if (response.status === 200) {
-                console.log('status 200');
                 const favorited = this.props.reduxState.userFavoritesReducer;
                 this.props.dispatch({
                     type: 'SET_FAVORITES',
@@ -59,11 +58,9 @@ class Listings extends Component {
                 });
             }
             if (response.status === 400) {
-                console.log('status 400');
             }
-            console.log('response: ', response);
         } catch (error) {
-            console.log('error : ', error)
+            console.log(error)
         }
     }
     interestedInListing = async (propertyId) => {
