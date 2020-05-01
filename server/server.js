@@ -15,7 +15,7 @@ const favoriteRouter = require('./routes/favorite.router');
 const adminPropertyRouter = require('./routes/admin.property.router.js');
 const adminUserRouter = require('./routes/admin.user.router.js');
 const emailRouter = require('./routes/email.router.js');
-
+const signatureRouter = require('./routes/signature.router.js');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -36,6 +36,7 @@ app.use('/api/favorite', favoriteRouter);
 app.use('/api/admin/property', adminPropertyRouter);
 app.use('/api/admin/user', adminUserRouter);
 app.use('/api/email', emailRouter);
+app.use('/api/signature', signatureRouter);
 
 // Serve static files
 app.use(express.static('build'));
