@@ -25,6 +25,7 @@ import './App.css';
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import NewFooter from '../NewFooter/NewFooter';
+import PdfExporter from '../PdfExporter';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
@@ -76,6 +77,7 @@ class App extends Component {
             <Route exact path="/admin/user" component = {AdminUserPage}/>
             <Route exact path="/privacy" component = {PrivacyPolicy}/>
             <Route exact path="/property" component = {PropertyPage}/>
+              <Route exact path="/pdfExport" component={PdfExporter} />
             <Route
               exact
               path="/home"

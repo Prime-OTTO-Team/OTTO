@@ -100,6 +100,15 @@ class AdminPropertyPage extends Component {
         })
 
     }
+    goToNdas = (inputId) =>{
+        console.log('inputid', inputId);
+        
+        this.props.dispatch({
+          type: 'GET_SIGNATURE',
+          payload: inputId
+        })
+        this.props.history.push('/pdfExport')
+    }
 
     render() {
         if (this.props.user.user_type == 1) {
@@ -135,6 +144,7 @@ class AdminPropertyPage extends Component {
                                     <TableCell align="center">Gross Expense</TableCell>
                                     <TableCell align="center">Desired Price</TableCell>
                                     <TableCell align="center">Remove Listing</TableCell>
+                                    <TableCell align="center">View Property NDA's</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -156,7 +166,7 @@ class AdminPropertyPage extends Component {
                                                 <TableCell align="center">{currencyFormatter(property.gross_expense)}</TableCell>
                                                 <TableCell align="center">{currencyFormatter(property.desired_price)}</TableCell>
                                                 <TableCell align="center"><Button variant="outlined" color="secondary" onClick={() => this.removeListing(property)}>Remove Listing</Button></TableCell>
-
+                                                <TableCell align="center"><Button variant="outlined" color="primary" onClick={() => this.goToNdas(property.id)}>View Property NDA's</Button></TableCell>
                                             </TableRow>
 
                                         ))}
@@ -178,6 +188,7 @@ class AdminPropertyPage extends Component {
                                                     <TableCell align="center">{currencyFormatter(inactiveProperty.gross_expense)}</TableCell>
                                                     <TableCell align="center">{currencyFormatter(inactiveProperty.desired_price)}</TableCell>
                                                     <TableCell align="center"><Button variant="outlined" color="secondary" onClick={() => this.deleteHistory(inactiveProperty.id)}>Delete History</Button></TableCell>
+                                                    <TableCell align="center"><Button variant="outlined" color="primary" onClick={() => this.goToNdas(inactiveProperty.id)}>View Property NDA's</Button></TableCell>
                                                 </TableRow>
 
                                             ))}
