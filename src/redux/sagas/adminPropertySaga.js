@@ -3,33 +3,32 @@ import axios from 'axios';
 
 function* fetchAdminProperty() {
     try {
-        console.log('from sagas fetchAdminProperty');
         const adminPropertyResponse = yield axios.get(`/api/admin/property/`)
-        console.log('in the GET fetchAdminProperty', adminPropertyResponse)
         yield put({
             type: 'SET_ADMIN_PROPERTY',
             payload: adminPropertyResponse.data
         })
     } catch (error) {
-        console.log("error in fetchAdminProperty Sagas", error);
+        console.log(error);
     }
 }
+// Fetches all the properties to be displayed on the admin page
+
 function* fetchAdminPropertyHistory() {
     try {
-        console.log('from sagas fetchAdminPropertyHistory');
         const adminPropertyResponse = yield axios.get(`/api/admin/property/history`)
-        console.log('in the GET fetchAdminProperty', adminPropertyResponse)
         yield put({
             type: 'SET_ADMIN_PROPERTY_HISTORY',
             payload: adminPropertyResponse.data
         })
     } catch (error) {
-        console.log("error in fetchAdminPropertyHistory Sagas", error);
+        console.log(error);
     }
 }
+// Fetches all the inactive properties on the site. 
+
 function* updateAdminProperty(action) {
     try{
-        console.log('in sagas updateAdminProperty', action.payload);
         let objectToSend = action.payload.id;
         yield axios.put(`/api/admin/property/${objectToSend}`)
         yield put({
@@ -37,12 +36,13 @@ function* updateAdminProperty(action) {
             payload: action.payload.user_id
         })
     } catch (error) {
-        console.log("error in sagas updateAdminProperty", error);
+        console.log(error);
     }
 }
+// This will change a properties status and put it into the history
+
 function* deleteAdminProperty(action) {
     try{
-        console.log('in sagas deleteAdminProperty', action.payload);
         let objectToSend = action.payload;
         yield axios.delete(`/api/admin/property/delete/${objectToSend}`)
         yield put({
@@ -50,9 +50,11 @@ function* deleteAdminProperty(action) {
             payload: action.payload.user_id
         })
     } catch (error) {
-        console.log("error in sagas deleteAdminProperty", error);
+        console.log(error);
     }
 }
+// This will permanently delete a property from the plants. 
+
 function* adminPropertySaga() {
     yield takeEvery('FETCH_ADMIN_PROPERTY', fetchAdminProperty);
     yield takeEvery('FETCH_ADMIN_PROPERTY', fetchAdminPropertyHistory);

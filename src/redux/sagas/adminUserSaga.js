@@ -9,9 +9,10 @@ function* approveUser(action) {
             type: 'FETCH_ADMIN_USER'
         })
     } catch (error) {
-        console.log("error in approving user", error);
+        console.log(error);
     }
 }
+// Sends the signal to the server to approve a user from an admin page
 
 function* unApproveUser(action) {
     try {
@@ -24,6 +25,7 @@ function* unApproveUser(action) {
         console.log(error);
     }
 }
+// Sends the signal to the server to revoke approval a user from the admin page. 
 
 function* approveAdmin(action) {
     try {
@@ -33,6 +35,7 @@ function* approveAdmin(action) {
         console.log(error);
     }
 }
+// This is used to create new admins
 
 function* fetchUnapprovedAdminUser() {
     try {
@@ -45,6 +48,7 @@ function* fetchUnapprovedAdminUser() {
         console.log(error);
     }
 }
+// This is used to unapprove an admin
 
 function* fetchApprovedAdminUser() {
     try {
@@ -57,7 +61,7 @@ function* fetchApprovedAdminUser() {
         console.log(error);
     }
 }
-
+// This fetches all the approved users for the admin page
 
 function* fetchApprovedAdminAdmin() {
     try {
@@ -70,6 +74,7 @@ function* fetchApprovedAdminAdmin() {
         console.log(error);
     }
 }
+// This fetches all the unApproved users for the admin page
 
 function* deleteUser(action) {
     try {
@@ -82,6 +87,7 @@ function* deleteUser(action) {
         console.log(error);
     }
 }
+//This will send a signal to permanently delete a user
 
 function* adminUserSaga() {
     yield takeEvery('FETCH_ADMIN_USER', fetchUnapprovedAdminUser);

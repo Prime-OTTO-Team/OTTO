@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function* sendEmail(action){
     try{
-    console.log('in sendEmail', action.payload);
     yield axios.post('/api/email', action.payload)
     }
     catch (error) {

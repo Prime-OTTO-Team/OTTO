@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function* addProperty(action) {
     let objectToSend = action.payload;
-    console.log('in propertySaga', objectToSend);
     yield axios.post('/api/property', objectToSend)
         .catch((error) => {
             console.log(error);
@@ -13,7 +12,6 @@ function* addProperty(action) {
 
 function* updateProperty(action) {
     let objectToSend = action.payload;
-    console.log('in updatePropertySaga', objectToSend);
     yield axios.put('/api/property/edit', objectToSend)
     .catch((error) => {
         console.log(error);

@@ -31,9 +31,7 @@ function* updateAccountListing(action) {
 
 function* fetchAccountListing(action) {
     try {
-
         const accountResponse = yield axios.get(`/api/account/property`)
-        console.log('in the GET fetchAccountListing', accountResponse)
         yield put({
             type: 'SET_ACCOUNT_LISTING',
             payload: accountResponse.data
@@ -47,10 +45,7 @@ function* fetchAccountListing(action) {
 function* fetchAccountFavorite(action) {
     try {
         console.log('from sagas fetchAccountFavorite');
-        let objectToSend = action.payload;
-        console.log('checking objectToSend', objectToSend);
         const accountResponse = yield axios.get(`/api/account/favorite`)
-        console.log('in the GET fetchAccountFavorite', accountResponse)
         yield put({
             type: 'SET_ACCOUNT_FAVORITE',
             payload: accountResponse.data
@@ -59,15 +54,11 @@ function* fetchAccountFavorite(action) {
         console.log(error);
     }
 }
-
+//This fetches all the favorites for an account 
 
 function* fetchAccountInterest(action) {
     try {
-        console.log('from sagas fetchAccountFavorite');
-        let objectToSend = action.payload;
-        console.log('checking objectToSend', objectToSend);
         const accountResponse = yield axios.get(`/api/account/interest`)
-        console.log('in the GET fetchAccountFavorite', accountResponse)
         yield put({
             type: 'SET_INTERESTS',
             payload: accountResponse.data
@@ -76,6 +67,7 @@ function* fetchAccountInterest(action) {
         console.log(error);
     }
 }
+//
 
 function* accountSaga() {
     yield takeEvery('FETCH_ACCOUNT', fetchAccountListing);
