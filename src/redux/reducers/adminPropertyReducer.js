@@ -9,3 +9,4 @@ const adminPropertyReducer = (state = [], action) => {
     }
 };
 export default adminPropertyReducer;
+// This stores all of the properties currently listed on the site for admins only to see. 

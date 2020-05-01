@@ -6,7 +6,5 @@ const propertyReducer = (state = [], action) => {
             return state;
     }
 };
-
-// user will be on the redux state at:
-// state.user
 export default propertyReducer;
+// Holds a list of properties to be displayed on landing page and for searching

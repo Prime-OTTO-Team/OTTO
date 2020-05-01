@@ -9,3 +9,4 @@ const adminUserReducer = (state = [], action) => {
     }
 };
 export default adminUserReducer;
+//This stores all the approved users for the admin to see. 

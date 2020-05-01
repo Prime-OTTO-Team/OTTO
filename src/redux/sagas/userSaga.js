@@ -26,5 +26,6 @@ function* fetchUser() {
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
 }
+//Listens for a particular dispatch
 
 export default userSaga;

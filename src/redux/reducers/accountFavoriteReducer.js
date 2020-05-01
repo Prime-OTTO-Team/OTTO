@@ -9,3 +9,4 @@ const accountFavoriteReducer= (state = [], action) => {
     }
 };
 export default accountFavoriteReducer;
+// This stores the data for the favorited properties for a user. 

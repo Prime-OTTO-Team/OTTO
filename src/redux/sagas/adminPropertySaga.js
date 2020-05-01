@@ -59,4 +59,6 @@ function* adminPropertySaga() {
     yield takeEvery('UPDATE_ADMIN_PROPERTY', updateAdminProperty);
     yield takeEvery('DELETE_ADMIN_PROPERTY', deleteAdminProperty);
 }
+//Listens for a particular dispatch
+
 export default adminPropertySaga;

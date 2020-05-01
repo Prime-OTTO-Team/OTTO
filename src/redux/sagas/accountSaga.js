@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function* deleteAccountFavorite(action) {
     try{
-        console.log('in sagas deleteAccountFavorite', action.payload);
         let objectToSend = action.payload.id;
         yield axios.delete(`/api/account/interest/${objectToSend}`)
         yield put({
@@ -11,12 +10,13 @@ function* deleteAccountFavorite(action) {
             payload: action.payload.user_id
         })
     } catch (error) {
-        console.log("error deletingFavorite", error);
+        console.log(error);
     }
 }
+// This is used to delete favorites form an account 
+
 function* updateAccountListing(action) {
     try{
-        console.log('in sagas updateAccountProperty', action.payload);
         let objectToSend = action.payload.id;
         yield axios.put(`/api/account/property/${objectToSend}`)
         yield put({
@@ -24,14 +24,14 @@ function* updateAccountListing(action) {
             payload: action.payload.user_id
         })
     } catch (error) {
-        console.log("error updateAccountListing", error);
+        console.log(error);
     }
 }
+// This removes a users listing and pushes it into the history
+
 function* fetchAccountListing(action) {
     try {
-        console.log('from sagas fetchAccountListing');
-        let objectToSend = action.payload;
-        console.log('checking objectToSend', objectToSend);
+
         const accountResponse = yield axios.get(`/api/account/property`)
         console.log('in the GET fetchAccountListing', accountResponse)
         yield put({
@@ -39,9 +39,11 @@ function* fetchAccountListing(action) {
             payload: accountResponse.data
         })
     } catch (error) {
-        console.log("error in fetchAccountListing Sagas", error);
+        console.log(error);
     }
 }
+// This fetches all the listings within your account.
+
 function* fetchAccountFavorite(action) {
     try {
         console.log('from sagas fetchAccountFavorite');
@@ -54,9 +56,10 @@ function* fetchAccountFavorite(action) {
             payload: accountResponse.data
         })
     } catch (error) {
-        console.log("error in fetchAccountFavorite Sagas", error);
+        console.log(error);
     }
 }
+
 
 function* fetchAccountInterest(action) {
     try {
@@ -70,13 +73,16 @@ function* fetchAccountInterest(action) {
             payload: accountResponse.data
         })
     } catch (error) {
-        console.log("error in fetchAccountFavorite Sagas", error);
+        console.log(error);
     }
 }
+
 function* accountSaga() {
     yield takeEvery('FETCH_ACCOUNT', fetchAccountListing);
     yield takeEvery('FETCH_ACCOUNT', fetchAccountFavorite);
     yield takeEvery('FETCH_ACCOUNT', fetchAccountInterest);
     yield takeEvery('DELETE_FAVORITE', deleteAccountFavorite);
+    yield takeEvery('UPDATE_ACCOUNT_PROPERTY', updateAccountListing);
 }
+// This is the listener function for the account page. 
 export default accountSaga;

@@ -9,6 +9,8 @@ function* addProperty(action) {
             console.log(error);
         });
 }
+//This adds a property to the database
+
 function* updateProperty(action) {
     let objectToSend = action.payload;
     console.log('in updatePropertySaga', objectToSend);
@@ -17,11 +19,12 @@ function* updateProperty(action) {
         console.log(error);
     });
 }
+// This updates a property in the database
 
 function* propertySaga() {
     yield takeEvery('ADD_PROPERTY', addProperty);
     yield takeEvery('UPDATE_PROPERTY', updateProperty);
-
 }
+//Listens for a particular dispatch
 
 export default propertySaga;

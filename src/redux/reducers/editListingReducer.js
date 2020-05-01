@@ -8,7 +8,5 @@ const editListingReducer = (state = [], action) => {
             return state;
     }
 };
-
-// user will be on the redux state at:
-// state.user
 export default editListingReducer;
+// This stores the property that is to be edited. 

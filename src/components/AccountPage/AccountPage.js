@@ -96,7 +96,7 @@ class AccountPage extends Component {
                     'Listing removed!'
                 )
                 this.props.dispatch({
-                    type: 'UPDATE_PROPERTY',
+                    type: 'UPDATE_ACCOUNT_PROPERTY',
                     payload: data
                 })
             }

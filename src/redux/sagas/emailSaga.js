@@ -9,13 +9,11 @@ function* sendEmail(action){
     catch (error) {
     console.log('Error with send email', error);
   }
-
 }
-
-
-
+// Sends an email to marketFare about properties. 
 function* emailSaga() {
   yield takeEvery('SEND_EMAIL', sendEmail);
 }
+//Listens for a particular dispatch
 
 export default emailSaga;

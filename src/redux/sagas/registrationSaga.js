@@ -27,5 +27,6 @@ function* registerUser(action) {
 function* registrationSaga() {
   yield takeLatest('REGISTER', registerUser);
 }
+//Listens for a particular dispatch
 
 export default registrationSaga;

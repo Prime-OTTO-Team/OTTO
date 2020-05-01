@@ -1,4 +1,4 @@
-const adminUserReducer = (state = [], action) => {
+const adminUnapprovedUserReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_ADMIN_UNAPPROVED_USER':
             return action.payload;
@@ -8,4 +8,5 @@ const adminUserReducer = (state = [], action) => {
             return state;
     }
 };
-export default adminUserReducer;
+export default adminUnapprovedUserReducer;
+// This stores a list of all unaproved users on the site for admins only to see. 

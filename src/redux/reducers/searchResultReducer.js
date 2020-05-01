@@ -8,5 +8,5 @@ const searchResultReducer = (state = [], action) => {
             return state;
     }
 };
-
 export default searchResultReducer;
+// This stores the results of a search in the for sale page
