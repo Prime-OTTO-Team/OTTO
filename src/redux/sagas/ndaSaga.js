@@ -4,7 +4,7 @@ import axios from 'axios';
 function* sendSignature(action){
     try{
     console.log('in sendSignature', action.payload);
-    yield axios.post('/api/signature', action.payload)
+    yield axios.post('/api/nda', action.payload)
     }
     catch (error) {
     console.log('Error with send signature', error);
@@ -17,7 +17,7 @@ function* getSignature(action) {
   try {
     let idToSend = {id:action.payload};
     console.log('in getSignature', idToSend);
-    yield axios.post('/api/signature/get', idToSend)
+    yield axios.post('/api/nda/get', idToSend)
 .then(response => {
       ndaResponse = response.data;
     })
@@ -33,9 +33,9 @@ function* getSignature(action) {
 }
 
 
-function* signatureSaga() {
+function* ndaSaga() {
   yield takeEvery('SEND_SIGNATURE', sendSignature);
   yield takeEvery('GET_SIGNATURE', getSignature);
 }
 
-export default signatureSaga;
+export default ndaSaga;
