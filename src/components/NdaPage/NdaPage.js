@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import './NdaPage.css'
 import SignaturePad from 'react-signature-canvas';
+import SignatureCanvas from 'react-signature-canvas';
 import userFavoritesReducer from '../../redux/reducers/userFavoritesReducer';
 import Moment from 'react-moment';
 import Button from '@material-ui/core/Button';
@@ -156,7 +157,9 @@ class NdaPage extends Component {
                         canvasProps={{
                             className: "signatureCanvas"
                         }}
+                        ref={(ref) => { this.sigCanvas = ref }}
                             />
+                          
                     </span>
                 </p>
                 <p>

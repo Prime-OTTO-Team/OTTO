@@ -16,13 +16,8 @@ router.get('/property', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         });
 });
-<<<<<<< HEAD
-// Gets all the listed properties a user has for the Account Page of the App. 
-
-router.get('/favorite', (req, res) => {
-=======
 router.get('/favorite', rejectUnauthenticated, (req, res) => {
->>>>>>> 6dc8734c0df36c7a35c7e1b719e894ea623844c9
+
     const userId = req.user.id;
     let queryString = `SELECT "favorite"."id", "favorite"."user_id", "active", "address", "unit_number", "state", "city", "zip_code", "property_type",
      "net_operating_income", "gross_income", "gross_expense", "desired_price" FROM "property" JOIN "favorite" ON "property"."id"="favorite"."property_id" 
@@ -36,12 +31,11 @@ router.get('/favorite', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         });
 });
-<<<<<<< HEAD
+
 // Gets all favorited properties by users on their account page.
 
-router.delete('/interest/:id', (req, res) => {
 // the route is named interest instead of favorite by mistake
-=======
+
 router.get('/interest', rejectUnauthenticated, (req, res) => {
     const userId = req.user.id;
     console.log("in getAccountInterests route with userId", userId);
@@ -59,7 +53,6 @@ router.get('/interest', rejectUnauthenticated, (req, res) => {
 
 router.delete('/interest/:id', rejectUnauthenticated, (req, res) => {
     console.log("in deleteAccountInterest route", req.params);
->>>>>>> 6dc8734c0df36c7a35c7e1b719e894ea623844c9
     let queryString = `DELETE FROM "favorite" WHERE "id" = $1`;
     pool.query(queryString, [req.params.id])
         .then(() => res.sendStatus(200))

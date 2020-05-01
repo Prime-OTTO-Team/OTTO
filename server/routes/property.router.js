@@ -4,11 +4,6 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const axios = require('axios');
 
-<<<<<<< HEAD
-=======
-console.log('process.env.GOOGLE_API_KEY: ', process.env.GOOGLE_API_KEY);
-
->>>>>>> 6dc8734c0df36c7a35c7e1b719e894ea623844c9
 router.post('/', async (req, res) => {
     const newProperty = req.body;
     const geocodeResponse = await axios.get( // this is for the google maps api
