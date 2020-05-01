@@ -9,4 +9,9 @@ console.log('signature info', req.body);
 
 });
 
+router.post('/get', (req, res) => {
+    console.log('propertyId', req.body.id);
+
+});
+
 module.exports = router;

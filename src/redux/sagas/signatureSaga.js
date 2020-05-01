@@ -12,10 +12,30 @@ function* sendSignature(action){
 
 }
 
+function* getSignature(action) {
+  let ndaResponse = {};
+  try {
+    let idToSend = {id:action.payload};
+    console.log('in getSignature', idToSend);
+    yield axios.post('/api/signature/get', idToSend)
+.then(response => {
+      ndaResponse = response.data;
+    })
+    yield put({
+      type: 'SET_NDAS',
+      payload: ndaResponse
+    })
+  }
+  catch (error) {
+    console.log('Error with get signature', error);
+  }
+
+}
 
 
 function* signatureSaga() {
   yield takeEvery('SEND_SIGNATURE', sendSignature);
+  yield takeEvery('GET_SIGNATURE', getSignature);
 }
 
 export default signatureSaga;
