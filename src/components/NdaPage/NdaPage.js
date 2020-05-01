@@ -7,11 +7,35 @@ import SignatureCanvas from 'react-signature-canvas';
 import userFavoritesReducer from '../../redux/reducers/userFavoritesReducer';
 import Moment from 'react-moment';
 import Button from '@material-ui/core/Button';
+import styles from './NdaPage.css';
 
 class NdaPage extends Component {
+
+state = {trimmedDataURL: null}
+  sigPad = {}
+  clear = () => {
+    this.sigPad.clear()
+  }
+  signature = {}
+  trim = () => {
+    this.setState({trimmedDataURL: this.sigPad.getTrimmedCanvas()
+      .toDataURL('image/png')})
+      this.signature = {trimmedDataURL: this.sigPad.getTrimmedCanvas()
+      .toDataURL('image/png')}
+      console.log('signature URL', this.signature);
+      this.dispatchSignature();
+      
+  }
+dispatchSignature = () =>{
+     this.props.dispatch({
+          type:'SEND_SIGNATURE',
+          payload: this.signature
+      })
+    }
     handleClick = async() => {
+        this.trim();
         await this.getDetailedPropertyInfo();
-        this.props.history.push('/property');
+        // this.props.history.push('/property');
     }
     getDetailedPropertyInfo = async() => {
         const singlePropertyId = this.props.reduxState.singlePropertyIdReducer;
@@ -154,11 +178,10 @@ class NdaPage extends Component {
                 <p>
                     <span>
                         <SignaturePad 
-                        canvasProps={{
-                            className: "signatureCanvas"
-                        }}
-                        ref={(ref) => { this.sigCanvas = ref }}
+                        canvasProps={{className: styles.sigPad}}
+          ref={(ref) => { this.sigPad = ref }} 
                             />
+                        
                           
                     </span>
                 </p>
