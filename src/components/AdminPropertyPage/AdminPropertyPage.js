@@ -98,8 +98,8 @@ class AdminPropertyPage extends Component {
                 });
             }
         })
-
     }
+    // This delete property history from the database. 
 
     render() {
         if (this.props.user.user_type == 1) {
@@ -196,6 +196,7 @@ class AdminPropertyPage extends Component {
         }
     }
 }
+// All the information is being rendering onto the page
 
 const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
