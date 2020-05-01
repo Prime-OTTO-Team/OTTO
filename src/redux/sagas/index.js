@@ -7,6 +7,7 @@ import searchSaga from './searchSaga';
 import adminPropertySaga from './adminPropertySaga';
 import adminUserSaga from './adminUserSaga';
 import propertySaga from './propertySaga';
+import emailSaga from './emailSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     adminUserSaga(),
     adminPropertySaga(),
     propertySaga(),
+    emailSaga()
   ]);
 }

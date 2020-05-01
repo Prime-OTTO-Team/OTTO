@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Swal from 'sweetalert2';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -13,7 +12,21 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { ExportToCsv } from 'export-to-csv';
 
+const options = {
+    filename:'Otto User Export',
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalSeparator: '.',
+    showLabels: true,
+    showTitle: true,
+    title: 'OTTO User Export',
+    useTextFile: false,
+    useBom: true,
+    useKeysAsHeaders: true,
+};
+const csvExporter = new ExportToCsv(options);
 
 const theme = createMuiTheme({
     palette: {
@@ -36,11 +49,14 @@ class AdminPropertyPage extends Component {
         this.getAdminProperty();
     }
 
+    exportResults = (selectedGroup) => {
+        csvExporter.generateCsv(selectedGroup);
+    }
+
     getAdminProperty = () => {
         this.props.dispatch({
             type: 'FETCH_ADMIN_PROPERTY'
         });
-        console.log('in getAdminProperty');
     }
 
     handleClick = () => {
@@ -95,6 +111,10 @@ class AdminPropertyPage extends Component {
                     </h2>
                     <Button color="primary" onClick={this.handleClick}>Active Listings</Button>
                     <Button color="primary" onClick={this.handleClick2}>History of Listings</Button>
+                    {this.state.status ? 
+                    (<Button color="primary" variant="contained" onClick={()=>this.exportResults(this.props.reduxState.adminPropertyReducer)}>EXPORT ACTIVE LISTINGS</Button>) 
+                    : (<Button color="primary" variant="contained" onClick={()=>this.exportResults(this.props.reduxtate.adminPropertyHistoryReducer)}>EXPORT EXPIRED LISTINGS</Button>)
+                    } 
                     {this.state.status ? (<h1>Active Listings:</h1>) : (<h1>Inactive Listings:</h1>)}
 
                     <TableContainer className='admin'>

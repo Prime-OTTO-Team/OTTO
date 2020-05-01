@@ -12,6 +12,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { ExportToCsv } from 'export-to-csv';
 
 
 const theme = createMuiTheme({
@@ -26,7 +27,19 @@ const theme = createMuiTheme({
     },
 });
 
-
+const options = {
+    filename:'Otto User Export',
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalSeparator: '.',
+    showLabels: true,
+    showTitle: true,
+    title: 'OTTO User Export',
+    useTextFile: false,
+    useBom: true,
+    useKeysAsHeaders: true,
+};
+const csvExporter = new ExportToCsv(options);
 
 class AdminUserPage extends Component {
    
@@ -34,7 +47,9 @@ class AdminUserPage extends Component {
     state = {
         status: true
     }
-    
+    exportResults = (selectedGroup) => {
+        csvExporter.generateCsv(selectedGroup);
+    }
     componentDidMount() {
         this.getAdminUser();
     }
@@ -43,7 +58,6 @@ class AdminUserPage extends Component {
         this.props.dispatch({
             type: 'FETCH_ADMIN_USER'
         });
-        console.log('in getAdminUser');
     }
 
     handleClick = () => {
@@ -69,7 +83,6 @@ class AdminUserPage extends Component {
         this.props.dispatch({
             type: 'FETCH_ADMIN_USER'
         })
-        console.log('in approveUser');
         window.location.reload();
     }
 
@@ -81,7 +94,6 @@ class AdminUserPage extends Component {
         this.props.dispatch({
             type: 'FETCH_ADMIN_USER'
         })
-        console.log('in unApproveUser');
         window.location.reload();
     }
 
@@ -90,10 +102,6 @@ class AdminUserPage extends Component {
             type: 'APPROVE_ADMIN',
             payload: data
         });
-        // this.props.dispatch({
-        //     type: 'FETCH_ADMIN_USER'
-        // })
-        console.log('in approveAdmin');
         window.location.reload();
     }
 
@@ -115,7 +123,6 @@ class AdminUserPage extends Component {
                     type: 'DELETE_ADMIN_USER',
                     payload: data
                 });
-                console.log('in deleteUser');
                 window.location.reload();
             }
         })
@@ -132,9 +139,15 @@ class AdminUserPage extends Component {
                     <h2>
                         Viewing Users as Admin ({this.props.user.first_name})
                     </h2>
-                     <Button color="primary" onClick={this.handleClick2}>Pending Approval</Button>
+                    <Button color="primary" onClick={this.handleClick2}>Pending Approval</Button>
                     <Button color="primary" onClick={this.handleClick}>Approved Users</Button>
+                    {this.state.status ? 
+                    (<Button color="primary" variant="contained" onClick={()=>this.exportResults(this.props.reduxState.adminUserReducer)}>EXPORT APPROVED USERS</Button>) 
+                    : (<Button color="primary" variant="contained" onClick={()=>this.exportResults(this.props.reduxtate.adminUnapprovedUserReducer)}>EXPORT UNAPPROVED USERS</Button>)
+                    } 
                     {this.state.status ? (<h1>Approved Users:</h1>) : (<h1>Users Pending Approval:</h1>)}
+                    
+            
                     <TableContainer className="user" component={Paper}>
                         <Table className="table" aria-label="simple table">
                             <TableHead>
