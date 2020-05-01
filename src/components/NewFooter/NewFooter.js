@@ -14,9 +14,9 @@ function Copyright() {
   return (
     <Typography className="nav-link" variant="body2" color="textSecondary">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      {/* <Link color="inherit" href="https://material-ui.com/"> */}
         Mktfare
-      </Link>{' '}
+      {/* </Link>{' '} */}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -49,13 +49,10 @@ export default function NewFooter() {
       <CssBaseline />
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-            
-          <LinkStyle><Link className="nav-link" to="/about"> About </Link></LinkStyle>
+          <Link className="nav-link" to="/about"> About</Link>
           <Link className="nav-link" to="/contact"> Contact Us </Link>
           <Link className="nav-link" to="/TOS"> Terms and Conditions </Link>
           <Link className="nav-link" to="/privacy">Privacy Policy</Link>
-
-          {/* <Typography variant="body1">My sticky footer can be found here.</Typography> */}
           < Copyright />
         </Container>
       </footer>

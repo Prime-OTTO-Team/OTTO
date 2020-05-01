@@ -51,3 +51,16 @@ CREATE TABLE "favorite" (
     "user_id" INTEGER REFERENCES "user" NOT NULL,
     "property_id" INTEGER REFERENCES "property" NOT NULL
 );
+
+CREATE TABLE "nda" (
+    "id" SERIAL PRIMARY KEY,
+    "first_name" VARCHAR (100) NOT NULL,
+    "last_name" VARCHAR (100) NOT NULL,
+    "address" VARCHAR (200) NOT NULL,
+    "unit_number" VARCHAR (200) DEFAULT NULL,
+    "city" VARCHAR (200) NOT NULL,
+    "state" VARCHAR (200) NOT NULL,
+    "zip_code" INTEGER NOT NULL,
+    "date" DATE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "signiture_base64" VARCHAR (30000)
+);
