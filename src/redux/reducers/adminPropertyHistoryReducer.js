@@ -9,3 +9,4 @@ const adminPropertyHistoryReducer = (state = [], action) => {
     }
 };
 export default adminPropertyHistoryReducer;
+// This stores the history of all properties that have been on the site for admins only. 

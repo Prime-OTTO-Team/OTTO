@@ -8,7 +8,5 @@ const editModeReducer = (state = false, action) => {
             return false
     }
 };
-
-// user will be on the redux state at:
-// state.user
 export default editModeReducer;
+// This reducer sets it to be edit mode when brought back to the add listing page. 

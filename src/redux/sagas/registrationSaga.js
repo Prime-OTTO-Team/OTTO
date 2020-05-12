@@ -3,8 +3,7 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "REGISTER" actions
 function* registerUser(action) {
-  yield (console.log('logging action payload', action.payload)
-  )
+  yield 
   try {
     // clear any existing error on the registration page
     yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
@@ -27,5 +26,6 @@ function* registerUser(action) {
 function* registrationSaga() {
   yield takeLatest('REGISTER', registerUser);
 }
+//Listens for a particular dispatch
 
 export default registrationSaga;

@@ -61,5 +61,6 @@ function* loginSaga() {
   yield takeLatest('LOGIN', loginUser);
   yield takeLatest('LOGOUT', logoutUser);
 }
+//Listens for a particular dispatch
 
 export default loginSaga;

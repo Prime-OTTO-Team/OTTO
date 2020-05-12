@@ -6,7 +6,5 @@ const detailedPropertyReducer = (state = {}, action) => {
             return state;
     }
 };
-
-// user will be on the redux state at:
-// state.user
 export default detailedPropertyReducer;
+// This stores more detailed information on a property after a user has signed an nda

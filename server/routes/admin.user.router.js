@@ -56,7 +56,6 @@ router.put('/approve/:id', rejectUnauthenticated, (req, res) => {
 router.put('/unapprove/:id', rejectUnauthenticated, (req, res) => {
     const updateUser = req.params.id;
     if (req.isAuthenticated() && req.user.user_type == 1) { // this is to check if the user is an admin
-        console.log('req.user:', req.user);
         const queryText = `UPDATE "user" SET "approved_user" = 'FALSE' WHERE "id"= $1`;
         pool.query(queryText, [updateUser])
             .then(() => {

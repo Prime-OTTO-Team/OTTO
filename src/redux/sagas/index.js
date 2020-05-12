@@ -3,7 +3,6 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import accountSaga from './accountSaga';
-import searchSaga from './searchSaga';
 import adminPropertySaga from './adminPropertySaga';
 import adminUserSaga from './adminUserSaga';
 import propertySaga from './propertySaga';
@@ -23,7 +22,6 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     accountSaga(),
-    searchSaga(),
     adminUserSaga(),
     adminPropertySaga(),
     propertySaga(),

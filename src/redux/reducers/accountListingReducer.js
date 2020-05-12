@@ -9,3 +9,4 @@ const accountListingReducer = (state = [], action) => {
     }
 };
 export default accountListingReducer;
+// This stores the list of properties that a user has posted 

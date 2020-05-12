@@ -3,95 +3,91 @@ import axios from 'axios';
 
 function* approveUser(action) {
     try {
-        let objectToSend = action.payload;
-        console.log('in Sagas approveUser', objectToSend);
+        const objectToSend = action.payload;
         yield axios.put(`/api/admin/user/approve/${objectToSend.id}`)
         yield put({
             type: 'FETCH_ADMIN_USER'
         })
     } catch (error) {
-        console.log("error in approving user", error);
+        console.log(error);
     }
 }
+// Sends the signal to the server to approve a user from an admin page
 
 function* unApproveUser(action) {
     try {
-        let objectToSend = action.payload;
-        console.log('in Sagas unApproveUser', objectToSend);
+        const objectToSend = action.payload;
         yield axios.put(`/api/admin/user/unapprove/${objectToSend.id}`)
         yield put({
             type: 'FETCH_ADMIN_USER'
         })
     } catch (error) {
-        console.log("error in unApproving user", error);
+        console.log(error);
     }
 }
+// Sends the signal to the server to revoke approval a user from the admin page. 
 
 function* approveAdmin(action) {
     try {
-        let objectToSend = action.payload;
-        console.log('in Sagas approveAdmin', objectToSend);
+        const objectToSend = action.payload;
         yield axios.put(`/api/admin/user/approveAdmin/${objectToSend.id}`)
-        // yield put({
-        //     type: 'FETCH_ADMIN_USER'
-        // })
     } catch (error) {
-        console.log("error in approving admin", error);
+        console.log(error);
     }
 }
+// This is used to create new admins
 
 function* fetchUnapprovedAdminUser() {
     try {
         const adminUserResponse = yield axios.get(`/api/admin/user/unapproved/`)
-        console.log('in the GET fetchUnapprovedAdminUser', adminUserResponse)
         yield put({
             type: 'SET_ADMIN_UNAPPROVED_USER',
             payload: adminUserResponse.data
         })
     } catch (error) {
-        console.log("error in fetchUnapprovedAdminUser Sagas", error);
+        console.log(error);
     }
 }
+// This is used to unapprove an admin
 
 function* fetchApprovedAdminUser() {
     try {
         const adminUserResponse = yield axios.get(`/api/admin/user/approved/`)
-        console.log('in the GET fetchApprovedAdminUser', adminUserResponse)
         yield put({
             type: 'SET_ADMIN_APPROVED_USER',
             payload: adminUserResponse.data
         })
     } catch (error) {
-        console.log("error in fetchApprovedAdminUser Sagas", error);
+        console.log(error);
     }
 }
-
+// This fetches all the approved users for the admin page
 
 function* fetchApprovedAdminAdmin() {
     try {
         const adminAdminResponse = yield axios.get(`/api/admin/user/approvedAdmin/`)
-        console.log('in the GET fetchApprovedAdminUser', adminAdminResponse)
         yield put({
             type: 'SET_ADMIN_APPROVED_ADMIN',
             payload: adminAdminResponse.data
         })
     } catch (error) {
-        console.log("error in fetchApprovedAdminAdmin Sagas", error);
+        console.log(error);
     }
 }
+// This fetches all the unApproved users for the admin page
 
 function* deleteUser(action) {
     try {
         let objectToSend = action.payload;
-        console.log('in delete user Sagas');
         yield axios.delete(`/api/admin/user/delete/${objectToSend.id}`)
         yield put({
             type: 'FETCH_ADMIN_USER',
         })
     } catch (error) {
-        console.log("error in delete user Sagas", error);
+        console.log(error);
     }
 }
+//This will send a signal to permanently delete a user
 
 function* adminUserSaga() {
     yield takeEvery('FETCH_ADMIN_USER', fetchUnapprovedAdminUser);
@@ -102,5 +98,6 @@ function* adminUserSaga() {
     yield takeEvery('APPROVE_ADMIN', approveAdmin);
     yield takeEvery('DELETE_ADMIN_USER', deleteUser);
 }
+//Listens for a particular dispatch
 
 export default adminUserSaga;
