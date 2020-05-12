@@ -21,46 +21,43 @@ class LoginSignUpModal extends Component {
     }
     isModalOpen = () => {
         return this.props.reduxState.loginModalReducer;
-    }
+    }// end of isModalOpen
     handleClose = () => {
-        console.log('HITTING HANDLE CLOSE');
-        
         this.props.dispatch({
             type: 'LOGIN_REGISTER_MODAL_OPEN',
             payload: false
         });
-    }
-    //decides to render the login content or the register content 
+    }//end of handleClose decides to render the login content or the register content 
+
     handleViewSwitch = (switchCase) => {
         this.setState({
             switch: switchCase
         })
-    }
+    }// end of handleViewSwitch
     view = () => {
         if (this.state.switch === 'login') {
             return <LoginContent handleClose={this.handleClose}/>
         } else {
             return <SignUpContent />
         }
-    }
+    } // end of view
     loginSelected = () => {
         if (this.state.switch === 'login') {
             this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' })
             return true
         } else return false
-    }
+    } // end of loginSelected
     signUpSelected = () => {
         if (this.state.switch === 'signUp') {
             this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' })
             return true
         } else return false
-    }
+    }// end of signUpSelected
     handleToggleChange = (value) => {
         this.setState({
             switch: value
         })
-    }
-
+    }// end of handleToggleChange 
     render() {
         return (
             <Dialog

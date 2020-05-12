@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MiniMap from '../GoogleMaps/MiniMap';
-import axios from 'axios';
 import { currencyFormatter } from '../Resources/currencyFormatter';
 import Button from '@material-ui/core/Button';
 
-
-
-
 class PropertyPage extends Component {
-
     state = {
-
         id: 1,
         address: '400 S 4th St',
         unitNumber: '',
@@ -28,7 +22,7 @@ class PropertyPage extends Component {
     };
     componentDidMount() {
         this.setDetailedInformation();
-    }
+    } // end of componentDidMount
     setDetailedInformation = async () => {
         const detailedProperty = await this.props.reduxState.detailedPropertyReducer;
         if (detailedProperty != {}) {
@@ -46,25 +40,19 @@ class PropertyPage extends Component {
                 desired_price: detailedProperty.desired_price,
             })
         }
-
-    }
-
-    sendEmail = ()=> {
-    let emailPayload = ''
-    emailPayload = {property:this.props.reduxState.detailedPropertyReducer, client:this.props.reduxState.user}
-    this.props.dispatch({
-        type:'SEND_EMAIL',
-        payload:emailPayload
-    })
-
-    }
-
+    }// end of setDetailedInformation, This shows a user all of the details of a property
+    sendEmail = () => {
+        let emailPayload = ''
+        emailPayload = { property: this.props.reduxState.detailedPropertyReducer, client: this.props.reduxState.user }
+        this.props.dispatch({
+            type: 'SEND_EMAIL',
+            payload: emailPayload
+        })
+    }// end of sendEmail, this sends an email with information. 
     render() {
         return (
             <div className='container'>
                 <MiniMap position={{ lat: this.state.lat, lng: this.state.lng }} />
-                {/* {this.props.reduxState.propertyReducer.map(property => ( */}
-
                 <div className="propertyDetailsWrapper">
                     <div key={this.state.id} className="active" >
                         <table className="table">
@@ -96,12 +84,9 @@ class PropertyPage extends Component {
                             </tbody>
                         </table>
                     </div>
-                    {/* ))}                            */}
                     <Button onClick={this.sendEmail} variant="contained" color="primary" styles="flex-row:">Make an offer to Client
                     </Button>
                 </div>
-
-
             </div>
         )
     }

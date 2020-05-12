@@ -21,7 +21,6 @@ import ForSalePageItems from './ForSalePageItems';
 import Listings from '../LandingPage/Listings';
 import './ForSalePage.css'
  
-
 const styles = theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -48,8 +47,6 @@ const styles = theme => ({
         marginTop: theme.spacing(-1)
     }
 });
-
-
 class ForSalePage extends Component {
     state = {
         search: {
@@ -59,19 +56,16 @@ class ForSalePage extends Component {
             net_operating_income_high: '',
             desired_price_low: '',
             desired_price_high: '',
-
         },
         filteredProperties: [],
         unfilteredProperties: [],
         properties: '',
         expanded: 0
-
     }
     reset() {
         this.getProperties();
         this.clearInputs();
     }
-
     clearInputs(){
         this.setState({
             search: {
@@ -81,11 +75,9 @@ class ForSalePage extends Component {
                 net_operating_income_high: '',
                 desired_price_low: '',
                 desired_price_high: '',
-
             }
         });
-        console.log(this.state);
-    }
+    } // end of clear inputs
     handleChangeFor = (propertyName, event) => {
         this.setState({
             search: {
@@ -93,19 +85,13 @@ class ForSalePage extends Component {
                 [propertyName]: event.target.value
             }
         })
-    }
+    } //end of handleChangeFor
     componentDidMount() {
         this.getProperties();
-        console.log('finding zip code bug',this.state);
-        
         if(this.state.search.zip_code){
             this.filterZip();
-            // this.props.dispatch({
-            //     type: 'SET_SEARCH_RESULT',
-            //     payload: this.state.filteredProperties
-            // })
         }
-    }
+    }// end of componentDidMount
     getProperties = async () => {
         try {
             const response = await axios({
@@ -124,10 +110,8 @@ class ForSalePage extends Component {
                 type: 'SET_SEARCH_RESULT',
                 payload: response.data
             })
-           
-            // console.log('this.state.properties', this.state.properties);
         } catch (error) {
-            console.log('getProperties error: ', error)
+            console.log(error)
         }
         ;
         console.log('logging state from end of get properties', this.state, this.props.reduxState);
@@ -138,7 +122,6 @@ class ForSalePage extends Component {
                     zip_code: this.props.reduxState.zipReducer
                 }
             })
-            console.log('loggin state from zip push', this.state.search);
         }
 
     }
@@ -146,16 +129,12 @@ class ForSalePage extends Component {
         this.setState({
             [propertyName]: event.target.value,
         });
-        console.log('logging search state', this.state.search.property_type);
     }
     search = (event) => {
         event.preventDefault();
-        console.log('logging search params', this.state.search);
 
         const search = this.state.search;
-        if (search.zip_code) {
-            console.log('filtering by zip from search function');
-            
+        if (search.zip_code) {            
             this.filterZip();
         }
         if (search.property_type) {
@@ -175,17 +154,14 @@ class ForSalePage extends Component {
 
     handleSelect = (propertyName) => (event) => {
 
-        console.log('logging event target value', event.target.value);
         this.setState.propertyName({ propertyName: event.target.value });
     }
 
     filterZip = () => {
-        console.log('logging .zip_code from filterZip', this.state.search.zip_code);
         const searchVar = this.state.search.zip_code
         this.state.filteredProperties = this.state.filteredProperties.filter(function (property) {
             return property.zip_code == searchVar;
         });
-        console.log(this.state.filteredProperties);
     }
 
     filterPropertyType = () => {
@@ -194,7 +170,6 @@ class ForSalePage extends Component {
         this.state.filteredProperties = this.state.filteredProperties.filter(function (property) {
             return property.property_type == searchVar;
         });
-        console.log(this.state.filteredProperties);
     }
 
     filterNoi = () => {
@@ -211,7 +186,6 @@ class ForSalePage extends Component {
                 return property.net_operating_income <= highVar && property.net_operating_income >= lowVar;
             }
         });
-        console.log(this.state.filteredProperties);
     }
 
     filterPrice = () => {
@@ -447,9 +421,7 @@ class ForSalePage extends Component {
                         handlePanelChange={this.handlePanelChange}
                         expanded={this.state.expanded}
                 />
-                
             </div>
-
         )
     }
 }

@@ -10,3 +10,4 @@ export default function ScrollToTop() {
 
   return null;
 }
+//This function is used to auto scroll properties. 

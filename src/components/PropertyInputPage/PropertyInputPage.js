@@ -4,11 +4,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
@@ -16,7 +12,6 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
     paper: {
@@ -41,63 +36,28 @@ const styles = theme => ({
         minWidth: 375,
         marginTop: theme.spacing(-1)
     }
-});
-
+});// this is styling for the page 
 class PropertyInputPage extends Component {
     state = {
-        // userId: this.props.user.id,
-        // address: this.props.edit.address,
-        // unitNumber: this.props.edit.unit_number,
-        // city: this.props.edit.city,
-        // state: this.props.edit.state,
-        // zipCode: this.props.edit.zip_code,
-        // propertyType: this.props.edit.property_type,
-        // netOperatingIncome: this.props.edit.net_operating_income,
-        // grossIncome: this.props.edit.gross_income,
-        // grossExpense: this.props.edit.gross_expense,
-        // desiredPrice: this.props.edit.desired_price,
-        // propertyId: this.props.edit.id
-        userId: 1,
-        address: '400 S 4th St',
+        userId: '',
+        address: '',
         unitNumber: '',
-        city: 'Minneapolis',
-        state: 'MN',
-        zipCode: 55415,
-        propertyType: 'Commercial',
-        netOperatingIncome: 1000000,
-        grossIncome: 1500000,
-        grossExpense: 500000,
-        desiredPrice: 60000000,
+        city: '',
+        state: '',
+        zipCode: '',
+        propertyType: '',
+        netOperatingIncome: '',
+        grossIncome: '',
+        grossExpense: '',
+        desiredPrice: '',
         propertyId: ''
     };
-
-    fakeInput() {
-        this.setState({
-            userId: 2,
-            address: '400 S 4th St',
-            unitNumber: '',
-            city: 'Minneapolis',
-            state: 'MN',
-            zipCode: 55415,
-            propertyType: 'Commercial',
-            netOperatingIncome: 200000,
-            grossIncome: 900000,
-            grossExpense: 700000,
-            desiredPrice: 6000000,
-            propertyId: 46
-        });
-        console.log('logging fake input',this.state);
-        
-    }
-
     componentWillUnmount = () => {
         this.props.dispatch({ type: 'UNEDIT_MODE' });
         this.props.dispatch({ type: 'UNEDIT_LISTING' });
-    }
-
+    } // end of componentWillUnmount
     newProperty = (event) => {
         event.preventDefault();
-        console.log('firing newProperty with object:', this.state);
         if (this.props.editMode === true) {
             this.props.dispatch({
                 type: 'UPDATE_PROPERTY',
@@ -113,23 +73,19 @@ class PropertyInputPage extends Component {
                 type: 'FETCH_ACCOUNT'
             });
         }
-
-        console.log('this is the user', this.props.user);
         this.props.history.push('/account');
-    } // end alumniRegistration
+    } // end of newProperty, adds a new property
 
     handleChangeFor = (propertyName, event) => {
         this.setState({
-
             [propertyName]: event.target.value
-
         })
-    }
+    } // end of handleChangeFor
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
-    }
+    } // end of handleInputChangeFor
 
     render() {
         const { classes } = this.props;
@@ -137,9 +93,9 @@ class PropertyInputPage extends Component {
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className={classes.paper}>
-                    <Typography onClick={()=>this.fakeInput()} component="h1" variant="h5" >
+                    <Typography onClick={() => this.fakeInput()} component="h1" variant="h5" >
                         Add Property
-        </Typography>
+                    </Typography>
                     <form className={classes.form} noValidate onSubmit={this.newProperty}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} >
@@ -210,7 +166,6 @@ class PropertyInputPage extends Component {
                                 />
                             </Grid>
                             <Grid item xs={12} sm={12}>
-                                {/* <FormControl className={classes.form}> */}
                                 <InputLabel >Property Type</InputLabel>
                                 <Select
                                     id="propertyTypeArray"
@@ -226,7 +181,6 @@ class PropertyInputPage extends Component {
                                     <MenuItem value={'Vacant'}>Vacant</MenuItem>
                                 </Select>
                                 <FormHelperText>Please Select</FormHelperText>
-                                {/* </FormControl> */}
                             </Grid>
                             <Grid item xs={12} >
                                 <TextField
@@ -267,8 +221,8 @@ class PropertyInputPage extends Component {
                                     onChange={this.handleInputChangeFor('grossExpense')}
                                 />
                             </Grid>
-                            <Grid item xs={12} >
-                                <TextField
+                                <Grid item xs={12} >
+                                    <TextField
                                     variant="outlined"
                                     required
                                     fullWidth
@@ -278,10 +232,9 @@ class PropertyInputPage extends Component {
                                     name="desiredPrice"
                                     value={this.state.desiredPrice}
                                     onChange={this.handleInputChangeFor('desiredPrice')}
-                                />
+                                    />
+                                </Grid>
                             </Grid>
-
-                        </Grid>
                         <Button variant="contained" color="primary"
                             className={classes.submit}
                             fullWidth
@@ -291,26 +244,17 @@ class PropertyInputPage extends Component {
                             value="submit"
                         >
                             Add Property
-              </Button>
-
+                        </Button>
                     </form>
-
-
-
                 </div>
             </Container>
         );
     }
 }
-
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
     errors: state.errors,
     user: state.user,
     edit: state.editListingReducer,
     editMode: state.editModeReducer
 });
-
 export default connect(mapStateToProps)(withStyles(styles)(PropertyInputPage));

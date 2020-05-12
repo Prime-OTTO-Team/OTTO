@@ -24,7 +24,6 @@ const styles = theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-
 });
 
 class SignupContent extends Component {
@@ -38,7 +37,6 @@ class SignupContent extends Component {
 
   registerUser = (event) => {
     event.preventDefault();
-
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
@@ -59,7 +57,7 @@ class SignupContent extends Component {
     this.setState({
       [propertyName]: event.target.value
     });
-  }
+  }// end of handleInputChangeFor
 
   render() {
     const { classes } = this.props;
@@ -165,25 +163,12 @@ class SignupContent extends Component {
 
             </div>
           </form>
-          {/* <center>
-            <Button
-              variant="contained" color="primary"
-              type="button"
-              className="link-button"
-              onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
-            >
-              Login
-          </Button>
-          </center> */}
         </div>
       </Container>
     );
   }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = (reduxState) => ({
   errors: reduxState.errors,
   reduxState

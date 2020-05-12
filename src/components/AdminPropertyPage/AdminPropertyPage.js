@@ -98,8 +98,8 @@ class AdminPropertyPage extends Component {
                 });
             }
         })
-
     }
+
     goToNdas = (inputId) =>{
         console.log('inputid', inputId);
         
@@ -109,6 +109,7 @@ class AdminPropertyPage extends Component {
         })
         this.props.history.push('/pdfExport')
     }
+
 
     render() {
         if (this.props.user.user_type == 1) {
@@ -207,6 +208,7 @@ class AdminPropertyPage extends Component {
         }
     }
 }
+// All the information is being rendering onto the page
 
 const mapStateToProps = (reduxState) => ({
     errors: reduxState.errors,
