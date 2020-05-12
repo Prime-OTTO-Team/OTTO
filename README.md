@@ -4,9 +4,8 @@
 
 _Duration: 2 Week Sprint_
 
-Otto is an app to help faciliate off market, owner to owner commercial real estate transactions. Placing commercial real estate on the open market can often alert tenants and give them more negotiating power. It also begins a count up on days listed on the market and the higher the number of days gets, the worse it looks. These are just some reasons why sellers might prefer selling off market. Otto provides a space in which users will have complete privacy. They will be able to add their listing to the site with there desired price and only after a buyer is fully interested will the seller and buyer be connected. 
+Otto is an app to help faciliate off market, owner to owner commercial real estate transactions. Placing commercial real estate on the open market can often alert tenants and give them more negotiating power. It also begins a count up on days listed on the market and the higher the number of days gets, the worse it looks. These are just some reasons why sellers might prefer selling off market. Otto provides a space in which users will have complete privacy. They will be able to add their listing to the site with there desired price and only after a buyer is fully interested will the seller and buyer be connected. A willing buyer must be approved before they will be able to find out the full details of a property. 
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
 
 To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com) -add site in readme 
 
@@ -17,10 +16,6 @@ To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.he
 - [Nodemon](https://nodemon.io/)
 
 ## Installation
-
-How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
-
-If your application has secret keys (for example --  Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the `.env` file.
 
 1. Create a database named `otto_database`,
 2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using [Postico]() to run those queries as that was used to create the queries,
