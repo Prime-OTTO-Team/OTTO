@@ -2,7 +2,6 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-console.log('process.env.GOOGLE_API_KEY: ', process.env.GOOGLE_API_KEY);
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
@@ -22,7 +21,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
             await pool.query(postQuery, [userId, propertyId]);
             res.sendStatus(200);
         } catch (error) {
-            console.log('post favorite error', error);
+            console.log(error);
             res.sendStatus(500);
         }
     } else {

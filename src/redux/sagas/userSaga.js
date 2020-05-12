@@ -19,12 +19,13 @@ function* fetchUser() {
     // the client-side code know the user is logged in
     yield put({ type: 'SET_USER', payload: response.data });
   } catch (error) {
-    console.log('User get request failed', error);
+    console.log(error);
   }
 }
 
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
 }
+//Listens for a particular dispatch
 
 export default userSaga;

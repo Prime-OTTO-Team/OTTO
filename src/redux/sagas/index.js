@@ -3,12 +3,11 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import accountSaga from './accountSaga';
-import searchSaga from './searchSaga';
 import adminPropertySaga from './adminPropertySaga';
 import adminUserSaga from './adminUserSaga';
 import propertySaga from './propertySaga';
 import emailSaga from './emailSaga';
-import signatureSaga from './signatureSaga';
+import ndaSaga from './ndaSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,11 +22,10 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     accountSaga(),
-    searchSaga(),
     adminUserSaga(),
     adminPropertySaga(),
     propertySaga(),
     emailSaga(),
-    signatureSaga()
+    ndaSaga()
   ]);
 }

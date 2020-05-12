@@ -8,7 +8,6 @@ import accountFavorite from './accountFavoriteReducer';
 import searchResultReducer from './searchResultReducer';
 import adminPropertyReducer from './adminPropertyReducer';
 import adminUserReducer from './adminUserReducer';
-import adminAdminReducer from './adminAdminReducer';
 import adminUnapprovedUserReducer from './adminUnapprovedUserReducer';
 import adminPropertyHistoryReducer from './adminPropertyHistoryReducer';
 import userFavoritesReducer from './userFavoritesReducer';
@@ -20,13 +19,6 @@ import singlePropertyIdReducer from './singlePropertyIdReducer';
 import zipReducer from './zipReducer';
 import detailedPropertyReducer from './detailedPropertyReducer';
 
-
-// rootReducer is the primary reducer for our entire project
-// It bundles up all of the other reducers so our project can use them.
-// This is imported in index.js as rootSaga
-
-// Lets make a bigger object for our store, with the objects from our reducers.
-// This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
@@ -37,17 +29,16 @@ const rootReducer = combineReducers({
   searchResultReducer, //holds the search results to be displayed in ForSalePage
   adminPropertyReducer, //holds a list of all properties for the admin to look at
   adminUserReducer, //holds a list of all the users approved by the admin
-  adminAdminReducer, //holds a list of all the admins approved by the admin
   adminUnapprovedUserReducer, //holds a list of users not yet approved by admin
   adminPropertyHistoryReducer, //holds the history of all properties in the database
-  userFavoritesReducer, 
+  userFavoritesReducer, //holds
   userInterestsReducer, 
   editListingReducer, //holds a listing that is to be edited in property inpute page
   editModeReducer, //establishes if the user is trying to edit on input property page
   propertyReducer, // holds results from get all properties
   singlePropertyIdReducer, // holds the property a user is interested in to display on offer page. 
   zipReducer, //holds zip search from landing page
-  detailedPropertyReducer
+  detailedPropertyReducer //holds all details of a property 
 });
 
 export default rootReducer;
